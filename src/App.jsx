@@ -49,7 +49,7 @@ const questions = [
       { name: "Artist", weight: 0.8 },
     ],
   },
-  // Add more questions as needed
+
 ];
 const choices = [
   { value: 1, label: "Not at all" },
