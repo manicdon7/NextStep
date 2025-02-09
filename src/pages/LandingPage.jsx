@@ -1,6 +1,6 @@
 import { Layout } from "../components/Layout"
 import { Particles } from "../components/Particles"
-import { FadeIn, FadeInStagger, FadeInStaggerItem, ScaleOnHover } from "../components/animations"
+import { FadeIn, FadeInStagger, FadeInStaggerItem, ScaleOnHover } from "../components/Animations"
 import { motion } from "framer-motion"
 import { BrainCircuit, BookOpen, MessageSquare, Briefcase } from 'lucide-react'
 
