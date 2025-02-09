@@ -59,7 +59,7 @@ const choices = [
   { value: 5, label: "Always" }
 ];
 
-const CareerQuiz = () => {
+const Kys = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
   const [result, setResult] = useState(null);
@@ -349,4 +349,4 @@ const CareerQuiz = () => {
   );
 };
 
-export default CareerQuiz;
+export default Kys;
