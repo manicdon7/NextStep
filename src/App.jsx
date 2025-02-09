@@ -1,4 +1,5 @@
 
+import Chat from "./components/Chat"
 import Kys from "./components/Kys"
 import LandingPage from "./pages/LandingPage"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -8,10 +9,6 @@ import LoginPage from "./pages/LoginPage";
 
 const App = () => {
   return (
-    // <div>
-    //   {/* <Kys/> */}
-    //   <LandingPage/>
-    // </div>
     <Router>
       <div>
         <Routes>
