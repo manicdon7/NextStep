@@ -1,12 +1,12 @@
 
-import CareerQuiz from "./components/CareerQuiz"
+import Kys from "./components/Kys"
 import LandingPage from "./pages/LandingPage"
 
 
 const App = () => {
   return (
     <div>
-      {/* <CareerQuiz/> */}
+      {/* <Kys/> */}
       <LandingPage/>
     </div>
   )

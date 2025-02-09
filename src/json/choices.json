@@ -1,0 +1,8 @@
+[
+    { "value": 1, "label": "Not at all" },
+    { "value": 2, "label": "Rarely" },
+    { "value": 3, "label": "Sometimes" },
+    { "value": 4, "label": "Often" },
+    { "value": 5, "label": "Always" }
+  ]
+  
