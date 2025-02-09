@@ -1,0 +1,137 @@
+[
+    {
+        "id": 1,
+        "text": "Do you enjoy finding patterns in everyday situations?",
+        "subtext": "Think about how often you notice trends or logical structures in things around you.",
+        "domains": [
+            { "name": "Computer Science", "weight": 1, "keywords": ["logic", "patterns", "problem-solving"] },
+            { "name": "Data Science", "weight": 0.9, "keywords": ["analysis", "statistics", "trends"] }
+        ]
+    },
+    {
+        "id": 2,
+        "text": "Do you like arranging things in a structured way?",
+        "subtext": "Consider how much you enjoy organizing your workspace, schedule, or ideas.",
+        "domains": [
+            { "name": "Management", "weight": 1, "keywords": ["organization", "planning", "efficiency"] },
+            { "name": "Teaching", "weight": 0.8, "keywords": ["structure", "methodology", "clarity"] }
+        ]
+    },
+    {
+        "id": 3,
+        "text": "Do you often think about how machines or systems work?",
+        "subtext": "Think about whether you enjoy taking apart gadgets, understanding processes, or troubleshooting issues.",
+        "domains": [
+            { "name": "Engineering", "weight": 1, "keywords": ["mechanical", "technical", "design"] },
+            { "name": "Computer Science", "weight": 0.8, "keywords": ["technology", "systems", "efficiency"] }
+        ]
+    },
+    {
+        "id": 4,
+        "text": "Do you enjoy figuring out why people act the way they do?",
+        "subtext": "Think about how often you analyze people's behavior and motivations.",
+        "domains": [
+            { "name": "Psychology", "weight": 1, "keywords": ["behavior", "mental-processes", "understanding"] },
+            { "name": "Marketing", "weight": 0.8, "keywords": ["consumer-behavior", "persuasion", "analysis"] }
+        ]
+    },
+    {
+        "id": 5,
+        "text": "Do you enjoy working on creative projects that involve aesthetics?",
+        "subtext": "Consider how often you engage in activities like designing, drawing, or decorating.",
+        "domains": [
+            { "name": "Artist", "weight": 1, "keywords": ["creative", "visual", "art"] },
+            { "name": "Designer", "weight": 0.9, "keywords": ["composition", "layout", "aesthetics"] }
+        ]
+    },
+    {
+        "id": 6,
+        "text": "Do you like analyzing facts before making decisions?",
+        "subtext": "Think about whether you prefer to rely on data and logic rather than intuition.",
+        "domains": [
+            { "name": "Science", "weight": 1, "keywords": ["research", "analysis", "logic"] },
+            { "name": "Finance", "weight": 0.8, "keywords": ["economics", "investment", "risk-analysis"] }
+        ]
+    },
+    {
+        "id": 7,
+        "text": "Do you find joy in explaining concepts to others?",
+        "subtext": "Think about how often you help others understand something new.",
+        "domains": [
+            { "name": "Teaching", "weight": 1, "keywords": ["education", "mentoring", "clarity"] },
+            { "name": "Management", "weight": 0.8, "keywords": ["leadership", "communication", "guidance"] }
+        ]
+    },
+    {
+        "id": 8,
+        "text": "Do you enjoy experimenting with new ways to solve everyday problems?",
+        "subtext": "Consider how often you like innovating and improving existing solutions.",
+        "domains": [
+            { "name": "Engineering", "weight": 1, "keywords": ["innovation", "creativity", "problem-solving"] },
+            { "name": "Entrepreneurship", "weight": 0.8, "keywords": ["strategy", "business-ideas", "innovation"] }
+        ]
+    },
+    {
+        "id": 9,
+        "text": "Do you enjoy writing down your thoughts or crafting stories?",
+        "subtext": "Think about whether you like expressing ideas through words, whether formally or creatively.",
+        "domains": [
+            { "name": "Writing", "weight": 1, "keywords": ["storytelling", "expression", "communication"] },
+            { "name": "Marketing", "weight": 0.8, "keywords": ["copywriting", "persuasion", "branding"] }
+        ]
+    },
+    {
+        "id": 10,
+        "text": "Do you like thinking about how cities and buildings should be designed?",
+        "subtext": "Consider how much interest you have in structures, urban planning, or interior design.",
+        "domains": [
+            { "name": "Architecture", "weight": 1, "keywords": ["urban-planning", "design", "aesthetics"] },
+            { "name": "Engineering", "weight": 0.8, "keywords": ["construction", "infrastructure", "technical"] }
+        ]
+    },
+    {
+        "id": 11,
+        "text": "Do you enjoy playing with numbers and mathematical challenges?",
+        "subtext": "Think about whether you enjoy calculations, puzzles, or logical reasoning.",
+        "domains": [
+            { "name": "Mathematics", "weight": 1, "keywords": ["logic", "problem-solving", "quantitative"] },
+            { "name": "Finance", "weight": 0.9, "keywords": ["economics", "budgeting", "investment"] }
+        ]
+    },
+    {
+        "id": 12,
+        "text": "Do you enjoy exploring new cultures and understanding different perspectives?",
+        "subtext": "Think about your interest in learning about different traditions, languages, or worldviews.",
+        "domains": [
+            { "name": "Anthropology", "weight": 1, "keywords": ["culture", "history", "society"] },
+            { "name": "Journalism", "weight": 0.8, "keywords": ["storytelling", "communication", "reporting"] }
+        ]
+    },
+    {
+        "id": 13,
+        "text": "Do you enjoy hands-on activities like fixing things or crafting?",
+        "subtext": "Think about whether you like repairing gadgets, woodworking, or assembling models.",
+        "domains": [
+            { "name": "Engineering", "weight": 1, "keywords": ["mechanical", "practical", "technical"] },
+            { "name": "Craftsmanship", "weight": 0.9, "keywords": ["handmade", "repair", "creativity"] }
+        ]
+    },
+    {
+        "id": 14,
+        "text": "Do you like helping others improve their physical health and fitness?",
+        "subtext": "Think about whether you enjoy activities related to exercise, sports, or healthy living.",
+        "domains": [
+            { "name": "Fitness", "weight": 1, "keywords": ["exercise", "nutrition", "coaching"] },
+            { "name": "Medicine", "weight": 0.8, "keywords": ["healthcare", "well-being", "treatment"] }
+        ]
+    },
+    {
+        "id": 15,
+        "text": "Do you enjoy discovering how things work on a fundamental level?",
+        "subtext": "Think about whether you enjoy breaking down ideas, understanding theories, or questioning assumptions.",
+        "domains": [
+            { "name": "Science", "weight": 1, "keywords": ["research", "curiosity", "theory"] },
+            { "name": "Philosophy", "weight": 0.9, "keywords": ["critical-thinking", "logic", "deep-questions"] }
+        ]
+    }
+]

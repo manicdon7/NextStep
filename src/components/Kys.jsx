@@ -1,70 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, Brain, ChevronRight, Award, RefreshCw, Sparkles, Circle  } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
-
-const questions = [
-  {
-    id: 1,
-    text: "How much do you enjoy solving complex problems?",
-    subtext: "Think about times when you've faced challenging puzzles or technical issues.",
-    domains: [
-      { name: "Computer Science", weight: 1, keywords: ["programming", "algorithms", "problem-solving"] },
-      { name: "Engineering", weight: 0.8, keywords: ["technical", "analytical", "systematic"] }
-    ]
-  },
-  {
-    id: 2,
-    text: "Do you prefer working with visual elements over textual content?",
-    subtext: "Consider your preference for design and visual communication.",
-    domains: [
-      { name: "Artist", weight: 1, keywords: ["creative", "visual", "aesthetic"] },
-      { name: "Designer", weight: 0.9, keywords: ["layout", "composition", "visual-thinking"] }
-    ]
-  },
-  {
-    id: 3,
-    text: "How comfortable are you with public speaking?",
-    subtext: "Think about presenting to groups or leading discussions.",
-    domains: [
-      { name: "Teaching", weight: 1, keywords: ["communication", "presentation", "leadership"] },
-      { name: "Management", weight: 0.7, keywords: ["leadership", "communication", "confidence"] }
-    ]
-  },
-  {
-    id: 4,
-    text: "Do you enjoy creating music or singing?",
-    subtext: "Consider your interest in musical expression and performance.",
-    domains: [
-      { name: "Singer", weight: 1, keywords: ["musical", "performance", "artistic"] },
-      { name: "Artist", weight: 0.6, keywords: ["creative", "expressive", "performance"] }
-    ]
-  },
-  {
-    id: 5,
-    text: "How good are you at organizing and planning tasks?",
-    subtext: "Think about your ability to manage projects and deadlines.",
-    domains: [
-      { name: "Management", weight: 1, keywords: ["organization", "planning", "leadership"] },
-      { name: "Teaching", weight: 0.5, keywords: ["structure", "planning", "organization"] }
-    ]
-  }
-];
-
-const choices = [
-  { value: 1, label: "Not at all" },
-  { value: 2, label: "Rarely" },
-  { value: 3, label: "Sometimes" },
-  { value: 4, label: "Often" },
-  { value: 5, label: "Always" }
-];
+import questions from "../json/questions.json";
+import choices from "../json/choices.json";
+import { Loader2 } from 'lucide-react';
 
 const Kys = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
+  const [question , setQuestion] = useState([]);
+  const [choice, setChoice] = useState([]);
   const [result, setResult] = useState(null);
   const [insights, setInsights] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setQuestion(questions);
+    setChoice(choices)
+  }, []);
+
 
   const handleAnswer = (questionId, value) => {
     setAnswers(prev => ({ ...prev, [questionId]: value }));
@@ -77,7 +32,7 @@ const Kys = () => {
 
   const getAIInsights = async (topDomain, keywords) => {
     try {
-      const prompt = `Career analysis for ${topDomain} professional: Key strengths in ${keywords.join(', ')}. Focus on career potential and growth opportunities.`;
+      const prompt = `Evaluate the career of a ${topDomain} professional, emphasizing key strengths in ${keywords.join(', ')}. Offer actionable insights on career potential and growth opportunities in a natural, engaging manner.`;
       const response = await fetch(`https://text.pollinations.ai/${encodeURIComponent(prompt)}`, {
         method: 'GET',
         headers: {
@@ -96,19 +51,6 @@ const Kys = () => {
       const text = await response.text();
       console.log(text);
       
-      
-      // // Extract the main content without markdown formatting
-      // const cleanedText = text
-      //   .replace(/^###|##|#/gm, '') // Remove markdown headers
-      //   .replace(/\*\*/g, '')        // Remove bold markers
-      //   .replace(/\n+/g, ' ')        // Replace multiple newlines with space
-      //   .replace(/\s+/g, ' ')        // Normalize spaces
-      //   .trim();                     // Remove extra whitespace
-      
-      // // Take the first few sentences for a concise insight
-      // const sentences = cleanedText.split(/[.!?]+\s+/);
-      // const summary = sentences.slice(0, 3).join('. ') + '.';
-      
       return text;
     } catch (error) {
       console.error('Error fetching AI insights:', error);
@@ -123,7 +65,7 @@ const Kys = () => {
       let domainMaxScores = {};
       let domainKeywords = {};
 
-      questions.forEach(question => {
+      question.forEach(question => {
         const answerValue = answers[question.id] || 1;
         question.domains.forEach(domain => {
           domainScores[domain.name] = (domainScores[domain.name] || 0) + answerValue * domain.weight;
@@ -142,7 +84,7 @@ const Kys = () => {
       const topDomain = finalResults[0];
       
       const aiInsight = await getAIInsights(topDomain.name, topDomain.keywords);
-      console.log("aiinsight:", aiInsight);
+      console.log("AI insight:", aiInsight);
       
       setResult({ domains: finalResults, top_domain: topDomain.name });
       setInsights(aiInsight);
@@ -193,7 +135,7 @@ const Kys = () => {
 
     {/* Choices */}
     <div className="space-y-3">
-      {choices.map((choice, index) => (
+      {choice.map((choice, index) => (
         <motion.button
           key={choice.value}
           whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 255, 255, 0.9)' }}
@@ -247,18 +189,18 @@ const Kys = () => {
       <div className="relative rounded-lg overflow-hidden bg-white shadow-lg">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 opacity-20" />
         <div className="relative p-4">
-          <h2 className="text-xl font-bold mb-4">Career Matches</h2>
+          <h2 className="text-xl font-bold mb-4 text-black">Career Matches</h2>
           <div className="h-[400px] overflow-y-auto pr-4 space-y-4 scrollbar-thin">
             {result?.domains?.map((domain, index) => (
               <div 
                 key={index}
                 className="bg-white/50 backdrop-blur-sm rounded-lg p-4 shadow-sm border border-gray-100"
               >
-                <h3 className="font-semibold text-lg">{domain.name}</h3>
+                <h3 className="font-semibold text-black text-lg">{domain.name}</h3>
                 <p className="text-sm text-gray-600 mt-1">
                   {domain.keywords.join(' • ')}
                 </p>
-                <div className="mt-2 flex items-center">
+                <div className="mt-2 flex items-center text-black">
                   <span className="text-2xl font-bold">{domain.score}%</span>
                   <span className="ml-2 text-sm">Match</span>
                 </div>
@@ -272,7 +214,7 @@ const Kys = () => {
       <div className="relative rounded-lg overflow-hidden bg-white shadow-lg">
       <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-teal-500 to-green-500 opacity-20" />
       <div className="relative p-4">
-        <h2 className="text-xl font-bold mb-4">Career Insights</h2>
+        <h2 className="text-xl font-bold mb-4 text-black">Career Insights</h2>
         <div className="h-[400px] overflow-y-auto pr-4 scrollbar-thin">
           {isLoading ? (
             <div className="flex items-center justify-center h-full">
