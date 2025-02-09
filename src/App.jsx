@@ -6,7 +6,7 @@ import LandingPage from "./pages/LandingPage"
 const App = () => {
   return (
     <div>
-      {/* <Kys/> */}
+      <Kys/>
       <LandingPage/>
     </div>
   )
