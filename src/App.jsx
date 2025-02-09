@@ -1,4 +1,5 @@
 
+import Chat from "./components/Chat"
 import Kys from "./components/Kys"
 import LandingPage from "./pages/LandingPage"
 
@@ -8,6 +9,7 @@ const App = () => {
     <div>
       {/* <Kys/> */}
       <LandingPage/>
+      {/* <Chat/> */}
     </div>
   )
 }
