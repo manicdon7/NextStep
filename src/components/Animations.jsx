@@ -1,6 +1,6 @@
-import { motion } from "framer-motion"
+import { motion } from 'framer-motion'
 
-export const FadeIn = ({ children, delay = 0, className = "" }) => (
+export const FadeIn = ({ children, delay = 0, className = '' }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
@@ -28,7 +28,7 @@ export const FadeInStagger = ({ children, staggerDelay = 0.1 }) => (
   </motion.div>
 )
 
-export const FadeInStaggerItem = ({ children, className = "" }) => (
+export const FadeInStaggerItem = ({ children, className = '' }) => (
   <motion.div
     variants={{
       hidden: { opacity: 0, y: 20 },
@@ -40,7 +40,7 @@ export const FadeInStaggerItem = ({ children, className = "" }) => (
   </motion.div>
 )
 
-export const ScaleOnHover = ({ children, className = "" }) => (
+export const ScaleOnHover = ({ children, className = '' }) => (
   <motion.div
     whileHover={{ scale: 1.05 }}
     transition={{ type: "spring", stiffness: 400, damping: 17 }}
