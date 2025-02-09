@@ -1,25 +1,113 @@
-import { Sparkles } from 'lucide-react'
+import { Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
+
 
 export function Layout({ children }) {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const navigate = useNavigate();
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    const handleNavigation = (path) => {
+        navigate(path);
+        setIsMenuOpen(false);
+    };
     return (
         <div className="min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900">
             <nav className="fixed top-0 w-full z-50 border-b border-white/10 backdrop-blur-md bg-black/20">
-                <div className="container mx-auto flex h-16 items-center justify-between px-4">
-                    <a className="flex items-center space-x-2">
-                        <Sparkles className="h-6 w-6 text-purple-400" />
-                        <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
-                            Next-Step
-                        </span>
-                    </a>
-                    <div className="hidden md:flex space-x-8">
-                        <a href="#features" className="text-sm text-white/70 hover:text-white transition-colors">Features</a>
-                        <a href="#modules" className="text-sm text-white/70 hover:text-white transition-colors">Modules</a>
-                        <a href="#about" className="text-sm text-white/70 hover:text-white transition-colors">About</a>
+                <div className="container mx-auto px-4">
+                    <div className="flex h-16 items-center justify-between">
+                        {/* Logo */}
+                        <Link to="/" className="flex items-center space-x-2">
+                            <Sparkles className="h-6 w-6 text-purple-400" />
+                            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+                                Next-Step
+                            </span>
+                        </Link>
+
+                        {/* Desktop Navigation */}
+                        <div className="hidden md:flex space-x-8">
+                            <a href="#features" className="text-sm text-white/70 hover:text-white transition-colors">
+                                Features
+                            </a>
+                            <a href="#modules" className="text-sm text-white/70 hover:text-white transition-colors">
+                                Modules
+                            </a>
+                            <a href="#about" className="text-sm text-white/70 hover:text-white transition-colors">
+                                About
+                            </a>
+                        </div>
+
+                        {/* Desktop Buttons */}
+                        <div className="hidden md:flex items-center space-x-4">
+                            <button
+                                onClick={() => handleNavigation('/login')}
+                                className="border border-purple-500 text-purple-400 px-4 py-2 rounded transition-colors hover:scale-105"
+                            >
+                                Login
+                            </button>
+                            <button
+                                onClick={() => handleNavigation('/login')}
+                                className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded hover:scale-105"
+                            >
+                                Sign Up
+                            </button>
+                        </div>
+
+                        {/* Mobile Menu Button */}
+                        <button
+                            className="md:hidden text-white/70 hover:text-white"
+                            onClick={toggleMenu}
+                        >
+                            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
                     </div>
-                    <div className="flex items-center space-x-4">
-                        <button className="border border-purple-500 text-purple-400 px-4 py-2 rounded transition-colors hover:scale-105">Login</button>
-                        <button className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded hover:scale-105">Sign Up</button>
-                    </div>
+
+                    {/* Mobile Menu */}
+                    {isMenuOpen && (
+                        <div className="md:hidden absolute top-16 left-0 right-0 bg-black/95 border-b border-white/10">
+                            <div className="flex flex-col space-y-4 p-4">
+                                <a
+                                    href="#features"
+                                    className="text-sm text-white/70 hover:text-white transition-colors"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    Features
+                                </a>
+                                <a
+                                    href="#modules"
+                                    className="text-sm text-white/70 hover:text-white transition-colors"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    Modules
+                                </a>
+                                <a
+                                    href="#about"
+                                    className="text-sm text-white/70 hover:text-white transition-colors"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    About
+                                </a>
+                                <button
+                                    onClick={() => handleNavigation('/login')}
+                                    className="border border-purple-500 text-purple-400 px-4 py-2 rounded transition-colors hover:scale-105 w-full"
+                                >
+                                    Login
+                                </button>
+                                <button
+                                    onClick={() => handleNavigation('/login')}
+                                    className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded hover:scale-105 w-full"
+                                >
+                                    Sign Up
+                                </button>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </nav>
             <main className="pt-16">{children}</main>
