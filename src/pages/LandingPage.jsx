@@ -2,12 +2,90 @@ import { Layout } from "../components/Layout"
 import { Particles } from "../components/Particles"
 import { FadeIn, FadeInStagger, FadeInStaggerItem, ScaleOnHover } from "../components/Animations"
 import { motion } from "framer-motion"
-import { BrainCircuit, BookOpen, MessageSquare, Briefcase } from 'lucide-react'
+import { BrainCircuit, BookOpen, MessageSquare, Briefcase, User } from 'lucide-react'
 import { Zap, Users, TrendingUp, Shield } from 'lucide-react'
+import BotButton from "../components/BotButton"
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react"
+import { onAuthStateChanged, getAuth } from "firebase/auth"
+import { useNavigate } from "react-router-dom"
+
 
 export default function Home() {
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+  const auth = getAuth();
+
+  // useEffect(() => {
+  //   console.log("Setting up auth state listener");
+  //   const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+  //     if (currentUser) {
+  //       console.log("User is signed in:", currentUser.email);
+  //       setUser(currentUser);
+  //     } else {
+  //       console.log("No user is signed in");
+  //       setUser(null);
+  //       navigate('/login');
+  //     }
+  //   });
+
+  //   return () => unsubscribe();
+  // }, [navigate, auth]);
+
+  const getUserName = () => {
+    if (!user) return "";
+    
+    // Try to get the display name first
+    if (user.displayName) return user.displayName;
+    
+    // If no display name, try to use the email username part
+    if (user.email) {
+      const emailName = user.email.split('@')[0];
+      // Capitalize first letter and replace dots/underscores with spaces
+      return emailName
+        .split(/[._]/)
+        .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+        .join(' ');
+    }
+    
+    return "User";
+  };
+
+  const getProfileImage = () => {
+    if (!user) return null;
+    
+    // Use photoURL if available (typically from Google auth)
+    if (user.photoURL) {
+      return (
+        <img 
+          src={user.photoURL} 
+          alt="Profile" 
+          className="w-10 h-10 rounded-full border-2 border-purple-400"
+        />
+      );
+    }
+    
+    // Otherwise use default avatar
+    return (
+      <div className="w-10 h-10 bg-purple-500/30 rounded-full flex items-center justify-center">
+        <User className="w-6 h-6 text-purple-400" />
+      </div>
+    );
+  };
+
   return (
     <Layout>
+      <Link to="/chat"><BotButton/></Link>
+      {/* User Profile Display in Header */}
+      {user && (
+        <div className="absolute top-4 right-4 z-10 flex items-center gap-3">
+          <div className="text-right">
+            <p className="text-sm text-white/70">Welcome,</p>
+            <p className="text-white font-medium">{getUserName()}</p>
+          </div>
+          {getProfileImage()}
+        </div>
+      )}
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <Particles />

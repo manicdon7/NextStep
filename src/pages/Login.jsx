@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
+import { LOCAL_URL } from "../constants";
 
 const Login = () => {
     const [isLogin, setIsLogin] = useState(true);
@@ -27,7 +28,7 @@ const Login = () => {
         try {
             let response;
             if (isLogin) {
-                response = await axios.post('http://localhost:3000/login', formData);
+                response = await axios.post(`${LOCAL_URL}/login`, formData);
                 if (response.data.error === 'User does not exist') {
                     setError('User does not exist. Please sign up.');
                     setIsLogin(false);
@@ -35,7 +36,7 @@ const Login = () => {
                 }
                 navigate('/');
             } else {
-                response = await axios.post('http://localhost:3000/register', formData);
+                response = await axios.post(`${LOCAL_URL}/register`, formData);
                 if (response.data.error === 'User already exists') {
                     setError('User already exists. Please login.');
                     setIsLogin(true);
