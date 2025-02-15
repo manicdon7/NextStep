@@ -4,10 +4,13 @@ import { FadeIn, FadeInStagger, FadeInStaggerItem, ScaleOnHover } from "../compo
 import { motion } from "framer-motion"
 import { BrainCircuit, BookOpen, MessageSquare, Briefcase } from 'lucide-react'
 import { Zap, Users, TrendingUp, Shield } from 'lucide-react'
+import BotButton from "../components/BotButton"
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
     <Layout>
+      <Link to="/chat"><BotButton/></Link>
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <Particles />
