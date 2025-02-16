@@ -5,7 +5,6 @@ import { motion } from "framer-motion"
 import { BrainCircuit, BookOpen, MessageSquare, Briefcase, User } from 'lucide-react'
 import { Zap, Users, TrendingUp, Shield } from 'lucide-react'
 import BotButton from "../components/BotButton"
-import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react"
 import { onAuthStateChanged, getAuth } from "firebase/auth"
 import { useNavigate } from "react-router-dom"
@@ -75,7 +74,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <Link to="/chat"><BotButton/></Link>
+      <BotButton/>
       {/* User Profile Display in Header */}
       {user && (
         <div className="absolute top-4 right-4 z-10 flex items-center gap-3">
