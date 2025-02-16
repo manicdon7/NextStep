@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../Firebase";
-import { PROD_URL } from "../constants";
+import { API_URL } from "../constants";
 
 const LoginPage = () => {
     const [isLogin, setIsLogin] = useState(true);
@@ -55,7 +55,7 @@ const LoginPage = () => {
             };
     
             // Send data to backend for registration
-            const response = await fetch(`${PROD_URL}/api/auth/register`, {
+            const response = await fetch(`${API_URL}/api/auth/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ const LoginPage = () => {
         setLoading(true);
     
         try {
-            const apiUrl = isLogin ? `${PROD_URL}/api/auth/login` : `${PROD_URL}/api/auth/register`;
+            const apiUrl = isLogin ? `${API_URL}/api/auth/login` : `${API_URL}/api/auth/register`;
             console.log(`Attempting to ${isLogin ? 'login' : 'sign up'} with email:`, formData.email);
     
             // Prepare request payload using formData
