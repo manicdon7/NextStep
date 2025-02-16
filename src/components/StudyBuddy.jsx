@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, Loader, BookOpen, Sparkles, Maximize2 } from 'lucide-react';
+import { Send, Bot, User, Loader, BookOpen, Sparkles } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { Particles } from './Particles';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+
 
 
 const TypingIndicator = () => (
@@ -14,7 +14,7 @@ const TypingIndicator = () => (
   </div>
 );
 
-const Chat = ({ isOpen, onClose }) => {
+const StudyBuddy = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -139,15 +139,7 @@ const Chat = ({ isOpen, onClose }) => {
   };
 
   return (
-    <AnimatePresence>
-      {isOpen &&  (
-         <motion.div 
-         className="fixed bottom-32 right-6 w-96 h-[600px] z-40"
-         initial={{ scale: 0, opacity: 0, originY: 1, originX: 1 }}
-         animate={{ scale: 1, opacity: 1 }}
-         exit={{ scale: 0, opacity: 0 }}
-         transition={{ type: "spring", stiffness: 260, damping: 20 }}
-       >
+
       <div className="relative overflow-hidden">
         <Particles />
         <div className="p-4 md:p-6">
@@ -167,17 +159,12 @@ const Chat = ({ isOpen, onClose }) => {
                   <BookOpen className="w-8 h-8 text-white" />
                 </div>
                 <div className=''>
-                  <h2 className="text-sm font-bold text-white flex items-center gap-2">
+                  <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
                     Study Buddy
                     <Sparkles className="w-5 h-5 text-yellow-300" />
                   </h2>
                   <p className="text-blue-100 text-sm sm:text-base">Your intelligent learning companion</p>
                 </div>
-                <Link to="/chat"
-                  className="text-white hover:bg-white/20 p-2 rounded-lg transition-colors"
-                >
-                  <Maximize2 className="w-5 h-5" />
-                </Link>
               </div>
             </div>
 
@@ -244,7 +231,7 @@ const Chat = ({ isOpen, onClose }) => {
             </div>
 
             {/* Enhanced Input Area */}
-            <div className="p-2 bg-white border-t border-gray-100" id='scroll-container'>
+            <div className="p-4 bg-white border-t border-gray-100" id='scroll-container'>
               <div className="flex items-end space-x-2">
                 <textarea
                   ref={inputRef}
@@ -252,13 +239,13 @@ const Chat = ({ isOpen, onClose }) => {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Ask anything about your studies..."
-                  className="flex-1 text-gray-800 p-2 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none max-h-32 bg-gray-50"
+                  className="flex-1 text-gray-800 p-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none max-h-32 bg-gray-50"
                   rows="1"
                 />
                 <button
                   onClick={sendMessage}
                   disabled={loading || !input.trim()}
-                  className={`p-2 rounded-xl ${loading || !input.trim()
+                  className={`p-4 rounded-xl ${loading || !input.trim()
                       ? 'bg-gray-100 text-gray-400'
                       : 'bg-indigo-500 text-white hover:bg-indigo-600'
                     } transition-all duration-200 ease-in-out`}
@@ -274,10 +261,8 @@ const Chat = ({ isOpen, onClose }) => {
           </div>
         </div>
       </div>
-      </motion.div>
-      )}
-    </AnimatePresence>
+ 
   );
 };
 
-export default Chat;
+export default StudyBuddy;
