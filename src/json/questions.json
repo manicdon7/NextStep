@@ -1,137 +1,182 @@
 [
     {
         "id": 1,
-        "text": "Do you enjoy finding patterns in everyday situations?",
-        "subtext": "Think about how often you notice trends or logical structures in things around you.",
+        "text": "Do you find yourself spotting patterns in the things you encounter daily?",
+        "subtext": "Like noticing how your favorite games, apps, or routines follow a certain logic?",
         "domains": [
-            { "name": "Computer Science", "weight": 1, "keywords": ["logic", "patterns", "problem-solving"] },
-            { "name": "Data Science", "weight": 0.9, "keywords": ["analysis", "statistics", "trends"] }
+            { "name": "Computer Science", "weight": 1, "keywords": ["logic", "patterns", "coding"] },
+            { "name": "Data Analysis", "weight": 0.9, "keywords": ["trends", "insights", "stats"] }
         ]
     },
     {
         "id": 2,
-        "text": "Do you like arranging things in a structured way?",
-        "subtext": "Consider how much you enjoy organizing your workspace, schedule, or ideas.",
+        "text": "Do you get a kick out of organizing your stuff or your day?",
+        "subtext": "Maybe your desk, your playlists, or even your weekend plans?",
         "domains": [
-            { "name": "Management", "weight": 1, "keywords": ["organization", "planning", "efficiency"] },
-            { "name": "Teaching", "weight": 0.8, "keywords": ["structure", "methodology", "clarity"] }
+            { "name": "Project Management", "weight": 1, "keywords": ["planning", "structure", "order"] },
+            { "name": "Content Creation", "weight": 0.8, "keywords": ["scheduling", "flow", "clarity"] }
         ]
     },
     {
         "id": 3,
-        "text": "Do you often think about how machines or systems work?",
-        "subtext": "Think about whether you enjoy taking apart gadgets, understanding processes, or troubleshooting issues.",
+        "text": "Are you the type to wonder how your gadgets or apps actually work?",
+        "subtext": "Ever catch yourself thinking about what makes your phone or a game tick?",
         "domains": [
-            { "name": "Engineering", "weight": 1, "keywords": ["mechanical", "technical", "design"] },
-            { "name": "Computer Science", "weight": 0.8, "keywords": ["technology", "systems", "efficiency"] }
+            { "name": "Engineering", "weight": 1, "keywords": ["tech", "systems", "design"] },
+            { "name": "Computer Science", "weight": 0.8, "keywords": ["software", "function", "logic"] }
         ]
     },
     {
         "id": 4,
-        "text": "Do you enjoy figuring out why people act the way they do?",
-        "subtext": "Think about how often you analyze people's behavior and motivations.",
+        "text": "Do you ever try to figure out what’s driving your friends’ quirks?",
+        "subtext": "Like why they’re obsessed with certain things or act a certain way?",
         "domains": [
-            { "name": "Psychology", "weight": 1, "keywords": ["behavior", "mental-processes", "understanding"] },
-            { "name": "Marketing", "weight": 0.8, "keywords": ["consumer-behavior", "persuasion", "analysis"] }
+            { "name": "Psychology", "weight": 1, "keywords": ["behavior", "motives", "people"] },
+            { "name": "Writing", "weight": 0.8, "keywords": ["characters", "stories", "insights"] }
         ]
     },
     {
         "id": 5,
-        "text": "Do you enjoy working on creative projects that involve aesthetics?",
-        "subtext": "Consider how often you engage in activities like designing, drawing, or decorating.",
+        "text": "Do you love tinkering with how things look—your room, your art, your style?",
+        "subtext": "Maybe sketching, decorating, or tweaking visuals until they’re just right?",
         "domains": [
-            { "name": "Artist", "weight": 1, "keywords": ["creative", "visual", "art"] },
-            { "name": "Designer", "weight": 0.9, "keywords": ["composition", "layout", "aesthetics"] }
+            { "name": "Graphic Design", "weight": 1, "keywords": ["aesthetics", "visuals", "creativity"] },
+            { "name": "Artist", "weight": 0.9, "keywords": ["drawing", "expression", "art"] }
         ]
     },
     {
         "id": 6,
-        "text": "Do you like analyzing facts before making decisions?",
-        "subtext": "Think about whether you prefer to rely on data and logic rather than intuition.",
+        "text": "Do you dig into the facts before picking your next move?",
+        "subtext": "Like researching a purchase or weighing pros and cons for fun?",
         "domains": [
-            { "name": "Science", "weight": 1, "keywords": ["research", "analysis", "logic"] },
-            { "name": "Finance", "weight": 0.8, "keywords": ["economics", "investment", "risk-analysis"] }
+            { "name": "Science", "weight": 1, "keywords": ["logic", "research", "evidence"] },
+            { "name": "Finance", "weight": 0.8, "keywords": ["numbers", "decisions", "strategy"] }
         ]
     },
     {
         "id": 7,
-        "text": "Do you find joy in explaining concepts to others?",
-        "subtext": "Think about how often you help others understand something new.",
+        "text": "Do you get a buzz from breaking down tricky ideas for your crew?",
+        "subtext": "Maybe explaining a game strategy or a cool concept you learned?",
         "domains": [
-            { "name": "Teaching", "weight": 1, "keywords": ["education", "mentoring", "clarity"] },
-            { "name": "Management", "weight": 0.8, "keywords": ["leadership", "communication", "guidance"] }
+            { "name": "Teaching", "weight": 1, "keywords": ["explaining", "guidance", "clarity"] },
+            { "name": "Content Creation", "weight": 0.8, "keywords": ["tutorials", "communication", "engagement"] }
         ]
     },
     {
         "id": 8,
-        "text": "Do you enjoy experimenting with new ways to solve everyday problems?",
-        "subtext": "Consider how often you like innovating and improving existing solutions.",
+        "text": "Do you mess around with new ways to tackle your daily hassles?",
+        "subtext": "Like hacking a shortcut for chores or a better study trick?",
         "domains": [
-            { "name": "Engineering", "weight": 1, "keywords": ["innovation", "creativity", "problem-solving"] },
-            { "name": "Entrepreneurship", "weight": 0.8, "keywords": ["strategy", "business-ideas", "innovation"] }
+            { "name": "Engineering", "weight": 1, "keywords": ["problem-solving", "innovation", "tools"] },
+            { "name": "Entrepreneurship", "weight": 0.8, "keywords": ["ideas", "solutions", "creativity"] }
         ]
     },
     {
         "id": 9,
-        "text": "Do you enjoy writing down your thoughts or crafting stories?",
-        "subtext": "Think about whether you like expressing ideas through words, whether formally or creatively.",
+        "text": "Do you spill your thoughts into notes, stories, or random rants?",
+        "subtext": "Ever find yourself scribbling ideas or dreaming up plots?",
         "domains": [
-            { "name": "Writing", "weight": 1, "keywords": ["storytelling", "expression", "communication"] },
-            { "name": "Marketing", "weight": 0.8, "keywords": ["copywriting", "persuasion", "branding"] }
+            { "name": "Writing", "weight": 1, "keywords": ["stories", "expression", "words"] },
+            { "name": "Journalism", "weight": 0.8, "keywords": ["reporting", "narrative", "curiosity"] }
         ]
     },
     {
         "id": 10,
-        "text": "Do you like thinking about how cities and buildings should be designed?",
-        "subtext": "Consider how much interest you have in structures, urban planning, or interior design.",
+        "text": "Do you daydream about designing your perfect space or city?",
+        "subtext": "Like imagining epic layouts for your room or a futuristic town?",
         "domains": [
-            { "name": "Architecture", "weight": 1, "keywords": ["urban-planning", "design", "aesthetics"] },
-            { "name": "Engineering", "weight": 0.8, "keywords": ["construction", "infrastructure", "technical"] }
+            { "name": "Architecture", "weight": 1, "keywords": ["design", "spaces", "planning"] },
+            { "name": "Game Design", "weight": 0.8, "keywords": ["world-building", "creativity", "structure"] }
         ]
     },
     {
         "id": 11,
-        "text": "Do you enjoy playing with numbers and mathematical challenges?",
-        "subtext": "Think about whether you enjoy calculations, puzzles, or logical reasoning.",
+        "text": "Do you get a thrill from cracking number puzzles or brain teasers?",
+        "subtext": "Maybe Sudoku, budgeting hacks, or logic games are your jam?",
         "domains": [
-            { "name": "Mathematics", "weight": 1, "keywords": ["logic", "problem-solving", "quantitative"] },
-            { "name": "Finance", "weight": 0.9, "keywords": ["economics", "budgeting", "investment"] }
+            { "name": "Mathematics", "weight": 1, "keywords": ["numbers", "logic", "puzzles"] },
+            { "name": "Data Analysis", "weight": 0.9, "keywords": ["patterns", "stats", "quantitative"] }
         ]
     },
     {
         "id": 12,
-        "text": "Do you enjoy exploring new cultures and understanding different perspectives?",
-        "subtext": "Think about your interest in learning about different traditions, languages, or worldviews.",
+        "text": "Are you hooked on learning about far-off places or different ways of life?",
+        "subtext": "Like diving into travel vlogs, history, or random cultural trivia?",
         "domains": [
-            { "name": "Anthropology", "weight": 1, "keywords": ["culture", "history", "society"] },
-            { "name": "Journalism", "weight": 0.8, "keywords": ["storytelling", "communication", "reporting"] }
+            { "name": "Anthropology", "weight": 1, "keywords": ["cultures", "history", "people"] },
+            { "name": "Content Creation", "weight": 0.8, "keywords": ["storytelling", "vlogs", "exploration"] }
         ]
     },
     {
         "id": 13,
-        "text": "Do you enjoy hands-on activities like fixing things or crafting?",
-        "subtext": "Think about whether you like repairing gadgets, woodworking, or assembling models.",
+        "text": "Do you love getting your hands dirty fixing or building stuff?",
+        "subtext": "Maybe tweaking your bike, crafting props, or assembling gear?",
         "domains": [
-            { "name": "Engineering", "weight": 1, "keywords": ["mechanical", "practical", "technical"] },
-            { "name": "Craftsmanship", "weight": 0.9, "keywords": ["handmade", "repair", "creativity"] }
+            { "name": "Engineering", "weight": 1, "keywords": ["hands-on", "tech", "build"] },
+            { "name": "Craftsmanship", "weight": 0.9, "keywords": ["DIY", "create", "repair"] }
         ]
     },
     {
         "id": 14,
-        "text": "Do you like helping others improve their physical health and fitness?",
-        "subtext": "Think about whether you enjoy activities related to exercise, sports, or healthy living.",
+        "text": "Do you geek out over how the world works at its core?",
+        "subtext": "Like pondering gravity, tech breakthroughs, or big ‘why’ questions?",
         "domains": [
-            { "name": "Fitness", "weight": 1, "keywords": ["exercise", "nutrition", "coaching"] },
-            { "name": "Medicine", "weight": 0.8, "keywords": ["healthcare", "well-being", "treatment"] }
+            { "name": "Science", "weight": 1, "keywords": ["theory", "discovery", "curiosity"] },
+            { "name": "Philosophy", "weight": 0.9, "keywords": ["thinking", "questions", "logic"] }
         ]
     },
     {
         "id": 15,
-        "text": "Do you enjoy discovering how things work on a fundamental level?",
-        "subtext": "Think about whether you enjoy breaking down ideas, understanding theories, or questioning assumptions.",
+        "text": "Do you enjoy coding up little projects or tweaking tech for fun?",
+        "subtext": "Ever mess with scripts, apps, or even a Raspberry Pi?",
         "domains": [
-            { "name": "Science", "weight": 1, "keywords": ["research", "curiosity", "theory"] },
-            { "name": "Philosophy", "weight": 0.9, "keywords": ["critical-thinking", "logic", "deep-questions"] }
+            { "name": "Computer Science", "weight": 1, "keywords": ["coding", "tech", "projects"] },
+            { "name": "Game Design", "weight": 0.8, "keywords": ["programming", " interactivity", "fun"] }
+        ]
+    },
+    {
+        "id": 16,
+        "text": "Do you find yourself sketching or designing cool visuals in your free time?",
+        "subtext": "Like doodling characters, mocking up logos, or editing pics?",
+        "domains": [
+            { "name": "Graphic Design", "weight": 1, "keywords": ["visuals", "design", "creativity"] },
+            { "name": "Animation", "weight": 0.8, "keywords": ["motion", "art", "storytelling"] }
+        ]
+    },
+    {
+        "id": 17,
+        "text": "Do you like turning your big ideas into something real?",
+        "subtext": "Maybe a side hustle, a DIY project, or a wild concept you’ve tested?",
+        "domains": [
+            { "name": "Entrepreneurship", "weight": 1, "keywords": ["ideas", "action", "create"] },
+            { "name": "Craftsmanship", "weight": 0.8, "keywords": ["build", "hands-on", "practical"] }
+        ]
+    },
+    {
+        "id": 18,
+        "text": "Do you enjoy digging into data to see what it’s telling you?",
+        "subtext": "Like tracking trends in games, habits, or random stats you love?",
+        "domains": [
+            { "name": "Data Analysis", "weight": 1, "keywords": ["stats", "patterns", "insights"] },
+            { "name": "Finance", "weight": 0.8, "keywords": ["numbers", "trends", "planning"] }
+        ]
+    },
+    {
+        "id": 19,
+        "text": "Do you get lost in creating worlds or stories in your head?",
+        "subtext": "Maybe for games, writing, or just daydreaming epic adventures?",
+        "domains": [
+            { "name": "Writing", "weight": 1, "keywords": ["stories", "imagination", "narrative"] },
+            { "name": "Game Design", "weight": 0.9, "keywords": ["worlds", "creativity", "interactive"] }
+        ]
+    },
+    {
+        "id": 20,
+        "text": "Do you like puzzling out how to make things run smoother?",
+        "subtext": "Like optimizing your setup, workflows, or even a group project?",
+        "domains": [
+            { "name": "Project Management", "weight": 1, "keywords": ["efficiency", "planning", "systems"] },
+            { "name": "Engineering", "weight": 0.8, "keywords": ["optimization", "design", "tech"] }
         ]
     }
 ]
