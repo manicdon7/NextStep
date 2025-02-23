@@ -1,22 +1,105 @@
 import { Sparkles } from 'lucide-react';
-import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { Menu, X, User } from 'lucide-react';
+import { useState, useEffect, useRef  } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { auth } from '../Firebase';
+
 
 
 
 export function Layout({ children }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [user, setUser] = useState(null);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const navigate = useNavigate();
+    const buttonRef = useRef(null);
+    const dropdownRef = useRef(null);
+
+
+    
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+
+        return () => unsubscribe();
+    }, []);
+
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
+    };
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
     };
 
     const handleNavigation = (path) => {
         navigate(path);
         setIsMenuOpen(false);
     };
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (
+                dropdownRef.current && 
+                !dropdownRef.current.contains(event.target) &&
+                !buttonRef.current.contains(event.target)
+            ) {
+                setIsDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
+
+    const handleLogout = async () => {
+        try {
+            await signOut(auth);
+            localStorage.removeItem('token');
+            navigate('/');
+        } catch (error) {
+            console.error('Error signing out:', error);
+        }
+    };
+
+    const UserMenu = () => (
+        <div className="relative">
+            <button
+                ref={buttonRef}
+                onClick={toggleDropdown}
+                className="flex items-center space-x-2 text-white/90 hover:text-white bg-purple-500 hover:bg-purple-600 rounded-xl p-2"
+            >
+                {user?.photoURL ? (
+                    <img
+                        src={user.photoURL}
+                        alt="Profile"
+                        className="w-8 h-8 rounded-full"
+                    />
+                ) : (
+                    <div className="w-8 h-8 rounded-full bg-purple-500 hover:bg-purple-600 flex items-center justify-center">
+                        <User className="w-5 h-5 text-white" />
+                    </div>
+                )}
+                <span className="text-sm">{user?.displayName || user?.email}</span>
+            </button>
+
+            {isDropdownOpen && (
+                <div ref={dropdownRef} className="absolute right-0 mt-2 w-48 bg-purple-500 border border-white/10 rounded-md shadow-lg py-1">
+                    <button
+                        onClick={handleLogout}
+                        className="block w-full text-left px-4 py-2 text-sm text-white hover:text-white  hover:bg-purple-800"
+                    >
+                        Log Out
+                    </button>
+                </div>
+            )}
+        </div>
+    );
+
+
     return (
         <div className="min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900">
             <nav className="fixed top-0 w-full z-50 border-b border-white/10 backdrop-blur-md bg-black/20">
@@ -45,19 +128,18 @@ export function Layout({ children }) {
 
                         {/* Desktop Buttons */}
                         <div className="hidden md:flex items-center space-x-4">
-                            {/* <button
-                                onClick={() => handleNavigation('/login')}
-                                className="border border-purple-500 text-purple-400 px-4 py-2 rounded transition-colors hover:scale-105 cursor-pointer"
-                            >
-                                Login
-                            </button> */}
-                            <button
-                                onClick={() => handleNavigation('/login')}
-                                className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded hover:scale-105 cursor-pointer"
-                            >
-                                Sign In 
-                            </button>
+                            {user ? (
+                                <UserMenu />
+                            ) : (
+                                <button
+                                    onClick={() => handleNavigation('/login')}
+                                    className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded hover:scale-105 cursor-pointer"
+                                >
+                                    Sign In
+                                </button>
+                            )}
                         </div>
+
 
                         {/* Mobile Menu Button */}
                         <button
@@ -99,12 +181,38 @@ export function Layout({ children }) {
                                 >
                                     Login
                                 </button> */}
-                                <button
-                                    onClick={() => handleNavigation('/login')}
-                                    className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded hover:scale-105 w-full cursor-pointer"
-                                >
-                                    Sign In
-                                </button>
+                                 {user ? (
+                                    <div className="pt-2 border-t border-white/10" ref={buttonRef}>
+                                        <div className="flex items-center space-x-2 mb-4 bg-purple-500 hover:bg-purple-600 rounded-xl p-2" >
+                                            {user.photoURL ? (
+                                                <img
+                                                    src={user.photoURL}
+                                                    alt="Profile"
+                                                    className="w-8 h-8 rounded-full"
+                                                />
+                                            ) : (
+                                                <div className="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center">
+                                                    <User className="w-5 h-5 text-white" />
+                                                </div>
+                                            )}
+                                            <span className="text-sm text-white">{user.displayName || user.email}</span>
+                                        </div>
+                                        <button
+                                            onClick={handleLogout}
+                                            ref={dropdownRef}
+                                            className="w-full bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded"
+                                        >
+                                            Log Out
+                                        </button>
+                                    </div>
+                                ) : (
+                                    <button
+                                        onClick={() => handleNavigation('/login')}
+                                        className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded hover:scale-105 w-full cursor-pointer"
+                                    >
+                                        Sign In
+                                    </button>
+                                )}
                             </div>
                         </div>
                     )}
