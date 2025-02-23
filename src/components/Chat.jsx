@@ -2,8 +2,9 @@ import { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, Loader, BookOpen, Sparkles, Maximize2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { Particles } from './Particles';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { saveMessages, loadMessages } from "../components/ChatStorage";
 
 
 const TypingIndicator = () => (
@@ -15,12 +16,17 @@ const TypingIndicator = () => (
 );
 
 const Chat = ({ isOpen, onClose }) => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(loadMessages());
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
+  const chatRef = useRef(null);
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    saveMessages(messages);
+  }, [messages]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -29,6 +35,18 @@ const Chat = ({ isOpen, onClose }) => {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (chatRef.current && !chatRef.current.contains(event.target)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [onClose]);
 
 
   // Adjust textarea height
@@ -104,15 +122,15 @@ const Chat = ({ isOpen, onClose }) => {
 
   const simulateTyping = async (text) => {
     setLoading(true);
-    await new Promise(resolve => setTimeout(resolve, 500 + Math.random() * 1000));
+    await new Promise((resolve) => setTimeout(resolve, 500 + Math.random() * 1000));
 
     const aiMessage = {
-      role: 'ai',
+      role: "ai",
       text,
-      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
     };
 
-    setMessages(prev => [...prev, aiMessage]);
+    setMessages((prev) => [...prev, aiMessage]);
     setLoading(false);
   };
 
@@ -120,23 +138,27 @@ const Chat = ({ isOpen, onClose }) => {
     if (!input.trim()) return;
 
     const userMessage = {
-      role: 'user',
+      role: "user",
       text: input.trim(),
-      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
     };
 
-    setMessages(prev => [...prev, userMessage]);
-    setInput('');
+    setMessages((prev) => [...prev, userMessage]);
+    setInput("");
 
     const aiResponse = await getAIResponse(input.trim());
     await simulateTyping(aiResponse);
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       sendMessage();
     }
+  };
+
+  const handleFullscreen = () => {
+    navigate("/study-buddy", { state: { messages } });
   };
 
   return (
@@ -148,6 +170,7 @@ const Chat = ({ isOpen, onClose }) => {
          animate={{ scale: 1, opacity: 1 }}
          exit={{ scale: 0, opacity: 0 }}
          transition={{ type: "spring", stiffness: 260, damping: 20 }}
+         ref={chatRef}
        >
       <div className="relative overflow-hidden">
         <Particles />
@@ -174,11 +197,11 @@ const Chat = ({ isOpen, onClose }) => {
                   </h2>
                   <p className="text-blue-100 text-sm sm:text-base">Your intelligent learning companion</p>
                 </div>
-                <Link to="/chat"
+                <button onClick={handleFullscreen}
                   className="text-white hover:bg-white/20 p-2 rounded-lg transition-colors"
                 >
                   <Maximize2 className="w-5 h-5" />
-                </Link>
+                </button>
               </div>
             </div>
 
