@@ -45,17 +45,17 @@ export function Layout({ children }) {
 
                         {/* Desktop Buttons */}
                         <div className="hidden md:flex items-center space-x-4">
-                            <button
+                            {/* <button
                                 onClick={() => handleNavigation('/login')}
-                                className="border border-purple-500 text-purple-400 px-4 py-2 rounded transition-colors hover:scale-105"
+                                className="border border-purple-500 text-purple-400 px-4 py-2 rounded transition-colors hover:scale-105 cursor-pointer"
                             >
                                 Login
-                            </button>
+                            </button> */}
                             <button
                                 onClick={() => handleNavigation('/login')}
-                                className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded hover:scale-105"
+                                className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded hover:scale-105 cursor-pointer"
                             >
-                                Sign Up
+                                Sign In 
                             </button>
                         </div>
 
@@ -93,17 +93,17 @@ export function Layout({ children }) {
                                 >
                                     About
                                 </a>
-                                <button
+                                {/* <button
                                     onClick={() => handleNavigation('/login')}
                                     className="border border-purple-500 text-purple-400 px-4 py-2 rounded transition-colors hover:scale-105 w-full"
                                 >
                                     Login
-                                </button>
+                                </button> */}
                                 <button
                                     onClick={() => handleNavigation('/login')}
-                                    className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded hover:scale-105 w-full"
+                                    className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded hover:scale-105 w-full cursor-pointer"
                                 >
-                                    Sign Up
+                                    Sign In
                                 </button>
                             </div>
                         </div>

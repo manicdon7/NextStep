@@ -7,7 +7,7 @@ import { Zap, Users, TrendingUp, Shield } from 'lucide-react'
 import BotButton from "../components/BotButton"
 import { useEffect, useState } from "react"
 import { onAuthStateChanged, getAuth } from "firebase/auth"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 
 
 export default function Home() {
@@ -120,11 +120,13 @@ export default function Home() {
             </FadeIn>
             <FadeIn delay={0.4}>
               <div className="flex justify-center gap-4">
+                <Link to="/kys">
                 <ScaleOnHover>
-                  <button className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-md text-lg font-medium">
+                  <button className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-md text-lg font-medium cursor-pointer">
                     Get Started
                   </button>
                 </ScaleOnHover>
+                </Link>
                 <ScaleOnHover>
                   <button className="border border-purple-500 text-purple-400 px-6 py-3 rounded-md text-lg font-medium">
                     Learn More
@@ -215,7 +217,7 @@ export default function Home() {
                 {
                   icon: MessageSquare,
                   title: "Soft Skills Development",
-                  description: "Enhance your communication, presentation, Techinal and interpersonal skills with AI-guided practice and feedback.",
+                  description: "Enhance your communication, Mangement , presentation, Techinal and interpersonal skills with AI-guided practice and feedback.",
                   link: "#",
                 },
                 {
@@ -275,7 +277,7 @@ export default function Home() {
               >
                 <div className="aspect-w-16 aspect-h-9">
                   <img
-                    src="https://imgs.search.brave.com/IDptzc2Hmb-Ihts5zQdjFRiVvDgPqaUEerF0kdD9ULQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAyMy8w/Ny8xNy8wOS8yNS90/cmVlLTgxMzIyNTBf/MTI4MC5qcGc"
+                    src="https://imgs.search.brave.com/7ThjARnyd4Sk-eAzWL_JJx8pypXewQTdyzc18vbwbdM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kZWVs/LXdlYnNpdGUtbWVk/aWEtcHJvZC5zMy5h/bWF6b25hd3MuY29t/L2VuZ2FnZV9jYXJl/ZXJfbWFuYWdlbWVu/dF8yZWNiYTA5NDc4/LnBuZw"
                     alt="Team collaboration"
                     className="rounded-lg object-cover"
                   />
