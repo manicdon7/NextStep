@@ -48,7 +48,7 @@ export function Particles() {
 
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(147, 51, 234, ${particle.opacity})`
+        ctx.fillStyle = `rgba(147, 51, 234,365), ${particle.opacity})`
         ctx.fill()
       })
 
