@@ -7,16 +7,16 @@ export const saveMessages = (messages) => {
     messages,
     expiry: new Date().getTime() + EXPIRATION_TIME,
   };
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(item));
+  sessionStorage.setItem(STORAGE_KEY, JSON.stringify(item));
 };
 
 export const loadMessages = () => {
-  const item = localStorage.getItem(STORAGE_KEY);
+  const item = sessionStorage.getItem(STORAGE_KEY);
   if (!item) return [];
   
   const { messages, expiry } = JSON.parse(item);
   if (new Date().getTime() > expiry) {
-    localStorage.removeItem(STORAGE_KEY);
+    sessionStorage.removeItem(STORAGE_KEY);
     return [];
   }
   return messages;
