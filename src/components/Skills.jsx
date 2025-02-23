@@ -162,7 +162,7 @@ const SkillModal = ({ skill, closeModal }) => {
           {tabs.map(tab => (
             <button
               key={tab}
-              className={`px-4 py-2 text-sm font-medium ${activeTab === tab ? 'text-[#4B2E87] border-b-2 border-[#4B2E87]' : 'text-gray-600 hover:text-[#4B2E87]'}`}
+              className={`px-4 py-2 cursor-pointer text-sm font-medium ${activeTab === tab ? 'text-[#4B2E87] border-b-2 border-[#4B2E87]' : 'text-gray-600 hover:text-[#4B2E87]'}`}
               onClick={() => setActiveTab(tab)}
             >
               {tab}
