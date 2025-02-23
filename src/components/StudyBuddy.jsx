@@ -2,7 +2,8 @@ import { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, Loader, BookOpen, Sparkles } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { Particles } from './Particles';
-import { Link } from 'react-router-dom';
+import { Link, useLocation  } from 'react-router-dom';
+import { saveMessages, loadMessages } from "./ChatStorage";
 
 
 
@@ -15,13 +16,18 @@ const TypingIndicator = () => (
 );
 
 const StudyBuddy = () => {
-  const [messages, setMessages] = useState([]);
+  const location = useLocation();
+  const [messages, setMessages] = useState(location.state?.messages || loadMessages());
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
 
+  useEffect(() => {
+    saveMessages(messages);
+  }, [messages]);
+  
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };

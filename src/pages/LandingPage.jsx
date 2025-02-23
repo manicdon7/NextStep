@@ -195,7 +195,7 @@ export default function Home() {
       {/* Modules Section */}
       <section id="modules" className="py-20 relative">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(147,51,234,0.1),transparent_70%)]" />
-        <div className="container mx-auto relative px-4">
+        <div className="container mx-auto relative px-6">
           <FadeIn>
             <h2 className="text-3xl font-bold text-center text-white mb-12">Our Modules</h2>
           </FadeIn>
@@ -217,7 +217,7 @@ export default function Home() {
                 {
                   icon: MessageSquare,
                   title: "Soft Skills Development",
-                  description: "Enhance your communication, Mangement , presentation, Techinal and interpersonal skills with AI-guided practice and feedback.",
+                  description: "Enhance your communication, Management , presentation, Techinal and interpersonal skills with AI-guided practice and feedback.",
                   link: "#",
                 },
                 {
