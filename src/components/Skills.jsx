@@ -183,7 +183,7 @@ const SkillCard = ({ skill }) => {
 
   return (
     <motion.div 
-      className="bg-white rounded-lg shadow-lg overflow-hidden"
+      className="bg-white rounded-lg shadow-lg overflow-x-hidden"
       variants={itemVariants}
       whileHover={{ y: -5, transition: { duration: 0.2 } }}
     >
@@ -287,7 +287,7 @@ const SkillCard = ({ skill }) => {
 
 const SoftSkillsTracker = () => {
   return (
-    <div className="bg-blue-50 p-4 rounded-lg mt-6">
+    <div className="bg-blue-50 p-4 rounded-lg mt-6 overflow-x-hidden">
       <h3 className="text-xl font-bold text-gray-800 mb-3">Your Soft Skills Progress</h3>
       <p className="text-gray-700 mb-4">Track your learning journey and practice sessions here.</p>
       
