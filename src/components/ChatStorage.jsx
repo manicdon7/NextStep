@@ -8,6 +8,7 @@ export const saveMessages = (messages) => {
     expiry: new Date().getTime() + EXPIRATION_TIME,
   };
   sessionStorage.setItem(STORAGE_KEY, JSON.stringify(item));
+  
 };
 
 export const loadMessages = () => {

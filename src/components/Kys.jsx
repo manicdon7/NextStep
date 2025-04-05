@@ -9,18 +9,31 @@ import choices from "../json/choices.json";
 import { Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+// Theme colors
+const THEME = {
+  primary: '#AD46FF',
+  secondary: '#0D1324',
+  primaryLight: '#C278FF',
+  secondaryLight: '#1E2942',
+  text: {
+    light: '#FFFFFF',
+    dark: '#0D1324',
+    muted: 'rgba(255, 255, 255, 0.7)'
+  }
+};
+
 const PDFResult = ({ result, insights }) => (
   <div
     style={{
       padding: '40px',
       backgroundColor: '#ffffff',
-      color: '#000000',
+      color: THEME.secondary,
       width: '800px',
       fontFamily: 'Arial, sans-serif'
     }}
   >
     <div style={{ textAlign: 'center', marginBottom: '30px' }}>
-      <h1 style={{ fontSize: '28px', marginBottom: '10px', color: '#333' }}>
+      <h1 style={{ fontSize: '28px', marginBottom: '10px', color: THEME.primary }}>
         Next-Step Career Assessment
       </h1>
       <p style={{ color: '#666' }}>
@@ -29,21 +42,21 @@ const PDFResult = ({ result, insights }) => (
     </div>
 
     <div style={{ marginBottom: '30px' }}>
-      <h2 style={{ fontSize: '22px', color: '#333', marginBottom: '20px' }}>Career Matches</h2>
+      <h2 style={{ fontSize: '22px', color: THEME.secondary, marginBottom: '20px' }}>Career Matches</h2>
       {result?.domains?.map((domain, index) => (
         <div key={index} style={{
           marginBottom: '20px',
           padding: '15px',
-          border: '1px solid #ddd',
+          border: `1px solid ${THEME.primary}20`,
           borderRadius: '8px'
         }}>
-          <h3 style={{ fontSize: '18px', color: '#333', marginBottom: '10px' }}>{domain.name}</h3>
+          <h3 style={{ fontSize: '18px', color: THEME.primary, marginBottom: '10px' }}>{domain.name}</h3>
           <p style={{ color: '#666', marginBottom: '10px' }}>
             {domain.keywords.join(' • ')}
           </p>
           <div style={{
             fontSize: '24px',
-            color: '#333',
+            color: THEME.secondary,
             fontWeight: 'bold'
           }}>
             {domain.score}% Match
@@ -53,7 +66,7 @@ const PDFResult = ({ result, insights }) => (
     </div>
 
     <div style={{ marginTop: '30px' }}>
-      <h2 style={{ fontSize: '22px', color: '#333', marginBottom: '20px' }}>Career Insights</h2>
+      <h2 style={{ fontSize: '22px', color: THEME.secondary, marginBottom: '20px' }}>Career Insights</h2>
       <div style={{
         color: '#444',
         lineHeight: '1.6',
@@ -65,23 +78,20 @@ const PDFResult = ({ result, insights }) => (
   </div>
 );
 
-
-
 const LoadingScreen = () => (
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
-    className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50"
+    className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50"
   >
-    <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl flex flex-col items-center">
-      <Loader2 className="w-12 h-12 text-purple-500 animate-spin mb-4" />
+    <div className="bg-black/30 backdrop-blur-md p-8 rounded-2xl flex flex-col items-center border border-white/10">
+      <Loader2 className="w-12 h-12 text-purple-500 animate-spin mb-4" style={{ color: THEME.primary }} />
       <p className="text-white text-lg font-medium">Analyzing your responses...</p>
       <p className="text-white/70 text-sm mt-2">This may take a few moments</p>
     </div>
   </motion.div>
 );
-
 
 const Kys = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -96,9 +106,22 @@ const Kys = () => {
 
   useEffect(() => {
     setQuestion(questions);
-    setChoice(choices)
+    setChoice(choices);
+    
+    // Set full screen styles
+    document.body.style.margin = "0";
+    document.body.style.padding = "0";
+    document.body.style.overflow = "hidden";
+    document.body.style.backgroundColor = THEME.secondary;
+    
+    return () => {
+      // Cleanup styles when component unmounts
+      document.body.style.margin = "";
+      document.body.style.padding = "";
+      document.body.style.overflow = "";
+      document.body.style.backgroundColor = "";
+    };
   }, []);
-
 
   const handleAnswer = (questionId, value) => {
     setAnswers(prev => ({ ...prev, [questionId]: value }));
@@ -109,7 +132,6 @@ const Kys = () => {
       calculateResults();
     }
   };
-
 
   const downloadPDF = async () => {
     if (!pdfRef.current) {
@@ -122,7 +144,7 @@ const Kys = () => {
 
       // Configure html2canvas with optimal settings
       const canvas = await html2canvas(pdfRef.current, {
-        scale: 1, // Reduced scale for better handling
+        scale: 1, 
         useCORS: true,
         logging: false,
         backgroundColor: '#ffffff',
@@ -156,7 +178,7 @@ const Kys = () => {
 
       // Add content to PDF
       pdf.setFontSize(24);
-      pdf.setTextColor(51, 51, 51);
+      pdf.setTextColor(173, 70, 255); // THEME.primary
       pdf.text('Next-Step Career Assessment', pdfWidth / 2, 20, { align: 'center' });
 
       try {
@@ -185,7 +207,6 @@ const Kys = () => {
     }
   };
 
-
   const getAIInsights = async (topDomain, keywords) => {
     try {
       const prompt = `Evaluate the career of a ${topDomain} professional, emphasizing key strengths in ${keywords.join(', ')}. Offer actionable insights on career potential and growth opportunities in a natural, engaging manner.`;
@@ -199,14 +220,11 @@ const Kys = () => {
 
       console.log(response, response.ok);
 
-
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
       const text = await response.text();
-      // console.log(text);
-
       return text;
     } catch (error) {
       console.error('Error fetching AI insights:', error);
@@ -240,7 +258,6 @@ const Kys = () => {
       const topDomain = finalResults[0];
 
       const aiInsight = await getAIInsights(topDomain.name, topDomain.keywords);
-      // console.log("AI insight:", aiInsight);
 
       setResult({ domains: finalResults, top_domain: topDomain.name });
       setInsights(aiInsight);
@@ -249,6 +266,7 @@ const Kys = () => {
       setInsights('Unable to generate insights at this time. Please try again later.');
     } finally {
       setIsLoading(false);
+      setShowLoadingScreen(false);
     }
   };
 
@@ -257,23 +275,29 @@ const Kys = () => {
       initial={{ y: 20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -20, opacity: 0 }}
-      className="relative backdrop-blur-xl bg-gradient-to-br from-white/40 to-white/10 p-8 rounded-2xl shadow-2xl border border-white/20 w-full max-w-md overflow-hidden"
+      className="relative backdrop-blur-xl p-8 rounded-2xl shadow-2xl border border-white/10 w-full max-w-md overflow-hidden"
+      style={{ 
+        background: `linear-gradient(135deg, ${THEME.secondaryLight}80, ${THEME.secondary}90)`,
+        boxShadow: `0 10px 30px rgba(0, 0, 0, 0.3), 0 0 30px ${THEME.primary}30`
+      }}
     >
       {/* Decorative elements */}
-      <div className="absolute -top-12 -right-12 w-24 h-24 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-2xl" />
-      <div className="absolute -bottom-12 -left-12 w-24 h-24 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-full blur-2xl" />
+      <div className="absolute -top-12 -right-12 w-24 h-24 rounded-full blur-2xl" 
+           style={{ background: `radial-gradient(circle, ${THEME.primary}30, ${THEME.primary}10)` }} />
+      <div className="absolute -bottom-12 -left-12 w-24 h-24 rounded-full blur-2xl" 
+           style={{ background: `radial-gradient(circle, ${THEME.primary}20, ${THEME.secondary}20)` }} />
 
       {/* Question header */}
       <div className="flex items-center gap-3 mb-6">
-        <div className="bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl p-2 shadow-lg">
+        <div className="rounded-xl p-2 shadow-lg" style={{ background: `linear-gradient(135deg, ${THEME.primary}, ${THEME.primaryLight})` }}>
           <Brain className="w-6 h-6 text-white" />
         </div>
         <div className="flex-1">
           <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-blue-500" />
-            <span className="text-sm font-medium text-blue-500"> Next-Step AI Assessment</span>
+            <Sparkles className="w-4 h-4" style={{ color: THEME.primary }} />
+            <span className="text-sm font-medium" style={{ color: THEME.primary }}> Next-Step AI Assessment</span>
           </div>
-          <span className="text-sm text-gray-500">
+          <span className="text-sm text-gray-400">
             Question {currentQuestion + 1} of {questions?.length || 0}
           </span>
         </div>
@@ -281,11 +305,11 @@ const Kys = () => {
 
       {/* Question content */}
       <div className="mb-8">
-        <h2 className="text-2xl font-bold mb-3 text-gray-800 leading-tight">
+        <h2 className="text-2xl font-bold mb-3 leading-tight text-white">
           {question.text}
         </h2>
         {question.subtext && (
-          <p className="text-gray-600">{question.subtext}</p>
+          <p className="text-gray-300">{question.subtext}</p>
         )}
       </div>
 
@@ -294,18 +318,25 @@ const Kys = () => {
         {choice.map((choice, index) => (
           <motion.button
             key={choice.value}
-            whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 255, 255, 0.9)' }}
+            whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 255, 255, 0.15)' }}
             whileTap={{ scale: 0.98 }}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.1 }}
             onClick={() => onAnswer(question.id, choice.value)}
-            className="w-full backdrop-blur-sm bg-white/60 text-gray-800 py-4 px-6 rounded-xl border border-white/20 transition-all duration-200 flex items-center gap-4 group hover:shadow-lg"
+            className="w-full backdrop-blur-sm py-4 px-6 rounded-xl transition-all duration-200 flex items-center gap-4 group hover:shadow-lg"
+            style={{ 
+              backgroundColor: 'rgba(255, 255, 255, 0.05)', 
+              borderColor: 'rgba(255, 255, 255, 0.1)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              color: THEME.text.light
+            }}
           >
-            <Circle className="w-4 h-4 text-gray-400 group-hover:text-blue-500 transition-colors" />
+            <Circle className="w-4 h-4 text-gray-400 group-hover:text-purple-400 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.4)' }} />
             <span className="flex-1 text-left">{choice.label}</span>
             <ChevronRight
-              className="w-5 h-5 text-gray-400 group-hover:text-blue-500 transform group-hover:translate-x-1 transition-all"
+              className="w-5 h-5 transform group-hover:translate-x-1 transition-all"
+              style={{ color: 'rgba(255, 255, 255, 0.4)' }}
             />
           </motion.button>
         ))}
@@ -314,7 +345,8 @@ const Kys = () => {
       {/* Progress bar */}
       <div className="mt-8">
         <motion.div
-          className="h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
+          className="h-1 rounded-full"
+          style={{ background: `linear-gradient(to right, ${THEME.primary}, ${THEME.primaryLight})` }}
           initial={{ scaleX: 0, originX: 0 }}
           animate={{ scaleX: (currentQuestion + 1) / (questions?.length || 1) }}
           transition={{ duration: 0.5 }}
@@ -328,20 +360,27 @@ const Kys = () => {
       <motion.div
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="backdrop-blur-lg bg-white/30 p-8 rounded-xl shadow-xl border border-white/20 w-full max-w-4xl"
+        className="backdrop-blur-lg p-8 rounded-xl shadow-xl border border-white/10 w-full max-w-4xl"
+        style={{ 
+          background: `linear-gradient(135deg, ${THEME.secondaryLight}90, ${THEME.secondary}95)`,
+          boxShadow: `0 10px 30px rgba(0, 0, 0, 0.2), 0 0 20px ${THEME.primary}20`
+        }}
       >
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">
-            <Award className="w-10 h-10 text-blue-500" />
+            <Award className="w-10 h-10" style={{ color: THEME.primary }} />
             <div>
-              <h3 className="text-3xl font-bold text-gray-800">Your Career Path</h3>
-              <p className="text-gray-600 mt-1">Based on your responses and AI analysis</p>
+              <h3 className="text-3xl font-bold text-white">Your Career Path</h3>
+              <p className="text-gray-300 mt-1">Based on your responses and AI analysis</p>
             </div>
           </div>
-          {/* <Sparkles className="w-6 h-6 text-yellow-500" /> */}
           <Link to="/" className="flex items-center space-x-2">
-            <Sparkles className="h-6 w-6 text-purple-400" />
-            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+            <Sparkles className="h-6 w-6" style={{ color: THEME.primary }} />
+            <span className="text-xl font-bold" style={{ 
+              background: `linear-gradient(to right, ${THEME.primary}, ${THEME.primaryLight})`,
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent'
+            }}>
               Next-Step
             </span>
           </Link>
@@ -349,29 +388,33 @@ const Kys = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mx-auto p-4">
           {/* Score Cards */}
-          <div className="relative rounded-lg overflow-hidden bg-white shadow-lg">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 opacity-20" />
+          <div className="relative rounded-lg overflow-hidden shadow-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)' }}>
+            <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${THEME.primary}20, transparent)` }} />
             <div className="relative p-4">
-              <h2 className="text-xl font-bold mb-4 text-black">Career Matches</h2>
+              <h2 className="text-xl font-bold mb-4 text-white">Career Matches</h2>
               <div className="h-[400px] overflow-y-auto pr-4 space-y-4 scrollbar-thin">
                 {isLoading ? (
                   <div className="flex items-center justify-center h-full">
-                    <Loader2 className="h-8 w-8 animate-spin text-gray-500" />
+                    <Loader2 className="h-8 w-8 animate-spin text-gray-400" />
                   </div>
                 ) : (
                   <div className='space-y-4'>
                     {result?.domains?.map((domain, index) => (
                       <div
                         key={index}
-                        className="bg-white/50 backdrop-blur-sm rounded-lg p-4 shadow-sm border border-gray-100"
+                        className="backdrop-blur-sm rounded-lg p-4 shadow-sm border"
+                        style={{ 
+                          backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                          borderColor: 'rgba(255, 255, 255, 0.05)'
+                        }}
                       >
-                        <h3 className="font-semibold text-black text-lg">{domain.name}</h3>
-                        <p className="text-sm text-gray-600 mt-1">
+                        <h3 className="font-semibold text-white text-lg">{domain.name}</h3>
+                        <p className="text-sm text-gray-300 mt-1">
                           {domain.keywords.join(' • ')}
                         </p>
-                        <div className="mt-2 flex items-center text-black">
-                          <span className="text-2xl font-bold">{domain.score}%</span>
-                          <span className="ml-2 text-sm">Match</span>
+                        <div className="mt-2 flex items-center">
+                          <span className="text-2xl font-bold" style={{ color: THEME.primary }}>{domain.score}%</span>
+                          <span className="ml-2 text-sm text-gray-300">Match</span>
                         </div>
                       </div>
                     ))}
@@ -382,39 +425,39 @@ const Kys = () => {
           </div>
 
           {/* AI Insights */}
-          <div className="relative rounded-lg overflow-hidden bg-white shadow-lg">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-teal-500 to-green-500 opacity-20" />
+          <div className="relative rounded-lg overflow-hidden shadow-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)' }}>
+            <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${THEME.primary}20, transparent)` }} />
             <div className="relative p-4">
-              <h2 className="text-xl font-bold mb-4 text-black">Career Insights</h2>
+              <h2 className="text-xl font-bold mb-4 text-white">Career Insights</h2>
               <div className="h-[400px] overflow-y-auto pr-4 scrollbar-thin">
                 {isLoading ? (
                   <div className="flex items-center justify-center h-full">
-                    <Loader2 className="h-8 w-8 animate-spin text-gray-500" />
+                    <Loader2 className="h-8 w-8 animate-spin text-gray-400" />
                   </div>
                 ) : (
-                  <div className="prose prose-sm">
+                  <div className="prose prose-sm prose-invert">
                     <ReactMarkdown
                       components={{
                         p: ({ children }) => (
-                          <p className="text-gray-700 leading-relaxed mb-4">{children}</p>
+                          <p className="text-gray-300 leading-relaxed mb-4">{children}</p>
                         ),
                         strong: ({ children }) => (
-                          <span className="font-semibold text-gray-800">{children}</span>
+                          <span className="font-semibold text-white">{children}</span>
                         ),
                         h1: ({ children }) => (
-                          <h1 className="text-2xl font-bold text-gray-800 mb-4">{children}</h1>
+                          <h1 className="text-2xl font-bold text-white mb-4">{children}</h1>
                         ),
                         h2: ({ children }) => (
-                          <h2 className="text-xl font-semibold text-gray-800 mb-3">{children}</h2>
+                          <h2 className="text-xl font-semibold text-white mb-3">{children}</h2>
                         ),
                         h3: ({ children }) => (
-                          <h3 className="text-lg font-semibold text-gray-800 mb-2">{children}</h3>
+                          <h3 className="text-lg font-semibold text-white mb-2">{children}</h3>
                         ),
                         ul: ({ children }) => (
                           <ul className="list-disc list-inside space-y-2 mb-4">{children}</ul>
                         ),
                         li: ({ children }) => (
-                          <li className="text-gray-700">{children}</li>
+                          <li className="text-gray-300">{children}</li>
                         ),
                       }}
                     >
@@ -427,15 +470,17 @@ const Kys = () => {
           </div>
         </div>
 
-
-
         <div className="flex gap-4 mt-8">
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={downloadPDF}
             disabled={isLoading}
-            className="flex-1 bg-purple-500 text-white py-4 px-6 rounded-lg flex items-center justify-center space-x-2 hover:bg-purple-600 transition-colors duration-200 font-medium disabled:opacity-50 cursor-pointer"
+            className="flex-1 text-white py-4 px-6 rounded-lg flex items-center justify-center space-x-2 transition-colors duration-200 font-medium disabled:opacity-50 cursor-pointer"
+            style={{ 
+              background: `linear-gradient(135deg, ${THEME.primary}, ${THEME.primaryLight})`,
+              boxShadow: `0 4px 10px ${THEME.primary}40`
+            }}
           >
             {isLoading ? (
               <>
@@ -454,7 +499,11 @@ const Kys = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => window.location.reload()}
-            className="flex-1 bg-blue-500 text-white py-4 px-6 rounded-lg flex items-center justify-center space-x-2 hover:bg-blue-600 transition-colors duration-200 font-medium cursor-pointer"
+            className="flex-1 text-white py-4 px-6 rounded-lg flex items-center justify-center space-x-2 transition-colors duration-200 font-medium cursor-pointer"
+            style={{ 
+              backgroundColor: THEME.secondaryLight,
+              border: `1px solid ${THEME.primary}40`,
+            }}
           >
             <RefreshCw className="w-5 h-5" />
             <span>Start New Assessment</span>
@@ -469,9 +518,16 @@ const Kys = () => {
     </>
   );
 
-  // Return statement remains the same
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4" 
+         style={{ 
+           background: `radial-gradient(circle at top right, ${THEME.secondaryLight}, ${THEME.secondary})`,
+           height: '100vh',
+           width: '100vw',
+           margin: 0,
+           padding: 0,
+           overflow: 'hidden'
+         }}>
       <AnimatePresence mode="wait">
         {showLoadingScreen && !result && (
           <LoadingScreen key="loading" />
