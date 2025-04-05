@@ -206,19 +206,19 @@ export default function Home() {
                   icon: BrainCircuit,
                   title: "Know Your Self (KYS)",
                   description: "Take our AI-powered quiz to discover your strengths, get personalized insights about your thinking patterns and potential career paths.",
-                  link: "#",
+                  link: "/kys",
                 },
                 {
                   icon: BookOpen,
                   title: "Train Your Self (TYS)",
                   description: "Access curated learning resources, including documents, videos, and websites. Get AI chatbot assistance for your learning journey.",
-                  link: "#",
+                  link: "/tys",
                 },
                 {
                   icon: MessageSquare,
                   title: "Soft Skills Development",
                   description: "Enhance your communication, Management , presentation, Techinal and interpersonal skills with AI-guided practice and feedback.",
-                  link: "#",
+                  link: "/skills",
                 },
                 {
                   icon: Briefcase,
@@ -234,7 +234,7 @@ export default function Home() {
                       <h3 className="text-xl font-semibold text-white mb-2">{module.title}</h3>
                       <p className="text-white/70">{module.description}</p>
                       <div className="flex justify-end">
-                      <button className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded hover:scale-105">Read More</button>
+                      <button onClick={() => window.location.href = module.link} className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded hover:scale-105">Read More</button>
                       </div>
                     </div>
                   </ScaleOnHover>

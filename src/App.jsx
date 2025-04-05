@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from "./pages/LoginPage";
 import StudyBuddy from "./components/StudyBuddy";
 import Skills from "./components/Skills";
+import Tys from "./components/Tys";
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/study-buddy" element={<StudyBuddy/>} />
           <Route path="/kys" element={<Kys/>} />
           <Route path="/skills" element={<Skills/>} />
+          <Route path="/tys" element={<Tys/>} />
         </Routes>
       </div>
     </Router>
