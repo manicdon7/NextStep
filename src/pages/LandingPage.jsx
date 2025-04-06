@@ -33,10 +33,10 @@ export default function Home() {
 
   const getUserName = () => {
     if (!user) return "";
-    
+
     // Try to get the display name first
     if (user.displayName) return user.displayName;
-    
+
     // If no display name, try to use the email username part
     if (user.email) {
       const emailName = user.email.split('@')[0];
@@ -46,24 +46,24 @@ export default function Home() {
         .map(part => part.charAt(0).toUpperCase() + part.slice(1))
         .join(' ');
     }
-    
+
     return "User";
   };
 
   const getProfileImage = () => {
     if (!user) return null;
-    
+
     // Use photoURL if available (typically from Google auth)
     if (user.photoURL) {
       return (
-        <img 
-          src={user.photoURL} 
-          alt="Profile" 
+        <img
+          src={user.photoURL}
+          alt="Profile"
           className="w-10 h-10 rounded-full border-2 border-purple-400"
         />
       );
     }
-    
+
     // Otherwise use default avatar
     return (
       <div className="w-10 h-10 bg-purple-500/30 rounded-full flex items-center justify-center">
@@ -74,7 +74,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <BotButton/>
+      <BotButton />
       {/* User Profile Display in Header */}
       {user && (
         <div className="absolute top-4 right-4 z-10 flex items-center gap-3">
@@ -91,12 +91,12 @@ export default function Home() {
         <div className="container mx-auto relative pt-24 pb-20 md:pt-32 md:pb-28 px-4">
           <div className="text-center space-y-8">
             <FadeIn>
-              <motion.h1 
+              <motion.h1
                 className="text-4xl md:text-6xl h-20 font-bold tracking-tighter text-white"
-                animate={{ 
+                animate={{
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                 }}
-                transition={{ 
+                transition={{
                   duration: 5,
                   repeat: Infinity,
                   ease: "linear"
@@ -121,17 +121,19 @@ export default function Home() {
             <FadeIn delay={0.4}>
               <div className="flex justify-center gap-4">
                 <Link to="/kys">
-                <ScaleOnHover>
-                  <button className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-md text-lg font-medium cursor-pointer">
-                    Get Started
-                  </button>
-                </ScaleOnHover>
+                  <ScaleOnHover>
+                    <button className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-md text-lg font-medium cursor-pointer">
+                      Get Started
+                    </button>
+                  </ScaleOnHover>
                 </Link>
+                <a href="#modules">
                 <ScaleOnHover>
                   <button className="border border-purple-500 text-purple-400 px-6 py-3 rounded-md text-lg font-medium">
                     Learn More
                   </button>
                 </ScaleOnHover>
+                </a>
               </div>
             </FadeIn>
           </div>
@@ -170,12 +172,12 @@ export default function Home() {
                 }
               ].map((feature, index) => (
                 <FadeInStaggerItem key={index}>
-                  <motion.div 
+                  <motion.div
                     className="bg-white/5 border border-white/10 rounded-lg p-6 h-full"
                     whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(147, 51, 234, 0.3)" }}
                     transition={{ type: "spring", stiffness: 300, damping: 10 }}
                   >
-                    <motion.div 
+                    <motion.div
                       className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mb-4"
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.5 }}
@@ -234,7 +236,7 @@ export default function Home() {
                       <h3 className="text-xl font-semibold text-white mb-2">{module.title}</h3>
                       <p className="text-white/70">{module.description}</p>
                       <div className="flex justify-end">
-                      <button onClick={() => window.location.href = module.link} className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded hover:scale-105">Read More</button>
+                        <button onClick={() => window.location.href = module.link} className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded hover:scale-105">Read More</button>
                       </div>
                     </div>
                   </ScaleOnHover>
@@ -332,7 +334,7 @@ export default function Home() {
                 <FadeInStaggerItem key={index}>
                   <ScaleOnHover>
                     <div className="text-center">
-                      <motion.div 
+                      <motion.div
                         className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4"
                         whileHover={{ scale: 1.1, rotate: 360 }}
                         transition={{ type: "spring", duration: 0.8 }}
@@ -354,7 +356,7 @@ export default function Home() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <FadeIn>
-            <motion.div 
+            <motion.div
               className="bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12 backdrop-blur-sm"
               whileHover={{ boxShadow: "0 0 30px rgba(147, 51, 234, 0.2)" }}
             >
@@ -363,11 +365,13 @@ export default function Home() {
                 <p className="text-white/70 mb-8">
                   Join thousands of others who have already discovered their career path with next-step.
                 </p>
+                <Link to="/kys">
                 <ScaleOnHover>
                   <button className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-md text-lg font-medium">
                     Get Started Now
                   </button>
                 </ScaleOnHover>
+                </Link>
               </div>
             </motion.div>
           </FadeIn>

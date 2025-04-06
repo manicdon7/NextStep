@@ -1,31 +1,45 @@
 import { Sparkles } from 'lucide-react';
 import { Menu, X, User } from 'lucide-react';
-import { useState, useEffect, useRef  } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../Firebase';
-
-
-
 
 export function Layout({ children }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [user, setUser] = useState(null);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [email, setEmail] = useState("");
     const navigate = useNavigate();
     const buttonRef = useRef(null);
     const dropdownRef = useRef(null);
-
-
     
     useEffect(() => {
+        // Check for stored email from traditional login
+        const storedEmail = localStorage.getItem('userEmail');
+        if (storedEmail) {
+            setEmail(storedEmail);
+        }
+
+        // Check for Firebase authentication
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser);
+            if (currentUser) {
+                setUser(currentUser);
+                // If we have a Firebase user, use their email
+                if (currentUser.email) {
+                    setEmail(currentUser.email);
+                }
+            } else {
+                setUser(null);
+                // If no stored email and no Firebase user, clear email
+                if (!storedEmail) {
+                    setEmail("");
+                }
+            }
         });
 
         return () => unsubscribe();
     }, []);
-
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -45,6 +59,7 @@ export function Layout({ children }) {
             if (
                 dropdownRef.current && 
                 !dropdownRef.current.contains(event.target) &&
+                buttonRef.current && 
                 !buttonRef.current.contains(event.target)
             ) {
                 setIsDropdownOpen(false);
@@ -59,6 +74,10 @@ export function Layout({ children }) {
         try {
             await signOut(auth);
             localStorage.removeItem('token');
+            localStorage.removeItem('userEmail');
+            setEmail("");
+            setUser(null);
+            setIsDropdownOpen(false);
             navigate('/');
         } catch (error) {
             console.error('Error signing out:', error);
@@ -83,14 +102,21 @@ export function Layout({ children }) {
                         <User className="w-5 h-5 text-white" />
                     </div>
                 )}
-                <span className="text-sm">{user?.displayName || user?.email}</span>
+                <span className="text-sm">{user?.displayName || email}</span>
             </button>
 
             {isDropdownOpen && (
-                <div ref={dropdownRef} className="absolute right-0 mt-2 w-48 bg-purple-500 border border-white/10 rounded-md shadow-lg py-1">
+                <div ref={dropdownRef} className="absolute right-0 mt-2 w-48 bg-purple-500 border border-white/10 rounded-md shadow-lg py-1 z-50">
+                    <Link
+                        to="/profile"
+                        className="block w-full text-left px-4 py-2 text-sm text-white hover:text-white hover:bg-purple-800"
+                        onClick={() => setIsDropdownOpen(false)}
+                    >
+                        My Profile
+                    </Link>
                     <button
                         onClick={handleLogout}
-                        className="block w-full text-left px-4 py-2 text-sm text-white hover:text-white  hover:bg-purple-800"
+                        className="block w-full text-left px-4 py-2 text-sm text-white hover:text-white hover:bg-purple-800"
                     >
                         Log Out
                     </button>
@@ -98,7 +124,6 @@ export function Layout({ children }) {
             )}
         </div>
     );
-
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900">
@@ -128,7 +153,7 @@ export function Layout({ children }) {
 
                         {/* Desktop Buttons */}
                         <div className="hidden md:flex items-center space-x-4">
-                            {user ? (
+                            {user || email ? (
                                 <UserMenu />
                             ) : (
                                 <button
@@ -139,7 +164,6 @@ export function Layout({ children }) {
                                 </button>
                             )}
                         </div>
-
 
                         {/* Mobile Menu Button */}
                         <button
@@ -152,7 +176,7 @@ export function Layout({ children }) {
 
                     {/* Mobile Menu */}
                     {isMenuOpen && (
-                        <div className="md:hidden absolute top-16 left-0 right-0 bg-black/95 border-b border-white/10">
+                        <div className="md:hidden absolute top-16 left-0 right-0 bg-black/95 border-b border-white/10 z-50">
                             <div className="flex flex-col space-y-4 p-4">
                                 <a
                                     href="#features"
@@ -175,16 +199,11 @@ export function Layout({ children }) {
                                 >
                                     About
                                 </a>
-                                {/* <button
-                                    onClick={() => handleNavigation('/login')}
-                                    className="border border-purple-500 text-purple-400 px-4 py-2 rounded transition-colors hover:scale-105 w-full"
-                                >
-                                    Login
-                                </button> */}
-                                 {user ? (
-                                    <div className="pt-2 border-t border-white/10" ref={buttonRef}>
-                                        <div className="flex items-center space-x-2 mb-4 bg-purple-500 hover:bg-purple-600 rounded-xl p-2" >
-                                            {user.photoURL ? (
+                                
+                                {user || email ? (
+                                    <div className="pt-2 border-t border-white/10">
+                                        <div className="flex items-center space-x-2 mb-4 bg-purple-500 hover:bg-purple-600 rounded-xl p-2">
+                                            {user?.photoURL ? (
                                                 <img
                                                     src={user.photoURL}
                                                     alt="Profile"
@@ -195,11 +214,17 @@ export function Layout({ children }) {
                                                     <User className="w-5 h-5 text-white" />
                                                 </div>
                                             )}
-                                            <span className="text-sm text-white">{user.displayName || user.email}</span>
+                                            <span className="text-sm text-white">{user?.displayName || email}</span>
                                         </div>
+                                        <Link
+                                            to="/profile"
+                                            className="block w-full bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded text-center mb-2"
+                                            onClick={() => setIsMenuOpen(false)}
+                                        >
+                                            My Profile
+                                        </Link>
                                         <button
                                             onClick={handleLogout}
-                                            ref={dropdownRef}
                                             className="w-full bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded"
                                         >
                                             Log Out
@@ -226,17 +251,17 @@ export function Layout({ children }) {
                             <h3 className="text-lg font-semibold text-white mb-4">Platform</h3>
                             <ul className="space-y-2">
                                 <li>
-                                    <a to="#" className="text-sm text-white/70 hover:text-white hover:underline">
+                                    <a href="#features" className="text-sm text-white/70 hover:text-white hover:underline">
                                         Features
                                     </a>
                                 </li>
                                 <li>
-                                    <a to="#" className="text-sm text-white/70 hover:text-white hover:underline">
+                                    <a href="#modules" className="text-sm text-white/70 hover:text-white hover:underline">
                                         Modules
                                     </a>
                                 </li>
                                 <li>
-                                    <a to="#" className="text-sm text-white/70 hover:text-white hover:underline">
+                                    <a href="#pricing" className="text-sm text-white/70 hover:text-white hover:underline">
                                         Pricing
                                     </a>
                                 </li>
@@ -246,17 +271,17 @@ export function Layout({ children }) {
                             <h3 className="text-lg font-semibold text-white mb-4">Resources</h3>
                             <ul className="space-y-2">
                                 <li>
-                                    <a to="#" className="text-sm text-white/70 hover:text-white hover:underline">
+                                    <a href="#docs" className="text-sm text-white/70 hover:text-white hover:underline">
                                         Documentation
                                     </a>
                                 </li>
                                 <li>
-                                    <a to="#" className="text-sm text-white/70 hover:text-white hover:underline">
+                                    <a href="#guides" className="text-sm text-white/70 hover:text-white hover:underline">
                                         Guides
                                     </a>
                                 </li>
                                 <li>
-                                    <a to="#" className="text-sm text-white/70 hover:text-white hover:underline">
+                                    <a href="#support" className="text-sm text-white/70 hover:text-white hover:underline">
                                         Support
                                     </a>
                                 </li>
@@ -266,17 +291,17 @@ export function Layout({ children }) {
                             <h3 className="text-lg font-semibold text-white mb-4">Company</h3>
                             <ul className="space-y-2">
                                 <li>
-                                    <a to="#" className="text-sm text-white/70 hover:text-white hover:underline">
+                                    <a href="#about" className="text-sm text-white/70 hover:text-white hover:underline">
                                         About
                                     </a>
                                 </li>
                                 <li>
-                                    <a to="#" className="text-sm text-white/70 hover:text-white hover:underline">
+                                    <a href="#blog" className="text-sm text-white/70 hover:text-white hover:underline">
                                         Blog
                                     </a>
                                 </li>
                                 <li>
-                                    <a to="#" className="text-sm text-white/70 hover:text-white hover:underline">
+                                    <a href="#careers" className="text-sm text-white/70 hover:text-white hover:underline">
                                         Careers
                                     </a>
                                 </li>
@@ -286,17 +311,17 @@ export function Layout({ children }) {
                             <h3 className="text-lg font-semibold text-white mb-4">Legal</h3>
                             <ul className="space-y-2">
                                 <li>
-                                    <a to="#" className="text-sm text-white/70 hover:text-white hover:underline">
+                                    <a href="#privacy" className="text-sm text-white/70 hover:text-white hover:underline">
                                         Privacy
                                     </a>
                                 </li>
                                 <li>
-                                    <a to="#" className="text-sm text-white/70 hover:text-white hover:underline">
+                                    <a href="#terms" className="text-sm text-white/70 hover:text-white hover:underline">
                                         Terms
                                     </a>
                                 </li>
                                 <li>
-                                    <a to="#" className="text-sm text-white/70 hover:text-white hover:underline">
+                                    <a href="#cookies" className="text-sm text-white/70 hover:text-white hover:underline">
                                         Cookie Policy
                                     </a>
                                 </li>
@@ -311,5 +336,5 @@ export function Layout({ children }) {
                 </div>
             </footer>
         </div>
-    )
+    );
 }

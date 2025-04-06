@@ -1,10 +1,9 @@
 import { Sparkles } from "lucide-react";
 import { Particles } from "../components/Particles";
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithPopup } from "firebase/auth";
+import { onAuthStateChanged, signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../Firebase";
 import { API_URL } from "../constants";
 
@@ -47,6 +46,9 @@ const LoginPage = () => {
             const user = result.user;
             console.log("Google sign in successful:", user.email);
     
+            // Store user email in localStorage
+            localStorage.setItem('userEmail', user.email);
+    
             // Prepare user data to send to the backend
             const googleUserData = {
                 name: user.displayName,
@@ -87,7 +89,6 @@ const LoginPage = () => {
         }
     };
     
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
@@ -97,6 +98,9 @@ const LoginPage = () => {
             const apiUrl = isLogin ? `${API_URL}/api/auth/login` : `${API_URL}/api/auth/register`;
             console.log(`Attempting to ${isLogin ? 'login' : 'sign up'} with email:`, formData.email);
     
+            // Store email in localStorage
+            localStorage.setItem('userEmail', formData.email);
+            
             // Prepare request payload using formData
             const requestBody = isLogin
                 ? { email: formData.email, password: formData.password } // Login payload
@@ -124,6 +128,10 @@ const LoginPage = () => {
             navigate('/');
         } catch (error) {
             console.error("Auth error:", error.message);
+            
+            // Remove email from localStorage if authentication fails
+            localStorage.removeItem('userEmail');
+            
             if (error.message.includes('User already exists')) {
                 setError('User already exists. Please login.');
                 setIsLogin(true);
@@ -143,8 +151,6 @@ const LoginPage = () => {
             setLoading(false);
         }
     };
-    
-    
 
     const toggleForm = () => {
         setIsLogin(!isLogin);
