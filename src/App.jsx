@@ -6,7 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import StudyBuddy from "./components/StudyBuddy";
 import Skills from "./components/Skills";
 import Tys from "./components/Tys";
-
+import PrivateRoute from "./components/PrivateRoute";
 
 const App = () => {
   return (
@@ -15,10 +15,26 @@ const App = () => {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/study-buddy" element={<StudyBuddy/>} />
-          <Route path="/kys" element={<Kys/>} />
-          <Route path="/skills" element={<Skills/>} />
-          <Route path="/tys" element={<Tys/>} />
+          <Route path="/study-buddy" element={
+            <PrivateRoute>
+              <StudyBuddy />
+            </PrivateRoute>
+          } />
+          <Route path="/kys" element={
+            <PrivateRoute>
+              <Kys />
+            </PrivateRoute>
+          } />
+          <Route path="/skills" element={
+            <PrivateRoute>
+              <Skills />
+            </PrivateRoute>
+          } />
+          <Route path="/tys" element={
+            <PrivateRoute>
+              <Tys />
+            </PrivateRoute>
+          } />
         </Routes>
       </div>
     </Router>
