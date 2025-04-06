@@ -7,6 +7,7 @@ import StudyBuddy from "./components/StudyBuddy";
 import Skills from "./components/Skills";
 import Tys from "./components/Tys";
 import PrivateRoute from "./components/PrivateRoute";
+import NotFoundPage from "./components/NotFoundPage";
 
 const App = () => {
   return (
@@ -35,6 +36,8 @@ const App = () => {
               <Tys />
             </PrivateRoute>
           } />
+
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
     </Router>
