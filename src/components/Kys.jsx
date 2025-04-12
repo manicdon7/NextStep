@@ -25,53 +25,68 @@ const THEME = {
 const PDFResult = ({ result, insights }) => (
   <div
     style={{
-      padding: '40px',
-      backgroundColor: '#ffffff',
+      padding: "40px",
+      backgroundColor: "#ffffff",
       color: THEME.secondary,
-      width: '800px',
-      fontFamily: 'Arial, sans-serif'
+      width: "800px",
+      fontFamily: "Arial, sans-serif",
     }}
   >
-    <div style={{ textAlign: 'center', marginBottom: '30px' }}>
-      <h1 style={{ fontSize: '28px', marginBottom: '10px', color: THEME.primary }}>
-        Next-Step Career Assessment
-      </h1>
-      <p style={{ color: '#666' }}>
-        Generated on: {new Date().toLocaleDateString()}
-      </p>
+    <div style={{ textAlign: "center", marginBottom: "30px" }}>
+      <h1 style={{ fontSize: "28px", marginBottom: "10px", color: THEME.primary }}>Next-Step Career Assessment</h1>
+      <p style={{ color: "#666" }}>Generated on: {new Date().toLocaleDateString()}</p>
     </div>
 
-    <div style={{ marginBottom: '30px' }}>
-      <h2 style={{ fontSize: '22px', color: THEME.secondary, marginBottom: '20px' }}>Career Matches</h2>
+    <div style={{ marginBottom: "30px" }}>
+      <h2 style={{ fontSize: "22px", color: THEME.secondary, marginBottom: "20px" }}>Career Matches</h2>
       {result?.domains?.map((domain, index) => (
-        <div key={index} style={{
-          marginBottom: '20px',
-          padding: '15px',
-          border: `1px solid ${THEME.primary}20`,
-          borderRadius: '8px'
-        }}>
-          <h3 style={{ fontSize: '18px', color: THEME.primary, marginBottom: '10px' }}>{domain.name}</h3>
-          <p style={{ color: '#666', marginBottom: '10px' }}>
-            {domain.keywords.join(' • ')}
-          </p>
-          <div style={{
-            fontSize: '24px',
-            color: THEME.secondary,
-            fontWeight: 'bold'
-          }}>
+        <div
+          key={index}
+          style={{
+            marginBottom: "20px",
+            padding: "15px",
+            border: `1px solid ${THEME.primary}20`,
+            borderRadius: "8px",
+          }}
+        >
+          <h3 style={{ fontSize: "18px", color: THEME.primary, marginBottom: "10px" }}>{domain.name}</h3>
+          <p style={{ color: "#666", marginBottom: "10px" }}>{domain.keywords.join(" • ")}</p>
+          <div
+            style={{
+              fontSize: "24px",
+              color: THEME.secondary,
+              fontWeight: "bold",
+            }}
+          >
             {domain.score}% Match
           </div>
         </div>
       ))}
     </div>
 
-    <div style={{ marginTop: '30px' }}>
-      <h2 style={{ fontSize: '22px', color: THEME.secondary, marginBottom: '20px' }}>Career Insights</h2>
-      <div style={{
-        color: '#444',
-        lineHeight: '1.6',
-        whiteSpace: 'pre-wrap'
-      }}>
+    <div style={{ marginTop: "30px" }}>
+      <h2
+        style={{
+          fontSize: "22px",
+          color: THEME.secondary,
+          marginBottom: "20px",
+          fontWeight: "bold",
+          borderBottom: `2px solid ${THEME.primary}`,
+          paddingBottom: "10px",
+        }}
+      >
+        Career Insights
+      </h2>
+      <div
+        style={{
+          color: "#444",
+          lineHeight: "1.6",
+          whiteSpace: "pre-wrap",
+          padding: "15px",
+          border: `1px solid ${THEME.primary}20`,
+          borderRadius: "8px",
+        }}
+      >
         {insights}
       </div>
     </div>
@@ -107,13 +122,13 @@ const Kys = () => {
   useEffect(() => {
     setQuestion(questions);
     setChoice(choices);
-    
+
     // Set full screen styles
     document.body.style.margin = "0";
     document.body.style.padding = "0";
     document.body.style.overflow = "hidden";
     document.body.style.backgroundColor = THEME.secondary;
-    
+
     return () => {
       // Cleanup styles when component unmounts
       document.body.style.margin = "";
@@ -132,76 +147,250 @@ const Kys = () => {
       calculateResults();
     }
   };
-
+  
   const downloadPDF = async () => {
     if (!pdfRef.current) {
       console.error('PDF reference not found');
       return;
     }
-
+  
     try {
-      setIsLoading(true);
-
-      // Configure html2canvas with optimal settings
-      const canvas = await html2canvas(pdfRef.current, {
-        scale: 1, 
-        useCORS: true,
-        logging: false,
-        backgroundColor: '#ffffff',
-        removeContainer: true,
-        imageTimeout: 0,
-        onclone: (clonedDoc) => {
-          // Ensure all styles are computed before capture
-          const element = clonedDoc.querySelector('#pdf-content');
-          if (element) {
-            element.style.width = '800px';
-            element.style.height = 'auto';
-          }
-        }
-      });
-
+      setIsLoading(true)
+  
       // Create PDF with proper dimensions
-      const imgData = canvas.toDataURL('image/jpeg', 1.0); // Using JPEG instead of PNG
       const pdf = new jsPDF({
-        orientation: 'portrait',
-        unit: 'mm',
-        format: 'a4'
-      });
-
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-      const imgWidth = canvas.width;
-      const imgHeight = canvas.height;
-      const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
-      const imgX = (pdfWidth - imgWidth * ratio) / 2;
-      const imgY = 0;
-
-      // Add content to PDF
-      pdf.setFontSize(24);
-      pdf.setTextColor(173, 70, 255); // THEME.primary
-      pdf.text('Next-Step Career Assessment', pdfWidth / 2, 20, { align: 'center' });
-
-      try {
-        pdf.addImage(
-          imgData,
-          'JPEG',
-          imgX,
-          30, // Start after the title
-          imgWidth * ratio,
-          imgHeight * ratio
-        );
-      } catch (imageError) {
-        console.error('Error adding image to PDF:', imageError);
-        // Fallback to text-only PDF
-        pdf.text('Error adding visual content. Please try again.', 20, 50);
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4",
+      })
+  
+      const pdfWidth = pdf.internal.pageSize.getWidth()
+      const pdfHeight = pdf.internal.pageSize.getHeight()
+  
+      // Create separate elements for each page
+      const pageElements = []
+  
+      // Page 1: Title and introduction
+      const titlePage = document.createElement("div")
+      titlePage.style.width = "794px"
+      titlePage.style.height = "1123px"
+      titlePage.style.padding = "40px"
+      titlePage.style.backgroundColor = "#ffffff"
+      titlePage.style.position = "relative"
+      titlePage.style.border = `5px solid ${THEME.primary}`
+      titlePage.style.boxSizing = "border-box"
+      titlePage.innerHTML = `
+        <div style="text-align: center; margin-top: 350px;">
+          <h1 style="font-size: 32px; margin-bottom: 10px; color: ${THEME.primary}">Next-Step Career Assessment</h1>
+          <p style="color: #666;">Generated on: ${new Date().toLocaleDateString()}</p>
+        </div>
+        <div style="margin-top: 50px; text-align: center;">
+          <p style="font-size: 18px; color: #444; margin-bottom: 20px;">
+            This report contains your personalized career assessment results based on your responses.
+          </p>
+          <p style="font-size: 16px; color: #666;">
+            The following pages contain your Career Matches and detailed Career Insights.
+          </p>
+        </div>
+        <div style="position: absolute; bottom: 20px; text-align: center; width: calc(100% - 80px);">
+          <p style="color: #888; font-size: 12px;">Page 1</p>
+        </div>
+      `
+      pageElements.push(titlePage)
+  
+      // Career Matches - Split across multiple pages if needed
+      if (result?.domains && result.domains.length > 0) {
+        // Changed from 3 to 5 career matches per page
+        const domainsPerPage = 5 
+        const totalDomainPages = Math.ceil(result.domains.length / domainsPerPage)
+  
+        for (let pageIndex = 0; pageIndex < totalDomainPages; pageIndex++) {
+          const startIdx = pageIndex * domainsPerPage
+          const endIdx = Math.min(startIdx + domainsPerPage, result.domains.length)
+          const currentPageDomains = result.domains.slice(startIdx, endIdx)
+  
+          const matchesPage = document.createElement("div")
+          matchesPage.style.width = "794px"
+          matchesPage.style.height = "1123px"
+          matchesPage.style.padding = "40px"
+          matchesPage.style.backgroundColor = "#ffffff"
+          matchesPage.style.position = "relative"
+          matchesPage.style.border = `5px solid ${THEME.primary}`
+          matchesPage.style.boxSizing = "border-box"
+  
+          let matchesHTML = `
+            <h2 style="font-size: 24px; color: ${THEME.secondary}; margin-bottom: 30px; border-bottom: 2px solid ${THEME.primary}; padding-bottom: 10px;">
+              ${pageIndex === 0 ? "Career Matches" : "Career Matches"}
+            </h2>
+          `
+  
+          // Add each domain for this page
+          currentPageDomains.forEach((domain) => {
+            // Adjusted margin and padding slightly to fit 5 items
+            matchesHTML += `
+              <div style="margin-bottom: 20px; padding: 15px; border: 1px solid ${THEME.primary}20; border-radius: 8px; background-color: #fafafa;">
+                <h3 style="font-size: 20px; color: ${THEME.primary}; margin-bottom: 10px;">${domain.name}</h3>
+                <p style="color: #666; margin-bottom: 10px; font-size: 14px;">${domain.keywords.join(" • ")}</p>
+                <div style="font-size: 24px; color: ${THEME.secondary}; font-weight: bold;">
+                  ${domain.score}% Match
+                </div>
+              </div>
+            `
+          })
+  
+          // Add page number
+          const pageNum = pageIndex + 2 // +2 because title page is page 1
+          matchesHTML += `
+            <div style="position: absolute; bottom: 20px; text-align: center; width: calc(100% - 80px);">
+              <p style="color: #888; font-size: 12px;">Page ${pageNum}</p>
+            </div>
+          `
+  
+          matchesPage.innerHTML = matchesHTML
+          pageElements.push(matchesPage)
+        }
       }
-
+  
+      // Calculate the starting page number for insights
+      const insightsStartPage = pageElements.length + 1
+  
+      // Career Insights - Split across multiple pages if needed
+      if (insights) {
+        // Function to convert markdown to HTML
+        const convertMarkdownToHTML = (text) => {
+          // Convert headings (### Heading)
+          text = text.replace(/###\s+([^\n]+)/g, '<h3 style="font-size: 18px; font-weight: bold; margin-top: 15px; margin-bottom: 10px; color: ' + THEME.secondary + ';">$1</h3>');
+          text = text.replace(/##\s+([^\n]+)/g, '<h2 style="font-size: 20px; font-weight: bold; margin-top: 20px; margin-bottom: 10px; color: ' + THEME.secondary + ';">$1</h2>');
+          text = text.replace(/#\s+([^\n]+)/g, '<h1 style="font-size: 22px; font-weight: bold; margin-top: 25px; margin-bottom: 15px; color: ' + THEME.secondary + ';">$1</h1>');
+          
+          // Convert bold (**text**)
+          text = text.replace(/\*\*([^*]+)\*\*/g, '<strong style="font-weight: bold;">$1</strong>');
+          
+          // Convert italic (*text*)
+          text = text.replace(/\*([^*]+)\*/g, '<em style="font-style: italic;">$1</em>');
+          
+          
+          // Convert lists
+          text = text.replace(/^\s*-\s+(.+)$/gm, '<li style="margin-bottom: 5px;">$1</li>');
+          text = text.replace(/(<li[^>]*>[\s\S]*?<\/li>)/g, '<ul style="margin-top: 10px; margin-bottom: 10px; padding-left: 20px;">$1</ul>');
+          
+          // Convert paragraphs (double line breaks)
+          text = text.replace(/\n\n/g, '</p><p style="margin-bottom: 15px; line-height: 1.6;">');
+          
+          // Wrap with paragraph tags if not already done
+          if (!text.startsWith('<')) {
+            text = '<p style="margin-bottom: 15px; line-height: 1.6;">' + text;
+          }
+          if (!text.endsWith('>')) {
+            text += '</p>';
+          }
+          
+          return text;
+        };
+  
+        // Split insights into chunks by paragraphs for better pagination
+        const splitInsightsIntoParagraphs = (text) => {
+          // Split by double line breaks (paragraphs)
+          const paragraphs = text.split(/\n\n+/);
+          const chunks = [];
+          let currentChunk = [];
+          let currentLength = 0;
+          
+          // Target size for each chunk (in characters)
+          const targetChunkSize = 2500;
+          
+          paragraphs.forEach(paragraph => {
+            // If adding this paragraph would exceed our target size and we already have content
+            if (currentLength + paragraph.length > targetChunkSize && currentLength > 0) {
+              // Save current chunk and start a new one
+              chunks.push(currentChunk.join('\n\n'));
+              currentChunk = [paragraph];
+              currentLength = paragraph.length;
+            } else {
+              // Add to current chunk
+              currentChunk.push(paragraph);
+              currentLength += paragraph.length + 2; // +2 for the line breaks
+            }
+          });
+          
+          // Add the last chunk if not empty
+          if (currentChunk.length > 0) {
+            chunks.push(currentChunk.join('\n\n'));
+          }
+          
+          return chunks.length > 0 ? chunks : [text]; // Return the original text if no chunks were created
+        };
+        
+        // Format insights text with proper HTML formatting and split into chunks
+        const insightsText = insights || "";
+        const chunks = splitInsightsIntoParagraphs(insightsText);
+        
+        // Create pages for insights
+        for (let i = 0; i < chunks.length; i++) {
+          const chunkFormatted = convertMarkdownToHTML(chunks[i]);
+          
+          const insightsPage = document.createElement("div");
+          insightsPage.style.width = "794px";
+          insightsPage.style.height = "1123px";
+          insightsPage.style.padding = "40px";
+          insightsPage.style.backgroundColor = "#ffffff";
+          insightsPage.style.position = "relative";
+          insightsPage.style.border = `5px solid ${THEME.primary}`;
+          insightsPage.style.boxSizing = "border-box";
+  
+          const pageTitle = "Career Insights";
+          
+          insightsPage.innerHTML = `
+            <h2 style="font-size: 24px; color: ${THEME.secondary}; margin-bottom: 20px; border-bottom: 2px solid ${THEME.primary}; padding-bottom: 10px;">
+              ${pageTitle}
+            </h2>
+            <div style="color: #444; line-height: 1.6; font-size: 15px; display: flex; flex-direction: column; min-height: 900px;">
+              ${chunkFormatted}
+            </div>
+            <div style="position: absolute; bottom: 20px; text-align: center; width: calc(100% - 80px);">
+              <p style="color: #888; font-size: 12px;">Page ${insightsStartPage + i}</p>
+            </div>
+          `;
+          pageElements.push(insightsPage);
+        }
+      }
+  
+      // Process each page element and add to PDF
+      for (let i = 0; i < pageElements.length; i++) {
+        const pageElement = pageElements[i];
+  
+        // Temporarily add to document for rendering
+        document.body.appendChild(pageElement);
+  
+        // If not the first page, add a new page to PDF
+        if (i > 0) {
+          pdf.addPage();
+        }
+  
+        // Render the page to canvas
+        const canvas = await html2canvas(pageElement, {
+          scale: 2,
+          useCORS: true,
+          logging: false,
+          backgroundColor: "#ffffff",
+        });
+  
+        // Add to PDF
+        const imgData = canvas.toDataURL("image/jpeg", 1.0);
+        const imgWidth = pdfWidth;
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+  
+        pdf.addImage(imgData, "JPEG", 0, 0, imgWidth, imgHeight);
+  
+        // Remove the temporary element
+        document.body.removeChild(pageElement);
+      }
+  
       // Save the PDF
       pdf.save(`next-step-career-assessment-${Date.now()}.pdf`);
-
     } catch (error) {
-      console.error('Error generating PDF:', error);
-      alert('There was an error generating your PDF. Please try again.');
+      console.error("Error generating PDF:", error);
+      alert("There was an error generating your PDF. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -276,16 +465,16 @@ const Kys = () => {
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -20, opacity: 0 }}
       className="relative backdrop-blur-xl p-8 rounded-2xl shadow-2xl border border-white/10 w-full max-w-md overflow-hidden"
-      style={{ 
+      style={{
         background: `linear-gradient(135deg, ${THEME.secondaryLight}80, ${THEME.secondary}90)`,
         boxShadow: `0 10px 30px rgba(0, 0, 0, 0.3), 0 0 30px ${THEME.primary}30`
       }}
     >
       {/* Decorative elements */}
-      <div className="absolute -top-12 -right-12 w-24 h-24 rounded-full blur-2xl" 
-           style={{ background: `radial-gradient(circle, ${THEME.primary}30, ${THEME.primary}10)` }} />
-      <div className="absolute -bottom-12 -left-12 w-24 h-24 rounded-full blur-2xl" 
-           style={{ background: `radial-gradient(circle, ${THEME.primary}20, ${THEME.secondary}20)` }} />
+      <div className="absolute -top-12 -right-12 w-24 h-24 rounded-full blur-2xl"
+        style={{ background: `radial-gradient(circle, ${THEME.primary}30, ${THEME.primary}10)` }} />
+      <div className="absolute -bottom-12 -left-12 w-24 h-24 rounded-full blur-2xl"
+        style={{ background: `radial-gradient(circle, ${THEME.primary}20, ${THEME.secondary}20)` }} />
 
       {/* Question header */}
       <div className="flex items-center gap-3 mb-6">
@@ -325,8 +514,8 @@ const Kys = () => {
             transition={{ delay: index * 0.1 }}
             onClick={() => onAnswer(question.id, choice.value)}
             className="w-full backdrop-blur-sm py-4 px-6 rounded-xl transition-all duration-200 flex items-center gap-4 group hover:shadow-lg"
-            style={{ 
-              backgroundColor: 'rgba(255, 255, 255, 0.05)', 
+            style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.05)',
               borderColor: 'rgba(255, 255, 255, 0.1)',
               border: '1px solid rgba(255, 255, 255, 0.1)',
               color: THEME.text.light
@@ -361,7 +550,7 @@ const Kys = () => {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         className="backdrop-blur-lg p-8 rounded-xl shadow-xl border border-white/10 w-full max-w-4xl"
-        style={{ 
+        style={{
           background: `linear-gradient(135deg, ${THEME.secondaryLight}90, ${THEME.secondary}95)`,
           boxShadow: `0 10px 30px rgba(0, 0, 0, 0.2), 0 0 20px ${THEME.primary}20`
         }}
@@ -376,7 +565,7 @@ const Kys = () => {
           </div>
           <Link to="/" className="flex items-center space-x-2">
             <Sparkles className="h-6 w-6" style={{ color: THEME.primary }} />
-            <span className="text-xl font-bold" style={{ 
+            <span className="text-xl font-bold" style={{
               background: `linear-gradient(to right, ${THEME.primary}, ${THEME.primaryLight})`,
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent'
@@ -403,7 +592,7 @@ const Kys = () => {
                       <div
                         key={index}
                         className="backdrop-blur-sm rounded-lg p-4 shadow-sm border"
-                        style={{ 
+                        style={{
                           backgroundColor: 'rgba(255, 255, 255, 0.1)',
                           borderColor: 'rgba(255, 255, 255, 0.05)'
                         }}
@@ -477,8 +666,9 @@ const Kys = () => {
             onClick={downloadPDF}
             disabled={isLoading}
             className="flex-1 text-white py-4 px-6 rounded-lg flex items-center justify-center space-x-2 transition-colors duration-200 font-medium disabled:opacity-50 cursor-pointer"
-            style={{ 
+            style={{
               background: `linear-gradient(135deg, ${THEME.primary}, ${THEME.primaryLight})`,
+              cursor: isLoading ? "not-allowed" : "pointer",
               boxShadow: `0 4px 10px ${THEME.primary}40`
             }}
           >
@@ -500,7 +690,7 @@ const Kys = () => {
             whileTap={{ scale: 0.98 }}
             onClick={() => window.location.reload()}
             className="flex-1 text-white py-4 px-6 rounded-lg flex items-center justify-center space-x-2 transition-colors duration-200 font-medium cursor-pointer"
-            style={{ 
+            style={{
               backgroundColor: THEME.secondaryLight,
               border: `1px solid ${THEME.primary}40`,
             }}
@@ -519,15 +709,15 @@ const Kys = () => {
   );
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4" 
-         style={{ 
-           background: `radial-gradient(circle at top right, ${THEME.secondaryLight}, ${THEME.secondary})`,
-           height: '100vh',
-           width: '100vw',
-           margin: 0,
-           padding: 0,
-           overflow: 'hidden'
-         }}>
+    <div className="min-h-screen flex flex-col items-center justify-center p-4"
+      style={{
+        background: `radial-gradient(circle at top right, ${THEME.secondaryLight}, ${THEME.secondary})`,
+        height: '100vh',
+        width: '100vw',
+        margin: 0,
+        padding: 0,
+        overflow: 'hidden'
+      }}>
       <AnimatePresence mode="wait">
         {showLoadingScreen && !result && (
           <LoadingScreen key="loading" />

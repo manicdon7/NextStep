@@ -1,7 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Particles } from './Particles';
-import FuzzyText from './FizzyText';
 
 const NotFoundPage = () => {
   return (
