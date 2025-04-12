@@ -89,7 +89,7 @@ export function Layout({ children }) {
             <button
                 ref={buttonRef}
                 onClick={toggleDropdown}
-                className="flex items-center space-x-2 text-white/90 hover:text-white bg-purple-500 hover:bg-purple-600 rounded-xl p-2"
+                className="flex items-center space-x-2 text-white/90 hover:text-white bg-purple-500 hover:bg-purple-600 rounded-xl p-2 cursor-pointer"
             >
                 {user?.photoURL ? (
                     <img
@@ -98,7 +98,7 @@ export function Layout({ children }) {
                         className="w-8 h-8 rounded-full"
                     />
                 ) : (
-                    <div className="w-8 h-8 rounded-full bg-purple-500 hover:bg-purple-600 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-purple-500 hover:bg-purple-600 flex items-center justify-center ">
                         <User className="w-5 h-5 text-white" />
                     </div>
                 )}
@@ -109,14 +109,14 @@ export function Layout({ children }) {
                 <div ref={dropdownRef} className="absolute right-0 mt-2 w-48 bg-purple-500 border border-white/10 rounded-md shadow-lg py-1 z-50">
                     <Link
                         to="/profile"
-                        className="block w-full text-left px-4 py-2 text-sm text-white hover:text-white hover:bg-purple-800"
+                        className="block w-full text-left px-4 py-2 text-sm text-white hover:text-white hover:bg-purple-800 cursor-pointer"
                         onClick={() => setIsDropdownOpen(false)}
                     >
                         My Profile
                     </Link>
                     <button
                         onClick={handleLogout}
-                        className="block w-full text-left px-4 py-2 text-sm text-white hover:text-white hover:bg-purple-800"
+                        className="block w-full text-left px-4 py-2 text-sm text-white hover:text-white hover:bg-purple-800 cursor-pointer"
                     >
                         Log Out
                     </button>
@@ -167,7 +167,7 @@ export function Layout({ children }) {
 
                         {/* Mobile Menu Button */}
                         <button
-                            className="md:hidden text-white/70 hover:text-white"
+                            className="md:hidden text-white/70 hover:text-white cursor-pointer"
                             onClick={toggleMenu}
                         >
                             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -218,14 +218,14 @@ export function Layout({ children }) {
                                         </div>
                                         <Link
                                             to="/profile"
-                                            className="block w-full bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded text-center mb-2"
+                                            className="block w-full bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded text-center mb-2 cursor-pointer"
                                             onClick={() => setIsMenuOpen(false)}
                                         >
                                             My Profile
                                         </Link>
                                         <button
                                             onClick={handleLogout}
-                                            className="w-full bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded"
+                                            className="w-full bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded cursor-pointer"
                                         >
                                             Log Out
                                         </button>
@@ -244,7 +244,8 @@ export function Layout({ children }) {
                 </div>
             </nav>
             <main className="pt-16">{children}</main>
-            <footer className="border-t border-white/10 bg-black/20 backdrop-blur-md">
+            <div className='border-t border-white/10 bg-black/20 backdrop-blur-md '>
+            <footer className="pl-2 md:pl-4 lg:pl-20">
                 <div className="container mx-auto py-8 md:py-12 px-4">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         <div>
@@ -330,11 +331,12 @@ export function Layout({ children }) {
                     </div>
                     <div className="mt-8 pt-8 border-t border-white/10">
                         <p className="text-center text-sm text-white/70">
-                            © {new Date().getFullYear()} next-step. All rights reserved.
+                        NextStep © {new Date().getFullYear()} | Expand your knowledge and skills
                         </p>
                     </div>
                 </div>
             </footer>
+            </div>
         </div>
     );
 }

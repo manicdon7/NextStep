@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, Loader, BookOpen, Sparkles } from 'lucide-react';
+import { Send, Bot, User, Loader, BookOpen, Sparkles, Minimize2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { Particles } from './Particles';
-import { Link, useLocation  } from 'react-router-dom';
+import { Link, useLocation , useNavigate } from 'react-router-dom';
 import { saveMessages, loadMessages } from "./ChatStorage";
 
 
@@ -22,6 +22,7 @@ const StudyBuddy = () => {
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -45,7 +46,9 @@ const StudyBuddy = () => {
     }
   }, [input]);
 
-
+  const handleFullscreen = () => {
+    navigate("/#chat", { state: { messages } });
+  };
 
   // ... (previous imports and component code remains the same)
 
@@ -160,6 +163,7 @@ const StudyBuddy = () => {
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col h-full">
             {/* Enhanced Header */}
             <div className="bg-gradient-to-r from-violet-600 via-purple-500 to-violet-400 p-4 sm:p-6">
+              <div className='flex justify-between'>
               <div className="flex items-center space-x-4">
                 <div className="bg-violet-400 p-3 rounded-xl">
                   <BookOpen className="w-8 h-8 text-white" />
@@ -172,6 +176,13 @@ const StudyBuddy = () => {
                   <p className="text-blue-100 text-sm sm:text-base">Your intelligent learning companion</p>
                 </div>
               </div>
+              <button
+               onClick={handleFullscreen}
+                  className="text-white hover:bg-white/20 p-2 rounded-lg transition-colors"
+                >
+                  <Minimize2 className="w-10 h-8" />
+                </button>
+                </div>
             </div>
 
             {/* Messages Area */}
@@ -266,6 +277,9 @@ const StudyBuddy = () => {
             </div>
           </div>
         </div>
+        {/* <footer className="py-6 text-center text-gray-400 text-sm">
+        <p>NextStep © {new Date().getFullYear()} | Expand your knowledge and skills</p>
+      </footer> */}
       </div>
  
   );

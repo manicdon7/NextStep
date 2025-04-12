@@ -256,9 +256,11 @@ const Chat = ({ isOpen, onClose }) => {
 
               {loading && (
                 <div className="flex items-start space-x-2">
+                  <Link to="/">
                   <div className="w-8 h-8 rounded-xl bg-purple-500 flex items-center justify-center">
                     <Bot className="w-5 h-5 text-white" />
                   </div>
+                  </Link>
                   <div className="bg-white rounded-2xl p-3 shadow-md">
                     <TypingIndicator />
                   </div>
