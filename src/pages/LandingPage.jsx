@@ -129,7 +129,7 @@ export default function Home() {
                 </Link>
                 <a href="#modules">
                 <ScaleOnHover>
-                  <button className="border border-purple-500 text-purple-400 px-6 py-3 rounded-md text-lg font-medium">
+                  <button className="border border-purple-500 text-purple-400 px-6 py-3 rounded-md text-lg font-medium cursor-pointer">
                     Learn More
                   </button>
                 </ScaleOnHover>
@@ -236,7 +236,7 @@ export default function Home() {
                       <h3 className="text-xl font-semibold text-white mb-2">{module.title}</h3>
                       <p className="text-white/70">{module.description}</p>
                       <div className="flex justify-end">
-                        <button onClick={() => window.location.href = module.link} className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded hover:scale-105">Read More</button>
+                        <button onClick={() => window.location.href = module.link} className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded hover:scale-105 cursor-pointer">Read More</button>
                       </div>
                     </div>
                   </ScaleOnHover>
@@ -264,7 +264,7 @@ export default function Home() {
                   At next-step, we're committed to revolutionizing career development through cutting-edge AI technology and personalized guidance. Our mission is to empower individuals to discover their true potential and navigate their career paths with confidence.
                 </p>
                 <ScaleOnHover>
-                  <button className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-md text-lg font-medium">
+                  <button className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-md text-lg font-medium ">
                     Learn More About Us
                   </button>
                 </ScaleOnHover>
@@ -367,7 +367,7 @@ export default function Home() {
                 </p>
                 <Link to="/kys">
                 <ScaleOnHover>
-                  <button className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-md text-lg font-medium">
+                  <button className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-md text-lg font-medium cursor-pointer">
                     Get Started Now
                   </button>
                 </ScaleOnHover>

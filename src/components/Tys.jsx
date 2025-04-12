@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const Tys = () => {
   const [selectedDomain, setSelectedDomain] = useState(null);
@@ -228,7 +228,7 @@ const Tys = () => {
 
       {/* Footer */}
       <footer className="py-6 text-center text-gray-400 text-sm">
-        <p>NextStep © 2025 | Expand your knowledge and skills</p>
+        <p>NextStep © {new Date().getFullYear()} | Expand your knowledge and skills</p>
       </footer>
     </div>
   );

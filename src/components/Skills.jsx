@@ -350,8 +350,8 @@ const SoftSkillsTracker = () => {
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <h3 className="text-2xl font-bold text-[#4B2E87] mb-4">Your Soft Skills Journey</h3>
-      <p className="text-gray-700 mb-6 text-sm">Track your mastery and celebrate your achievements.</p>
+      <h3 className="text-2xl font-bold text-white mb-4">Your Soft Skills Journey</h3>
+      <p className="text-gray-400 mb-6 text-sm">Track your mastery and celebrate your achievements.</p>
       
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-7">
         {skillsData.map((skill, idx) => {
@@ -384,7 +384,7 @@ const SoftSkillsTracker = () => {
       
       <div className="mt-6 text-center">
         <motion.button 
-          className="bg-gradient-to-r from-[#4B2E87] to-[#A89CD6] text-white py-2 px-6 rounded-full shadow-lg hover:from-[#A89CD6] hover:to-[#4B2E87] transition-all duration-300"
+          className="bg-gradient-to-r from-[#4B2E87] to-[#A89CD6] text-white py-2 px-6 rounded-full shadow-lg hover:from-[#A89CD6] hover:to-[#4B2E87] transition-all duration-300 cursor-pointer"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -480,7 +480,7 @@ const Skills = () => {
           </div>
           <div className="mt-8 text-center">
             <motion.button 
-              className="bg-gradient-to-r from-[#4B2E87] to-[#A89CD6] text-white font-medium py-2 px-8 rounded-full shadow-lg hover:from-[#A89CD6] hover:to-[#4B2E87] transition-all duration-300"
+              className="bg-gradient-to-r from-[#4B2E87] to-[#A89CD6] text-white font-medium py-2 px-8 rounded-full shadow-lg hover:from-[#A89CD6] hover:to-[#4B2E87] transition-all duration-300 cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -492,6 +492,10 @@ const Skills = () => {
         {/* Modal */}
         {selectedSkill && <SkillModal skill={selectedSkill} closeModal={closeModal} />}
       </div>
+
+      <footer className="py-6 text-center text-gray-400 text-sm">
+        <p>NextStep © {new Date().getFullYear()} | Expand your knowledge and skills</p>
+      </footer>
     </div>
   );
 };
