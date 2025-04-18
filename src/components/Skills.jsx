@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { 
-  BookOpen, Users, MessageCircle, Briefcase, Clock, Globe, Brain, X, Play, CheckCircle, ExternalLink
-} from 'lucide-react';
+  BookOpen, Users, MessageCircle, Briefcase, Clock, Globe, Brain, X, Play, CheckCircle, ExternalLink, Sparkles } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import skillsData from '../json/skillsData.json';
 import { Particles } from './Particles';
+import { Link} from 'react-router-dom';
 
 // Map string icon names to actual components
 const iconMap = {
@@ -405,6 +405,14 @@ const Skills = () => {
 
   return (
     <div className="bg-gradient-to-b from-[#4B2E87] to-[#1e2447] min-h-screen">
+      <div className="p-4 md:p-6">
+          <Link to="/" className="flex items-center space-x-2">
+            <Sparkles className="h-8 w-8 md:h-10 md:w-10 text-purple-400" />
+            <span className="text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+              Next-Step
+            </span>
+          </Link>
+        </div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-20">
         <Particles />
         {/* Hero Section */}

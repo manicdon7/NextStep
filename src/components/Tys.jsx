@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import ResourceTimeline from "./resource-timeline"
 import resourcesData from "../data/resouces.json"
+import { Sparkles } from 'lucide-react';
+import { Link} from 'react-router-dom';
 
 const Tys = () => {
   const [selectedDomain, setSelectedDomain] = useState(null)
@@ -219,6 +221,14 @@ const Tys = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0D1324] to-[#1A2540]">
       {/* Header */}
+      <div className="p-4 md:p-6">
+          <Link to="/" className="flex items-center space-x-2">
+            <Sparkles className="h-8 w-8 md:h-10 md:w-10 text-purple-400" />
+            <span className="text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+              Next-Step
+            </span>
+          </Link>
+        </div>
       <header className="p-6 text-center">
         <h1 className="text-4xl font-bold text-white mb-2">
           <span className="text-[#AD46FF]">Train</span> Yourself
