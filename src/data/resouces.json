@@ -1,0 +1,2404 @@
+{
+    "cs": {
+        "beginner": [
+            {
+                "id": "cs_beg_1",
+                "type": "video",
+                "title": "Introduction to Programming",
+                "url": "https://www.youtube.com/watch?v=zOjov-2OZ0E",
+                "description": "Fundamentals of programming concepts",
+                "unlockRequirement": null,
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "cs_beg_2",
+                "type": "blog",
+                "title": "Getting Started with Python",
+                "url": "https://medium.com/swlh/python-for-beginners-the-ultimate-guide-37ac3fa4f35c",
+                "description": "Easy guide to Python basics",
+                "unlockRequirement": "cs_beg_1",
+                "estimatedTime": "30 min"
+            },
+            {
+                "id": "cs_beg_3",
+                "type": "pdf",
+                "title": "Computer Science Fundamentals",
+                "url": "https://greenteapress.com/thinkpython/thinkpython.pdf",
+                "description": "Core CS concepts explained simply",
+                "unlockRequirement": "cs_beg_2",
+                "estimatedTime": "2 hours"
+            }
+        ],
+        "intermediate": [
+            {
+                "id": "cs_int_1",
+                "type": "video",
+                "title": "Data Structures & Algorithms",
+                "url": "https://www.youtube.com/watch?v=B31LgI4Y4DQ",
+                "description": "Deep dive into DSA concepts",
+                "unlockRequirement": null,
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "cs_int_2",
+                "type": "blog",
+                "title": "Web Development Frameworks",
+                "url": "https://medium.com/javarevisited/10-best-frontend-frameworks-for-web-development-in-2021-5ee67e7f48e5",
+                "description": "Comparing popular web frameworks",
+                "unlockRequirement": "cs_int_1",
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "cs_int_3",
+                "type": "pdf",
+                "title": "Object-Oriented Programming",
+                "url": "https://web.mit.edu/6.031/www/sp21/ocw/refs/pdf/oopvoodoo.pdf",
+                "description": "Comprehensive guide to OOP principles",
+                "unlockRequirement": "cs_int_2",
+                "estimatedTime": "3 hours"
+            }
+        ],
+        "advanced": [
+            {
+                "id": "cs_adv_1",
+                "type": "video",
+                "title": "System Design & Architecture",
+                "url": "https://www.youtube.com/watch?v=ZgdS0EUmn70",
+                "description": "Building scalable systems",
+                "unlockRequirement": null,
+                "estimatedTime": "1.5 hours"
+            },
+            {
+                "id": "cs_adv_2",
+                "type": "blog",
+                "title": "Advanced Database Concepts",
+                "url": "https://medium.com/swlh/advanced-sql-techniques-you-need-to-know-for-data-science-91bec94f57f5",
+                "description": "Beyond basic database management",
+                "unlockRequirement": "cs_adv_1",
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "cs_adv_3",
+                "type": "pdf",
+                "title": "Machine Learning Algorithms",
+                "url": "https://web.stanford.edu/~hastie/Papers/ESLII.pdf",
+                "description": "Mathematical foundations of ML",
+                "unlockRequirement": "cs_adv_2",
+                "estimatedTime": "4 hours"
+            }
+        ]
+    },
+    "data": {
+        "beginner": [
+            {
+                "id": "data_beg_1",
+                "type": "video",
+                "title": "Introduction to Data Analysis",
+                "url": "https://www.youtube.com/watch?v=UA-XIxK6c2k",
+                "description": "Basic concepts and tools",
+                "unlockRequirement": null,
+                "estimatedTime": "35 min"
+            },
+            {
+                "id": "data_beg_2",
+                "type": "blog",
+                "title": "Getting Started with Excel",
+                "url": "https://medium.com/analytics-vidhya/excel-for-data-analysis-42f3277ff3a4",
+                "description": "Excel fundamentals for data analysis",
+                "unlockRequirement": "data_beg_1",
+                "estimatedTime": "40 min"
+            },
+            {
+                "id": "data_beg_3",
+                "type": "pdf",
+                "title": "Statistics Primer",
+                "url": "https://web.mit.edu/~csvoss/Public/usabo/stats_handout.pdf",
+                "description": "Essential statistical concepts",
+                "unlockRequirement": "data_beg_2",
+                "estimatedTime": "1.5 hours"
+            }
+        ],
+        "intermediate": [
+            {
+                "id": "data_int_1",
+                "type": "video",
+                "title": "Python for Data Analysis",
+                "url": "https://www.youtube.com/watch?v=r-uOLxNrNk8",
+                "description": "Using pandas and numpy",
+                "unlockRequirement": null,
+                "estimatedTime": "1.5 hours"
+            },
+            {
+                "id": "data_int_2",
+                "type": "blog",
+                "title": "Data Visualization Techniques",
+                "url": "https://towardsdatascience.com/data-visualization-for-machine-learning-and-data-science-a45178970be7",
+                "description": "Creating effective visualizations",
+                "unlockRequirement": "data_int_1",
+                "estimatedTime": "50 min"
+            },
+            {
+                "id": "data_int_3",
+                "type": "pdf",
+                "title": "SQL for Data Analysts",
+                "url": "https://www.w3schools.com/sql/sql_quickref.asp",
+                "description": "Database queries for analysis",
+                "unlockRequirement": "data_int_2",
+                "estimatedTime": "2 hours"
+            }
+        ],
+        "advanced": [
+            {
+                "id": "data_adv_1",
+                "type": "video",
+                "title": "Advanced Predictive Modeling",
+                "url": "https://www.youtube.com/watch?v=68ABAU_V8qI",
+                "description": "Complex data modeling techniques",
+                "unlockRequirement": null,
+                "estimatedTime": "2 hours"
+            },
+            {
+                "id": "data_adv_2",
+                "type": "blog",
+                "title": "Big Data Technologies",
+                "url": "https://towardsdatascience.com/big-data-analysis-spark-and-hadoop-a11ba591c057",
+                "description": "Working with large-scale data",
+                "unlockRequirement": "data_adv_1",
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "data_adv_3",
+                "type": "pdf",
+                "title": "Time Series Analysis",
+                "url": "https://otexts.com/fpp2/index.html",
+                "description": "Methods for temporal data analysis",
+                "unlockRequirement": "data_adv_2",
+                "estimatedTime": "3 hours"
+            }
+        ]
+    },
+    "pm": {
+        "beginner": [
+            {
+                "id": "pm_beg_1",
+                "type": "video",
+                "title": "Project Management Fundamentals",
+                "url": "https://www.youtube.com/watch?v=ff5cBkPg-bQ",
+                "description": "Introduction to project management principles",
+                "unlockRequirement": null,
+                "estimatedTime": "40 min"
+            },
+            {
+                "id": "pm_beg_2",
+                "type": "blog",
+                "title": "Understanding Project Scope",
+                "url": "https://medium.com/swlh/mastering-project-scope-a-guide-for-project-managers-1b4a3a1102a1",
+                "description": "How to properly define project boundaries",
+                "unlockRequirement": "pm_beg_1",
+                "estimatedTime": "25 min"
+            },
+            {
+                "id": "pm_beg_3",
+                "type": "pdf",
+                "title": "Project Management Terminology",
+                "url": "https://www.pmi.org/pmbok-guide-standards/lexicon",
+                "description": "Essential PM terms and concepts",
+                "unlockRequirement": "pm_beg_2",
+                "estimatedTime": "1 hour"
+            }
+        ],
+        "intermediate": [
+            {
+                "id": "pm_int_1",
+                "type": "video",
+                "title": "Agile Project Management",
+                "url": "https://www.youtube.com/watch?v=Z9QbYZh1YXY",
+                "description": "Implementing agile methodologies",
+                "unlockRequirement": null,
+                "estimatedTime": "55 min"
+            },
+            {
+                "id": "pm_int_2",
+                "type": "blog",
+                "title": "Risk Management Strategies",
+                "url": "https://medium.com/pminsider/risk-management-in-project-management-5e1e1bf15bfb",
+                "description": "Identifying and mitigating project risks",
+                "unlockRequirement": "pm_int_1",
+                "estimatedTime": "35 min"
+            },
+            {
+                "id": "pm_int_3",
+                "type": "pdf",
+                "title": "Project Budgeting Guide",
+                "url": "https://www.projectmanager.com/blog/project-budget-guide",
+                "description": "Creating and managing project budgets",
+                "unlockRequirement": "pm_int_2",
+                "estimatedTime": "1.5 hours"
+            }
+        ],
+        "advanced": [
+            {
+                "id": "pm_adv_1",
+                "type": "video",
+                "title": "Advanced Project Leadership",
+                "url": "https://www.youtube.com/watch?v=wgLeSe8pN3I",
+                "description": "Leading complex projects and teams",
+                "unlockRequirement": null,
+                "estimatedTime": "1.5 hours"
+            },
+            {
+                "id": "pm_adv_2",
+                "type": "blog",
+                "title": "Program and Portfolio Management",
+                "url": "https://medium.com/swlh/program-management-vs-portfolio-management-vs-project-management-c67eed174e8d",
+                "description": "Managing multiple projects strategically",
+                "unlockRequirement": "pm_adv_1",
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "pm_adv_3",
+                "type": "pdf",
+                "title": "PMP Certification Preparation",
+                "url": "https://www.pmi.org/certifications/project-management-pmp",
+                "description": "Preparing for professional certification",
+                "unlockRequirement": "pm_adv_2",
+                "estimatedTime": "4 hours"
+            }
+        ]
+    },
+    "writing": {
+        "beginner": [
+            {
+                "id": "writing_beg_1",
+                "type": "video",
+                "title": "Fundamentals of Good Writing",
+                "url": "https://www.youtube.com/watch?v=aFAiI1uLEno",
+                "description": "Basic principles for clear communication",
+                "unlockRequirement": null,
+                "estimatedTime": "25 min"
+            },
+            {
+                "id": "writing_beg_2",
+                "type": "blog",
+                "title": "Grammar and Style Guide",
+                "url": "https://medium.com/an-idea/a-simple-guide-to-powerful-writing-f6a49a1e3a1f",
+                "description": "Essential rules for clean writing",
+                "unlockRequirement": "writing_beg_1",
+                "estimatedTime": "30 min"
+            },
+            {
+                "id": "writing_beg_3",
+                "type": "pdf",
+                "title": "Writing Process Overview",
+                "url": "https://owl.purdue.edu/owl/general_writing/the_writing_process/index.html",
+                "description": "From ideation to final draft",
+                "unlockRequirement": "writing_beg_2",
+                "estimatedTime": "1 hour"
+            }
+        ],
+        "intermediate": [
+            {
+                "id": "writing_int_1",
+                "type": "video",
+                "title": "Storytelling Techniques",
+                "url": "https://www.youtube.com/watch?v=oP0Fc0CikoI",
+                "description": "Creating compelling narratives",
+                "unlockRequirement": null,
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "writing_int_2",
+                "type": "blog",
+                "title": "Content Structure Strategies",
+                "url": "https://medium.com/swlh/how-to-organize-your-thoughts-on-paper-8a795a9c4277",
+                "description": "Organizing your thoughts effectively",
+                "unlockRequirement": "writing_int_1",
+                "estimatedTime": "35 min"
+            },
+            {
+                "id": "writing_int_3",
+                "type": "pdf",
+                "title": "Editing and Proofreading",
+                "url": "https://writing.wisc.edu/handbook/process/revising/",
+                "description": "Polishing your written work",
+                "unlockRequirement": "writing_int_2",
+                "estimatedTime": "1.5 hours"
+            }
+        ],
+        "advanced": [
+            {
+                "id": "writing_adv_1",
+                "type": "video",
+                "title": "Advanced Rhetoric",
+                "url": "https://www.youtube.com/watch?v=gXoNvFk_LsE",
+                "description": "Persuasive writing techniques",
+                "unlockRequirement": null,
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "writing_adv_2",
+                "type": "blog",
+                "title": "Writing for Different Audiences",
+                "url": "https://medium.com/writers-guild/how-to-adapt-your-writing-to-different-audiences-f2d44d20b671",
+                "description": "Adapting style and tone",
+                "unlockRequirement": "writing_adv_1",
+                "estimatedTime": "40 min"
+            },
+            {
+                "id": "writing_adv_3",
+                "type": "pdf",
+                "title": "Publishing and Promotion",
+                "url": "https://self-publishingschool.com/how-to-publish-a-book/",
+                "description": "Getting your writing seen",
+                "unlockRequirement": "writing_adv_2",
+                "estimatedTime": "2 hours"
+            }
+        ]
+    },
+    "content": {
+        "beginner": [
+            {
+                "id": "content_beg_1",
+                "type": "video",
+                "title": "Content Creation Basics",
+                "url": "https://www.youtube.com/watch?v=VvuYoSF9qMA",
+                "description": "Introduction to creating engaging content",
+                "unlockRequirement": null,
+                "estimatedTime": "35 min"
+            },
+            {
+                "id": "content_beg_2",
+                "type": "blog",
+                "title": "Building Your Content Strategy",
+                "url": "https://medium.com/better-marketing/how-to-create-a-content-strategy-that-actually-drives-traffic-74ceac2df7b5",
+                "description": "Planning effective content campaigns",
+                "unlockRequirement": "content_beg_1",
+                "estimatedTime": "30 min"
+            },
+            {
+                "id": "content_beg_3",
+                "type": "pdf",
+                "title": "Content Creation Tools Guide",
+                "url": "https://buffer.com/library/content-creation-tools/",
+                "description": "Essential tools for content creators",
+                "unlockRequirement": "content_beg_2",
+                "estimatedTime": "45 min"
+            }
+        ],
+        "intermediate": [
+            {
+                "id": "content_int_1",
+                "type": "video",
+                "title": "Visual Content Creation",
+                "url": "https://www.youtube.com/watch?v=fQDzWmFKJAI",
+                "description": "Creating engaging visuals for your content",
+                "unlockRequirement": null,
+                "estimatedTime": "50 min"
+            },
+            {
+                "id": "content_int_2",
+                "type": "blog",
+                "title": "SEO for Content Creators",
+                "url": "https://medium.com/swlh/seo-for-content-creators-how-to-rank-higher-in-search-results-5c31afca0801",
+                "description": "Optimizing content for search engines",
+                "unlockRequirement": "content_int_1",
+                "estimatedTime": "40 min"
+            },
+            {
+                "id": "content_int_3",
+                "type": "pdf",
+                "title": "Content Distribution Strategies",
+                "url": "https://buffer.com/resources/content-distribution-strategies/",
+                "description": "Getting your content seen by the right audience",
+                "unlockRequirement": "content_int_2",
+                "estimatedTime": "1 hour"
+            }
+        ],
+        "advanced": [
+            {
+                "id": "content_adv_1",
+                "type": "video",
+                "title": "Advanced Content Analytics",
+                "url": "https://www.youtube.com/watch?v=5LMvl-oezWQ",
+                "description": "Measuring and optimizing content performance",
+                "unlockRequirement": null,
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "content_adv_2",
+                "type": "blog",
+                "title": "Content Monetization Strategies",
+                "url": "https://medium.com/swlh/how-to-monetize-your-content-in-2021-eb9bf1c55f93",
+                "description": "Turning content into revenue streams",
+                "unlockRequirement": "content_adv_1",
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "content_adv_3",
+                "type": "pdf",
+                "title": "Enterprise Content Strategy",
+                "url": "https://contentmarketinginstitute.com/wp-content/uploads/2021/01/2021_Enterprise_Research.pdf",
+                "description": "Content strategies for large organizations",
+                "unlockRequirement": "content_adv_2",
+                "estimatedTime": "1.5 hours"
+            }
+        ]
+    },
+    "engineering": {
+        "beginner": [
+            {
+                "id": "engineering_beg_1",
+                "type": "video",
+                "title": "Introduction to Engineering Principles",
+                "url": "https://www.youtube.com/watch?v=btGYcizV0iI",
+                "description": "Basic concepts across engineering disciplines",
+                "unlockRequirement": null,
+                "estimatedTime": "40 min"
+            },
+            {
+                "id": "engineering_beg_2",
+                "type": "blog",
+                "title": "Engineering Design Process",
+                "url": "https://medium.com/@engineeringbasics/understanding-the-engineering-design-process-e91bf07ad5ae",
+                "description": "Step-by-step approach to engineering design",
+                "unlockRequirement": "engineering_beg_1",
+                "estimatedTime": "30 min"
+            },
+            {
+                "id": "engineering_beg_3",
+                "type": "pdf",
+                "title": "Mathematics for Engineers",
+                "url": "https://www.mathsisfun.com/algebra/index.html",
+                "description": "Essential mathematical concepts for engineering",
+                "unlockRequirement": "engineering_beg_2",
+                "estimatedTime": "2 hours"
+            }
+        ],
+        "intermediate": [
+            {
+                "id": "engineering_int_1",
+                "type": "video",
+                "title": "Materials Science Fundamentals",
+                "url": "https://www.youtube.com/watch?v=YwZpF4jySzY",
+                "description": "Understanding engineering materials properties",
+                "unlockRequirement": null,
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "engineering_int_2",
+                "type": "blog",
+                "title": "CAD Modeling Techniques",
+                "url": "https://medium.com/swlh/mastering-cad-modeling-techniques-for-modern-engineering-d8f3b926c93a",
+                "description": "Computer-aided design for engineers",
+                "unlockRequirement": "engineering_int_1",
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "engineering_int_3",
+                "type": "pdf",
+                "title": "Structural Analysis Guide",
+                "url": "https://www.cedengineering.com/userfiles/Intro%20to%20Structural%20Analysis.pdf",
+                "description": "Analyzing forces and stresses in structures",
+                "unlockRequirement": "engineering_int_2",
+                "estimatedTime": "2.5 hours"
+            }
+        ],
+        "advanced": [
+            {
+                "id": "engineering_adv_1",
+                "type": "video",
+                "title": "Engineering Optimization Methods",
+                "url": "https://www.youtube.com/watch?v=Nk2GZ9t4tIM",
+                "description": "Advanced techniques for design optimization",
+                "unlockRequirement": null,
+                "estimatedTime": "1.5 hours"
+            },
+            {
+                "id": "engineering_adv_2",
+                "type": "blog",
+                "title": "Computational Fluid Dynamics",
+                "url": "https://medium.com/engineering-management/an-introduction-to-computational-fluid-dynamics-cfd-for-engineers-7841c2c1e933",
+                "description": "Simulating fluid flow in engineering systems",
+                "unlockRequirement": "engineering_adv_1",
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "engineering_adv_3",
+                "type": "pdf",
+                "title": "Advanced Control Systems",
+                "url": "https://www.sciencedirect.com/topics/engineering/advanced-control-system",
+                "description": "Designing complex control systems for engineering applications",
+                "unlockRequirement": "engineering_adv_2",
+                "estimatedTime": "3 hours"
+            }
+        ]
+    },
+    "psychology": {
+        "beginner": [
+            {
+                "id": "psychology_beg_1",
+                "type": "video",
+                "title": "Introduction to Psychology",
+                "url": "https://www.youtube.com/watch?v=vo4pMVb0R6M",
+                "description": "Basic psychological concepts and theories",
+                "unlockRequirement": null,
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "psychology_beg_2",
+                "type": "blog",
+                "title": "Understanding Human Behavior",
+                "url": "https://medium.com/psychoblog/understanding-human-behavior-the-basics-d4b36a0f09e6",
+                "description": "Factors influencing how people think and act",
+                "unlockRequirement": "psychology_beg_1",
+                "estimatedTime": "30 min"
+            },
+            {
+                "id": "psychology_beg_3",
+                "type": "pdf",
+                "title": "Introduction to Psychological Research",
+                "url": "https://openstax.org/details/books/psychology",
+                "description": "How psychological knowledge is developed",
+                "unlockRequirement": "psychology_beg_2",
+                "estimatedTime": "1.5 hours"
+            }
+        ],
+        "intermediate": [
+            {
+                "id": "psychology_int_1",
+                "type": "video",
+                "title": "Cognitive Psychology",
+                "url": "https://www.youtube.com/watch?v=R-sVnmmw6WY",
+                "description": "Understanding mental processes",
+                "unlockRequirement": null,
+                "estimatedTime": "55 min"
+            },
+            {
+                "id": "psychology_int_2",
+                "type": "blog",
+                "title": "Social Psychology Principles",
+                "url": "https://medium.com/swlh/the-psychology-of-social-influence-and-group-behavior-9e5e977e20bf",
+                "description": "How social contexts influence behavior",
+                "unlockRequirement": "psychology_int_1",
+                "estimatedTime": "40 min"
+            },
+            {
+                "id": "psychology_int_3",
+                "type": "pdf",
+                "title": "Developmental Psychology",
+                "url": "https://www.simplypsychology.org/developmental-psychology.html",
+                "description": "Human development across the lifespan",
+                "unlockRequirement": "psychology_int_2",
+                "estimatedTime": "2 hours"
+            }
+        ],
+        "advanced": [
+            {
+                "id": "psychology_adv_1",
+                "type": "video",
+                "title": "Neuropsychology Fundamentals",
+                "url": "https://www.youtube.com/watch?v=vHrmiy4W9C0",
+                "description": "Brain-behavior relationships",
+                "unlockRequirement": null,
+                "estimatedTime": "1.5 hours"
+            },
+            {
+                "id": "psychology_adv_2",
+                "type": "blog",
+                "title": "Clinical Assessment Techniques",
+                "url": "https://medium.com/psyc-406/advanced-psychological-assessment-methods-d92e8e2e360e",
+                "description": "Professional psychological evaluation methods",
+                "unlockRequirement": "psychology_adv_1",
+                "estimatedTime": "50 min"
+            },
+            {
+                "id": "psychology_adv_3",
+                "type": "pdf",
+                "title": "Research Methods in Psychology",
+                "url": "https://opentextbc.ca/researchmethods/",
+                "description": "Advanced research design and analysis",
+                "unlockRequirement": "psychology_adv_2",
+                "estimatedTime": "3 hours"
+            }
+        ]
+    },
+    "design": {
+        "beginner": [
+            {
+                "id": "design_beg_1",
+                "type": "video",
+                "title": "Graphic Design Fundamentals",
+                "url": "https://www.youtube.com/watch?v=YqQx75OPRa0",
+                "description": "Basic principles of visual design",
+                "unlockRequirement": null,
+                "estimatedTime": "40 min"
+            },
+            {
+                "id": "design_beg_2",
+                "type": "blog",
+                "title": "Color Theory Basics",
+                "url": "https://medium.com/ui-ux-articles/color-theory-in-ui-design-tutorial-with-examples-954a5025335c",
+                "description": "Understanding and using color effectively",
+                "unlockRequirement": "design_beg_1",
+                "estimatedTime": "25 min"
+            },
+            {
+                "id": "design_beg_3",
+                "type": "pdf",
+                "title": "Typography Fundamentals",
+                "url": "https://practicaltypography.com/",
+                "description": "Essential concepts for working with type",
+                "unlockRequirement": "design_beg_2",
+                "estimatedTime": "1 hour"
+            }
+        ],
+        "intermediate": [
+            {
+                "id": "design_int_1",
+                "type": "video",
+                "title": "Adobe Illustrator Essentials",
+                "url": "https://www.youtube.com/watch?v=Ib8UBwu3yGA",
+                "description": "Creating vector graphics with Illustrator",
+                "unlockRequirement": null,
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "design_int_2",
+                "type": "blog",
+                "title": "UI/UX Design Principles",
+                "url": "https://medium.com/swlh/ux-design-principles-for-creating-better-websites-and-apps-5d3b8f1778a3",
+                "description": "Creating user-centered designs",
+                "unlockRequirement": "design_int_1",
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "design_int_3",
+                "type": "pdf",
+                "title": "Layout and Composition",
+                "url": "https://www.canva.com/learn/layout-design/",
+                "description": "Arranging visual elements effectively",
+                "unlockRequirement": "design_int_2",
+                "estimatedTime": "1.5 hours"
+            }
+        ],
+        "advanced": [
+            {
+                "id": "design_adv_1",
+                "type": "video",
+                "title": "Advanced Adobe Photoshop Techniques",
+                "url": "https://www.youtube.com/watch?v=IyR_uYsRdPs",
+                "description": "Professional image manipulation skills",
+                "unlockRequirement": null,
+                "estimatedTime": "2 hours"
+            },
+            {
+                "id": "design_adv_2",
+                "type": "blog",
+                "title": "Brand Identity Design",
+                "url": "https://medium.com/swlh/how-to-create-a-brand-identity-design-system-93856dc7c2e3",
+                "description": "Creating cohesive brand visuals",
+                "unlockRequirement": "design_adv_1",
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "design_adv_3",
+                "type": "pdf",
+                "title": "Design Systems Development",
+                "url": "https://www.designbetter.co/design-systems-handbook",
+                "description": "Building scalable design frameworks",
+                "unlockRequirement": "design_adv_2",
+                "estimatedTime": "2.5 hours"
+            }
+        ]
+    },
+    "art": {
+        "beginner": [
+            {
+                "id": "art_beg_1",
+                "type": "video",
+                "title": "Drawing Fundamentals",
+                "url": "https://www.youtube.com/watch?v=ewMksAbgdBI",
+                "description": "Basic drawing techniques for beginners",
+                "unlockRequirement": null,
+                "estimatedTime": "50 min"
+            },
+            {
+                "id": "art_beg_2",
+                "type": "blog",
+                "title": "Color Mixing Basics",
+                "url": "https://medium.com/artists-value/color-mixing-for-beginners-f0bf0527ec6a",
+                "description": "Understanding how to mix and use colors",
+                "unlockRequirement": "art_beg_1",
+                "estimatedTime": "30 min"
+            },
+            {
+                "id": "art_beg_3",
+                "type": "pdf",
+                "title": "Composition in Art",
+                "url": "https://drawpaintacademy.com/composition/",
+                "description": "Creating balanced and dynamic compositions",
+                "unlockRequirement": "art_beg_2",
+                "estimatedTime": "1 hour"
+            }
+        ],
+        "intermediate": [
+            {
+                "id": "art_int_1",
+                "type": "video",
+                "title": "Figure Drawing Techniques",
+                "url": "https://www.youtube.com/watch?v=74HR59yFZ7Y",
+                "description": "Drawing the human form accurately",
+                "unlockRequirement": null,
+                "estimatedTime": "1.5 hours"
+            },
+            {
+                "id": "art_int_2",
+                "type": "blog",
+                "title": "Perspective and Depth",
+                "url": "https://medium.com/artists-value/mastering-perspective-in-art-d3554d7b26b2",
+                "description": "Creating realistic spatial relationships",
+                "unlockRequirement": "art_int_1",
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "art_int_3",
+                "type": "pdf",
+                "title": "Digital Painting Techniques",
+                "url": "https://www.ctrlpaint.com/library/",
+                "description": "Transitioning from traditional to digital art",
+                "unlockRequirement": "art_int_2",
+                "estimatedTime": "2 hours"
+            }
+        ],
+        "advanced": [
+            {
+                "id": "art_adv_1",
+                "type": "video",
+                "title": "Advanced Color Theory",
+                "url": "https://www.youtube.com/watch?v=Qj1FK8n7WgY",
+                "description": "Color psychology and advanced applications",
+                "unlockRequirement": null,
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "art_adv_2",
+                "type": "blog",
+                "title": "Concept Art Development",
+                "url": "https://medium.com/concept-art-crew/professional-concept-art-workflows-d72ed8a14fbf",
+                "description": "Creating professional concept art for productions",
+                "unlockRequirement": "art_adv_1",
+                "estimatedTime": "50 min"
+            },
+            {
+                "id": "art_adv_3",
+                "type": "pdf",
+                "title": "Art Business and Marketing",
+                "url": "https://www.artbusiness.com/artists-how-to-sell-art.html",
+                "description": "Building a career as a professional artist",
+                "unlockRequirement": "art_adv_2",
+                "estimatedTime": "2 hours"
+            }
+        ]
+    },
+    "finance": {
+        "beginner": [
+            {
+                "id": "finance_beg_1",
+                "type": "video",
+                "title": "Personal Finance Basics",
+                "url": "https://www.youtube.com/watch?v=HQzoZfc3GwQ",
+                "description": "Introduction to managing personal finances",
+                "unlockRequirement": null,
+                "estimatedTime": "40 min"
+            },
+            {
+                "id": "finance_beg_2",
+                "type": "blog",
+                "title": "Budgeting Fundamentals",
+                "url": "https://medium.com/swlh/how-to-create-a-budget-that-works-for-you-a-comprehensive-guide-b3a191f2c3f6",
+                "description": "Creating and maintaining a personal budget",
+                "unlockRequirement": "finance_beg_1",
+                "estimatedTime": "30 min"
+            },
+            {
+                "id": "finance_beg_3",
+                "type": "pdf",
+                "title": "Introduction to Investing",
+                "url": "https://www.investor.gov/introduction-investing",
+                "description": "Understanding investment basics",
+                "unlockRequirement": "finance_beg_2",
+                "estimatedTime": "1.5 hours"
+            }
+        ],
+        "intermediate": [
+            {
+                "id": "finance_int_1",
+                "type": "video",
+                "title": "Stock Market Fundamentals",
+                "url": "https://www.youtube.com/watch?v=p7HKvqRI_Bo",
+                "description": "Understanding how stocks and markets work",
+                "unlockRequirement": null,
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "finance_int_2",
+                "type": "blog",
+                "title": "Financial Statement Analysis",
+                "url": "https://medium.com/swlh/financial-statement-analysis-a-guide-for-beginners-9b05a4f9496b",
+                "description": "Reading and interpreting financial statements",
+                "unlockRequirement": "finance_int_1",
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "finance_int_3",
+                "type": "pdf",
+                "title": "Retirement Planning Strategies",
+                "url": "https://www.investor.gov/additional-resources/general-resources/publications-research/publications/saving-retirement",
+                "description": "Building a solid retirement portfolio",
+                "unlockRequirement": "finance_int_2",
+                "estimatedTime": "2 hours"
+            }
+        ],
+        "advanced": [
+            {
+                "id": "finance_adv_1",
+                "type": "video",
+                "title": "Portfolio Management Techniques",
+                "url": "https://www.youtube.com/watch?v=8TJQhQ2GZ0Y",
+                "description": "Advanced asset allocation strategies",
+                "unlockRequirement": null,
+                "estimatedTime": "1.5 hours"
+            },
+            {
+                "id": "finance_adv_2",
+                "type": "blog",
+                "title": "Derivatives and Options Trading",
+                "url": "https://medium.com/swlh/options-trading-for-beginners-43a282ac1b56",
+                "description": "Understanding complex financial instruments",
+                "unlockRequirement": "finance_adv_1",
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "finance_adv_3",
+                "type": "pdf",
+                "title": "Algorithmic Trading Strategies",
+                "url": "https://www.quantstart.com/articles/Successful-Algorithmic-Trading-Ebook/",
+                "description": "Using algorithms for trading decisions",
+                "unlockRequirement": "finance_adv_2",
+                "estimatedTime": "3 hours"
+            }
+        ]
+    },
+    "science": {
+        "beginner": [
+            {
+                "id": "science_beg_1",
+                "type": "video",
+                "title": "Scientific Method Introduction",
+                "url": "https://www.youtube.com/watch?v=yi0hwFDQTSQ",
+                "description": "Understanding the process of scientific inquiry",
+                "unlockRequirement": null,
+                "estimatedTime": "30 min"
+            },
+            {
+                "id": "science_beg_2",
+                "type": "blog",
+                "title": "Basic Physics Concepts",
+                "url": "https://medium.com/swlh/physics-for-beginners-understanding-the-basics-d0c36883cf18",
+                "description": "Fundamental laws and principles of physics",
+                "unlockRequirement": "science_beg_1",
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "science_beg_3",
+                "type": "pdf",
+                "title": "Introduction to Chemistry",
+                "url": "https://chem.libretexts.org/Bookshelves/Introductory_Chemistry",
+                "description": "Basic chemical principles and reactions",
+                "unlockRequirement": "science_beg_2",
+                "estimatedTime": "2 hours"
+            }
+        ],
+        "intermediate": [
+            {
+                "id": "science_int_1",
+                "type": "video",
+                "title": "Molecular Biology Fundamentals",
+                "url": "https://www.youtube.com/watch?v=fpHaxzroYxg",
+                "description": "Understanding DNA, RNA, and protein synthesis",
+                "unlockRequirement": null,
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "science_int_2",
+                "type": "blog",
+                "title": "Quantum Physics Explained",
+                "url": "https://medium.com/swlh/quantum-physics-explained-in-under-5-minutes-d9d1d2b5a5c8",
+                "description": "Introduction to quantum mechanics concepts",
+                "unlockRequirement": "science_int_1",
+                "estimatedTime": "40 min"
+            },
+            {
+                "id": "science_int_3",
+                "type": "pdf",
+                "title": "Earth Science and Climate",
+                "url": "https://www.climate.gov/teaching/resources",
+                "description": "Understanding Earth systems and climate science",
+                "unlockRequirement": "science_int_2",
+                "estimatedTime": "1.5 hours"
+            }
+        ],
+        "advanced": [
+            {
+                "id": "science_adv_1",
+                "type": "video",
+                "title": "Advanced Astrophysics",
+                "url": "https://www.youtube.com/watch?v=0rHUDWjR5gg",
+                "description": "Black holes, relativity, and cosmology",
+                "unlockRequirement": null,
+                "estimatedTime": "2 hours"
+            },
+            {
+                "id": "science_adv_2",
+                "type": "blog",
+                "title": "Neuroscience Research Trends",
+                "url": "https://medium.com/neuroscience-in-real-life/latest-trends-in-neuroscience-research-and-why-they-matter-e945d1e9f4a8",
+                "description": "Cutting-edge brain research discoveries",
+                "unlockRequirement": "science_adv_1",
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "science_adv_3",
+                "type": "pdf",
+                "title": "Genetics and Genomics",
+                "url": "https://www.genome.gov/about-genomics/fact-sheets/A-Brief-Guide-to-Genomics",
+                "description": "Advanced genetic analysis and applications",
+                "unlockRequirement": "science_adv_2",
+                "estimatedTime": "2.5 hours"
+            }
+        ]
+    },
+    "teaching": {
+        "beginner": [
+            {
+                "id": "teaching_beg_1",
+                "type": "video",
+                "title": "Fundamentals of Teaching",
+                "url": "https://www.youtube.com/watch?v=aq-fCtg_gG4",
+                "description": "Basic educational principles and methods",
+                "unlockRequirement": null,
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "teaching_beg_2",
+                "type": "blog",
+                "title": "Classroom Management Basics",
+                "url": "https://medium.com/age-of-awareness/classroom-management-strategies-that-work-7c2b8e380ce6",
+                "description": "Creating an effective learning environment",
+                "unlockRequirement": "teaching_beg_1",
+                "estimatedTime": "30 min"
+            },
+            {
+                "id": "teaching_beg_3",
+                "type": "pdf",
+                "title": "Learning Theories Overview",
+                "url": "https://www.instructionaldesign.org/theories/",
+                "description": "Understanding how people learn",
+                "unlockRequirement": "teaching_beg_2",
+                "estimatedTime": "1.5 hours"
+            }
+        ],
+        "intermediate": [
+            {
+                "id": "teaching_int_1",
+                "type": "video",
+                "title": "Assessment Strategies",
+                "url": "https://www.youtube.com/watch?v=rJxFXjfB_B4",
+                "description": "Methods for evaluating student progress",
+                "unlockRequirement": null,
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "teaching_int_2",
+                "type": "blog",
+                "title": "Differentiated Instruction",
+                "url": "https://medium.com/inspired-ideas-prek-12/differentiated-instruction-strategies-that-work-for-every-classroom-bb371a211d0b",
+                "description": "Adapting teaching to diverse student needs",
+                "unlockRequirement": "teaching_int_1",
+                "estimatedTime": "40 min"
+            },
+            {
+                "id": "teaching_int_3",
+                "type": "pdf",
+                "title": "Educational Technology Integration",
+                "url": "https://www.edutopia.org/technology-integration-guide-description",
+                "description": "Using technology to enhance learning",
+                "unlockRequirement": "teaching_int_2",
+                "estimatedTime": "1.5 hours"
+            }
+        ],
+        "advanced": [
+            {
+                "id": "teaching_adv_1",
+                "type": "video",
+                "title": "Curriculum Development",
+                "url": "https://www.youtube.com/watch?v=QvogXuYhQM0",
+                "description": "Designing effective educational programs",
+                "unlockRequirement": null,
+                "estimatedTime": "1.5 hours"
+            },
+            {
+                "id": "teaching_adv_2",
+                "type": "blog",
+                "title": "Research-Based Teaching Methods",
+                "url": "https://medium.com/inspired-ideas-prek-12/evidence-based-teaching-strategies-that-work-6a8cb605f9c",
+                "description": "Teaching approaches backed by research",
+                "unlockRequirement": "teaching_adv_1",
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "teaching_adv_3",
+                "type": "pdf",
+                "title": "Educational Leadership",
+                "url": "https://www.ascd.org/ASCD/pdf/journals/ed_lead/el_199209_sergiovanni.pdf",
+                "description": "Leading educational communities effectively",
+                "unlockRequirement": "teaching_adv_2",
+                "estimatedTime": "2 hours"
+            }
+        ]
+    },
+    "entrepreneur": {
+        "beginner": [
+            {
+                "id": "entrepreneur_beg_1",
+                "type": "video",
+                "title": "Introduction to Entrepreneurship",
+                "url": "https://www.youtube.com/watch?v=Yw7tEHYsEsE",
+                "description": "Understanding the entrepreneurial mindset",
+                "unlockRequirement": null,
+                "estimatedTime": "40 min"
+            },
+            {
+                "id": "entrepreneur_beg_2",
+                "type": "blog",
+                "title": "Business Idea Validation",
+                "url": "https://medium.com/swlh/how-to-validate-your-business-idea-f867727dcafc",
+                "description": "Testing whether your idea has market potential",
+                "unlockRequirement": "entrepreneur_beg_1",
+                "estimatedTime": "35 min"
+            },
+            {
+                "id": "entrepreneur_beg_3",
+                "type": "pdf",
+                "title": "Business Plan Basics",
+                "url": "https://www.sba.gov/business-guide/plan-your-business/write-your-business-plan",
+                "description": "Creating your first business plan",
+                "unlockRequirement": "entrepreneur_beg_2",
+                "estimatedTime": "1.5 hours"
+            }
+        ],
+        "intermediate": [
+            {
+                "id": "entrepreneur_int_1",
+                "type": "video",
+                "title": "Marketing for Startups",
+                "url": "https://www.youtube.com/watch?v=Dvd80QlM0JQ",
+                "description": "Marketing strategies for new businesses",
+                "unlockRequirement": null,
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "entrepreneur_int_2",
+                "type": "blog",
+                "title": "Funding Your Startup",
+                "url": "https://medium.com/swlh/the-ultimate-guide-to-startup-funding-b7ae14548733",
+                "description": "Different options for raising capital",
+                "unlockRequirement": "entrepreneur_int_1",
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "entrepreneur_int_3",
+                "type": "pdf",
+                "title": "Building a Strong Team",
+                "url": "https://www.startupgrind.com/blog/the-ultimate-guide-to-building-a-startup-team/",
+                "description": "Recruiting and managing effective teams",
+                "unlockRequirement": "entrepreneur_int_2",
+                "estimatedTime": "1.5 hours"
+            }
+        ],
+        "advanced": [
+            {
+                "id": "entrepreneur_adv_1",
+                "type": "video",
+                "title": "Scaling Your Business",
+                "url": "https://www.youtube.com/watch?v=4VKXSaJfH5M",
+                "description": "Strategies for sustainable growth",
+                "unlockRequirement": null,
+                "estimatedTime": "1.5 hours"
+            },
+            {
+                "id": "entrepreneur_adv_2",
+                "type": "blog",
+                "title": "Advanced Business Negotiations",
+                "url": "https://medium.com/swlh/the-art-of-negotiation-for-entrepreneurs-5d8c5a8c4a68",
+                "description": "Securing beneficial partnerships and deals",
+                "unlockRequirement": "entrepreneur_adv_1",
+                "estimatedTime": "50 min"
+            },
+            {
+                "id": "entrepreneur_adv_3",
+                "type": "pdf",
+                "title": "Exit Strategies",
+                "url": "https://www.ey.com/en_gl/strategy/guide-to-mergers-and-acquisitions",
+                "description": "Planning for acquisition or IPO",
+                "unlockRequirement": "entrepreneur_adv_2",
+                "estimatedTime": "2 hours"
+            }
+        ]
+    },
+    "journalism": {
+        "beginner": [
+            {
+                "id": "journalism_beg_1",
+                "type": "video",
+                "title": "Journalism Fundamentals",
+                "url": "https://www.youtube.com/watch?v=lbOu6k87OMU",
+                "description": "Basic principles of journalism",
+                "unlockRequirement": null,
+                "estimatedTime": "35 min"
+            },
+            {
+                "id": "journalism_beg_2",
+                "type": "blog",
+                "title": "News Writing Basics",
+                "url": "https://medium.com/swlh/how-to-write-a-news-article-8e3c8e5a0c0c",
+                "description": "Structure and style for news articles",
+                "unlockRequirement": "journalism_beg_1",
+                "estimatedTime": "30 min"
+            },
+            {
+                "id": "journalism_beg_3",
+                "type": "pdf",
+                "title": "Journalism Ethics",
+                "url": "https://www.spj.org/ethicscode.asp",
+                "description": "Ethical standards in reporting",
+                "unlockRequirement": "journalism_beg_2",
+                "estimatedTime": "1 hour"
+            }
+        ],
+        "intermediate": [
+            {
+                "id": "journalism_int_1",
+                "type": "video",
+                "title": "Investigative Reporting",
+                "url": "https://www.youtube.com/watch?v=_sBHTaZsaRs",
+                "description": "Techniques for in-depth investigations",
+                "unlockRequirement": null,
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "journalism_int_2",
+                "type": "blog",
+                "title": "Digital Journalism Tools",
+                "url": "https://medium.com/swlh/essential-digital-tools-for-modern-journalists-9cf366c3559f",
+                "description": "Technology for today's journalists",
+                "unlockRequirement": "journalism_int_1",
+                "estimatedTime": "40 min"
+            },
+            {
+                "id": "journalism_int_3",
+                "type": "pdf",
+                "title": "Interview Techniques",
+                "url": "https://www.poynter.org/reporting-editing/2018/the-interviewing-handbook/",
+                "description": "Effective methods for gathering information",
+                "unlockRequirement": "journalism_int_2",
+                "estimatedTime": "1.5 hours"
+            }
+        ],
+        "advanced": [
+            {
+                "id": "journalism_adv_1",
+                "type": "video",
+                "title": "Data Journalism",
+                "url": "https://www.youtube.com/watch?v=qT9n5kORf0o",
+                "description": "Using data to tell compelling stories",
+                "unlockRequirement": null,
+                "estimatedTime": "1.5 hours"
+            },
+            {
+                "id": "journalism_adv_2",
+                "type": "blog",
+                "title": "Longform Storytelling",
+                "url": "https://medium.com/swlh/the-art-of-longform-journalism-in-the-digital-age-9db1f6b0855b",
+                "description": "Creating compelling narrative journalism",
+                "unlockRequirement": "journalism_adv_1",
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "journalism_adv_3",
+                "type": "pdf",
+                "title": "Solutions Journalism",
+                "url": "https://www.solutionsjournalism.org/resources/learning-lab",
+                "description": "Reporting that focuses on responses to problems",
+                "unlockRequirement": "journalism_adv_2",
+                "estimatedTime": "2 hours"
+            }
+        ]
+    },
+    "architecture": {
+        "beginner": [
+            {
+                "id": "architecture_beg_1",
+                "type": "video",
+                "title": "Architectural Fundamentals",
+                "url": "https://www.youtube.com/watch?v=BeDwpSp-Vy8",
+                "description": "Basic principles of architecture",
+                "unlockRequirement": null,
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "architecture_beg_2",
+                "type": "blog",
+                "title": "Architectural Drawing Basics",
+                "url": "https://medium.com/archistart/architectural-drawing-basics-94e84d8b89a6",
+                "description": "Introduction to drafting and sketching",
+                "unlockRequirement": "architecture_beg_1",
+                "estimatedTime": "35 min"
+            },
+            {
+                "id": "architecture_beg_3",
+                "type": "pdf",
+                "title": "History of Architecture",
+                "url": "https://www.open.edu/openlearn/history-the-arts/history/heritage/architecture",
+                "description": "Timeline of architectural movements",
+                "unlockRequirement": "architecture_beg_2",
+                "estimatedTime": "2 hours"
+            }
+        ],
+        "intermediate": [
+            {
+                "id": "architecture_int_1",
+                "type": "video",
+                "title": "Building Materials and Methods",
+                "url": "https://www.youtube.com/watch?v=Nv3d6H4n0Ss",
+                "description": "Understanding construction techniques",
+                "unlockRequirement": null,
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "architecture_int_2",
+                "type": "blog",
+                "title": "Architectural Design Process",
+                "url": "https://medium.com/archistart/the-architectural-design-process-explained-c3f1763fb7d7",
+                "description": "Stages of designing a building",
+                "unlockRequirement": "architecture_int_1",
+                "estimatedTime": "40 min"
+            },
+            {
+                "id": "architecture_int_3",
+                "type": "pdf",
+                "title": "Environmental Design",
+                "url": "https://www.architecture.com/knowledge-and-resources/resources-landing-page/sustainable-design",
+                "description": "Creating sustainable buildings",
+                "unlockRequirement": "architecture_int_2",
+                "estimatedTime": "1.5 hours"
+            }
+        ],
+        "advanced": [
+            {
+                "id": "architecture_adv_1",
+                "type": "video",
+                "title": "Advanced Architectural Theory",
+                "url": "https://www.youtube.com/watch?v=HWJwaBs0t4M",
+                "description": "Critical perspectives in architecture",
+                "unlockRequirement": null,
+                "estimatedTime": "1.5 hours"
+            },
+            {
+                "id": "architecture_adv_2",
+                "type": "blog",
+                "title": "Computational Design",
+                "url": "https://medium.com/swlh/computational-design-in-architecture-the-future-is-here-f5bc7f3f9e1b",
+                "description": "Using algorithms in architectural design",
+                "unlockRequirement": "architecture_adv_1",
+                "estimatedTime": "50 min"
+            },
+            {
+                "id": "architecture_adv_3",
+                "type": "pdf",
+                "title": "Urban Planning Integration",
+                "url": "https://www.planning.org/planning/2020/may/tools-for-planning/",
+                "description": "Architecture's role in city development",
+                "unlockRequirement": "architecture_adv_2",
+                "estimatedTime": "2 hours"
+            }
+        ]
+    },
+    "gamedesign": {
+        "beginner": [
+            {
+                "id": "gamedesign_beg_1",
+                "type": "video",
+                "title": "Game Design Fundamentals",
+                "url": "https://www.youtube.com/watch?v=G8AT01tuyrk",
+                "description": "Introduction to core game design concepts",
+                "unlockRequirement": null,
+                "estimatedTime": "50 min"
+            },
+            {
+                "id": "gamedesign_beg_2",
+                "type": "blog",
+                "title": "Understanding Game Mechanics",
+                "url": "https://medium.com/swlh/game-mechanics-fundamentals-84f914e699d8",
+                "description": "The building blocks of gameplay systems",
+                "unlockRequirement": "gamedesign_beg_1",
+                "estimatedTime": "35 min"
+            },
+            {
+                "id": "gamedesign_beg_3",
+                "type": "pdf",
+                "title": "Introduction to Game Design Document",
+                "url": "https://www.gamedeveloper.com/design/how-to-write-a-game-design-document",
+                "description": "Structuring your game design ideas",
+                "unlockRequirement": "gamedesign_beg_2",
+                "estimatedTime": "1.5 hours"
+            }
+        ],
+        "intermediate": [
+            {
+                "id": "gamedesign_int_1",
+                "type": "video",
+                "title": "Level Design Principles",
+                "url": "https://www.youtube.com/watch?v=iNEe3KhMvXM",
+                "description": "Creating engaging game environments",
+                "unlockRequirement": null,
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "gamedesign_int_2",
+                "type": "blog",
+                "title": "Game Balance Techniques",
+                "url": "https://medium.com/game-design-insights/balancing-games-a3f354f04f8b",
+                "description": "Methods for balancing gameplay systems",
+                "unlockRequirement": "gamedesign_int_1",
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "gamedesign_int_3",
+                "type": "pdf",
+                "title": "Player Psychology",
+                "url": "https://www.gamasutra.com/view/feature/3284/behavioral_game_design.php",
+                "description": "Understanding player motivation and behavior",
+                "unlockRequirement": "gamedesign_int_2",
+                "estimatedTime": "2 hours"
+            }
+        ],
+        "advanced": [
+            {
+                "id": "gamedesign_adv_1",
+                "type": "video",
+                "title": "Advanced Game Systems Design",
+                "url": "https://www.youtube.com/watch?v=t8NFQq2xRtI",
+                "description": "Designing complex interacting systems",
+                "unlockRequirement": null,
+                "estimatedTime": "1.5 hours"
+            },
+            {
+                "id": "gamedesign_adv_2",
+                "type": "blog",
+                "title": "Narrative Design in Games",
+                "url": "https://medium.com/game-wisdom/the-art-of-narrative-design-in-games-891fb2b8c7e3",
+                "description": "Integrating story and gameplay",
+                "unlockRequirement": "gamedesign_adv_1",
+                "estimatedTime": "55 min"
+            },
+            {
+                "id": "gamedesign_adv_3",
+                "type": "pdf",
+                "title": "Monetization and Game Economics",
+                "url": "https://www.gamedeveloper.com/business/game-monetization-mechanics",
+                "description": "Designing sustainable economic systems",
+                "unlockRequirement": "gamedesign_adv_2",
+                "estimatedTime": "2.5 hours"
+            }
+        ]
+    },
+    "math": {
+        "beginner": [
+            {
+                "id": "math_beg_1",
+                "type": "video",
+                "title": "Essential Mathematics Foundations",
+                "url": "https://www.youtube.com/watch?v=pTnEG_WGd2Q",
+                "description": "Core mathematical concepts explained simply",
+                "unlockRequirement": null,
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "math_beg_2",
+                "type": "blog",
+                "title": "Understanding Algebra Basics",
+                "url": "https://medium.com/math-simplified/algebra-basics-explained-simply-7e771a0c4130",
+                "description": "Fundamental algebraic principles",
+                "unlockRequirement": "math_beg_1",
+                "estimatedTime": "30 min"
+            },
+            {
+                "id": "math_beg_3",
+                "type": "pdf",
+                "title": "Introduction to Mathematical Thinking",
+                "url": "https://www.mathsisfun.com/links/mathematical-thinking.html",
+                "description": "Developing logical reasoning skills",
+                "unlockRequirement": "math_beg_2",
+                "estimatedTime": "1.5 hours"
+            }
+        ],
+        "intermediate": [
+            {
+                "id": "math_int_1",
+                "type": "video",
+                "title": "Calculus Fundamentals",
+                "url": "https://www.youtube.com/watch?v=HfACrKJ_Y2w",
+                "description": "Essential calculus concepts explained",
+                "unlockRequirement": null,
+                "estimatedTime": "1.5 hours"
+            },
+            {
+                "id": "math_int_2",
+                "type": "blog",
+                "title": "Linear Algebra Applications",
+                "url": "https://medium.com/towards-data-science/understanding-linear-algebra-intuitively-cd2f9188a8fb",
+                "description": "Practical uses of vectors and matrices",
+                "unlockRequirement": "math_int_1",
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "math_int_3",
+                "type": "pdf",
+                "title": "Probability and Statistics",
+                "url": "https://www.khanacademy.org/math/statistics-probability",
+                "description": "Understanding uncertainty and data analysis",
+                "unlockRequirement": "math_int_2",
+                "estimatedTime": "2 hours"
+            }
+        ],
+        "advanced": [
+            {
+                "id": "math_adv_1",
+                "type": "video",
+                "title": "Abstract Algebra Concepts",
+                "url": "https://www.youtube.com/watch?v=IP7nW_hKB7I",
+                "description": "Group theory and algebraic structures",
+                "unlockRequirement": null,
+                "estimatedTime": "2 hours"
+            },
+            {
+                "id": "math_adv_2",
+                "type": "blog",
+                "title": "Real Analysis Foundations",
+                "url": "https://medium.com/cantors-paradise/intro-to-real-analysis-22c47d230c8f",
+                "description": "Rigorous foundations of calculus",
+                "unlockRequirement": "math_adv_1",
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "math_adv_3",
+                "type": "pdf",
+                "title": "Differential Equations Applications",
+                "url": "https://tutorial.math.lamar.edu/Classes/DE/DE.aspx",
+                "description": "Solving complex modeling problems",
+                "unlockRequirement": "math_adv_2",
+                "estimatedTime": "3 hours"
+            }
+        ]
+    },
+    "anthropology": {
+        "beginner": [
+            {
+                "id": "anthropology_beg_1",
+                "type": "video",
+                "title": "Introduction to Anthropology",
+                "url": "https://www.youtube.com/watch?v=J5I5jQwuRfQ",
+                "description": "Basic concepts in the study of humanity",
+                "unlockRequirement": null,
+                "estimatedTime": "40 min"
+            },
+            {
+                "id": "anthropology_beg_2",
+                "type": "blog",
+                "title": "Cultural Anthropology Basics",
+                "url": "https://medium.com/@anthropologynow/understanding-cultural-anthropology-for-beginners-cb91d6ec4288",
+                "description": "Understanding cultural diversity",
+                "unlockRequirement": "anthropology_beg_1",
+                "estimatedTime": "35 min"
+            },
+            {
+                "id": "anthropology_beg_3",
+                "type": "pdf",
+                "title": "Archaeological Methods",
+                "url": "https://www.archaeological.org/programs/educators/introduction-to-archaeology/",
+                "description": "How we study human history through material remains",
+                "unlockRequirement": "anthropology_beg_2",
+                "estimatedTime": "1.5 hours"
+            }
+        ],
+        "intermediate": [
+            {
+                "id": "anthropology_int_1",
+                "type": "video",
+                "title": "Linguistic Anthropology",
+                "url": "https://www.youtube.com/watch?v=DF4rXb5j4lI",
+                "description": "The study of language in cultural context",
+                "unlockRequirement": null,
+                "estimatedTime": "55 min"
+            },
+            {
+                "id": "anthropology_int_2",
+                "type": "blog",
+                "title": "Ethnographic Research Methods",
+                "url": "https://medium.com/ethnography-matters/ethnography-matters-methods-101-participant-observation-1a174d7f7212",
+                "description": "Field methods for studying cultures",
+                "unlockRequirement": "anthropology_int_1",
+                "estimatedTime": "40 min"
+            },
+            {
+                "id": "anthropology_int_3",
+                "type": "pdf",
+                "title": "Biological Anthropology",
+                "url": "https://www.physanth.org/about/biological-anthropology/",
+                "description": "Human evolution and biological diversity",
+                "unlockRequirement": "anthropology_int_2",
+                "estimatedTime": "2 hours"
+            }
+        ],
+        "advanced": [
+            {
+                "id": "anthropology_adv_1",
+                "type": "video",
+                "title": "Medical Anthropology",
+                "url": "https://www.youtube.com/watch?v=oNsWZJ86zAw",
+                "description": "Cultural perspectives on health and illness",
+                "unlockRequirement": null,
+                "estimatedTime": "1.5 hours"
+            },
+            {
+                "id": "anthropology_adv_2",
+                "type": "blog",
+                "title": "Political and Economic Anthropology",
+                "url": "https://medium.com/anthropology-news/anthropology-in-business-and-politics-1c134247c4d0",
+                "description": "Power structures across cultures",
+                "unlockRequirement": "anthropology_adv_1",
+                "estimatedTime": "50 min"
+            },
+            {
+                "id": "anthropology_adv_3",
+                "type": "pdf",
+                "title": "Anthropological Theory",
+                "url": "https://www.scholars.northwestern.edu/en/publications/theories-of-culture",
+                "description": "Theoretical frameworks in anthropology",
+                "unlockRequirement": "anthropology_adv_2",
+                "estimatedTime": "2.5 hours"
+            }
+        ]
+    },
+    "crafts": {
+        "beginner": [
+            {
+                "id": "crafts_beg_1",
+                "type": "video",
+                "title": "Introduction to Craftsmanship",
+                "url": "https://www.youtube.com/watch?v=5K9OuY7x9A0",
+                "description": "Fundamentals of working with your hands",
+                "unlockRequirement": null,
+                "estimatedTime": "35 min"
+            },
+            {
+                "id": "crafts_beg_2",
+                "type": "blog",
+                "title": "Basic Woodworking Skills",
+                "url": "https://medium.com/makerdock/essential-woodworking-skills-for-beginners-a5f52b275b05",
+                "description": "Getting started with wood crafts",
+                "unlockRequirement": "crafts_beg_1",
+                "estimatedTime": "30 min"
+            },
+            {
+                "id": "crafts_beg_3",
+                "type": "pdf",
+                "title": "Essential Crafting Tools",
+                "url": "https://www.instructables.com/Basic-Crafting-Tools-Everyone-Should-Have/",
+                "description": "Building your first toolkit",
+                "unlockRequirement": "crafts_beg_2",
+                "estimatedTime": "1 hour"
+            }
+        ],
+        "intermediate": [
+            {
+                "id": "crafts_int_1",
+                "type": "video",
+                "title": "Textile Arts and Techniques",
+                "url": "https://www.youtube.com/watch?v=HS3Qzl8dzJc",
+                "description": "Working with fabrics and fibers",
+                "unlockRequirement": null,
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "crafts_int_2",
+                "type": "blog",
+                "title": "Pottery and Ceramics",
+                "url": "https://medium.com/curious/getting-started-with-pottery-and-ceramics-a-beginners-guide-4149538458a",
+                "description": "Working with clay and glazes",
+                "unlockRequirement": "crafts_int_1",
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "crafts_int_3",
+                "type": "pdf",
+                "title": "Metalworking Basics",
+                "url": "https://www.popularmechanics.com/home/how-to/g95/metalworking-tools-and-tips/",
+                "description": "Introduction to working with metals",
+                "unlockRequirement": "crafts_int_2",
+                "estimatedTime": "2 hours"
+            }
+        ],
+        "advanced": [
+            {
+                "id": "crafts_adv_1",
+                "type": "video",
+                "title": "Fine Furniture Making",
+                "url": "https://www.youtube.com/watch?v=CDVU6Ma7W9s",
+                "description": "Advanced woodworking and joinery",
+                "unlockRequirement": null,
+                "estimatedTime": "2 hours"
+            },
+            {
+                "id": "crafts_adv_2",
+                "type": "blog",
+                "title": "Jewelry Design and Creation",
+                "url": "https://medium.com/makerdock/advanced-jewelry-making-techniques-4572bbf2e07d",
+                "description": "Working with precious metals and stones",
+                "unlockRequirement": "crafts_adv_1",
+                "estimatedTime": "55 min"
+            },
+            {
+                "id": "crafts_adv_3",
+                "type": "pdf",
+                "title": "Traditional Craft Preservation",
+                "url": "https://www.craftcouncil.org/magazine/article/preserving-craft-knowledge",
+                "description": "Maintaining heritage techniques",
+                "unlockRequirement": "crafts_adv_2",
+                "estimatedTime": "1.5 hours"
+            }
+        ]
+    },
+    "philosophy": {
+        "beginner": [
+            {
+                "id": "philosophy_beg_1",
+                "type": "video",
+                "title": "Introduction to Philosophy",
+                "url": "https://www.youtube.com/watch?v=BHnjJC0tqVU",
+                "description": "Basic philosophical concepts and questions",
+                "unlockRequirement": null,
+                "estimatedTime": "50 min"
+            },
+            {
+                "id": "philosophy_beg_2",
+                "type": "blog",
+                "title": "Ethics and Moral Philosophy",
+                "url": "https://medium.com/understanding-ethics/introduction-to-ethics-for-beginners-8eea4c9c9dd6",
+                "description": "Exploring questions of right and wrong",
+                "unlockRequirement": "philosophy_beg_1",
+                "estimatedTime": "35 min"
+            },
+            {
+                "id": "philosophy_beg_3",
+                "type": "pdf",
+                "title": "History of Western Philosophy",
+                "url": "https://plato.stanford.edu/entries/history-philosophy/",
+                "description": "Overview of major philosophical movements",
+                "unlockRequirement": "philosophy_beg_2",
+                "estimatedTime": "2 hours"
+            }
+        ],
+        "intermediate": [
+            {
+                "id": "philosophy_int_1",
+                "type": "video",
+                "title": "Logic and Critical Thinking",
+                "url": "https://www.youtube.com/watch?v=5tKn_i2xkJA",
+                "description": "Foundations of structured reasoning",
+                "unlockRequirement": null,
+                "estimatedTime": "1 hour"
+            },
+            {
+                "id": "philosophy_int_2",
+                "type": "blog",
+                "title": "Epistemology: Theories of Knowledge",
+                "url": "https://medium.com/age-of-awareness/epistemology-what-is-it-and-why-is-it-important-b20790f0d9b1",
+                "description": "Understanding how we know what we know",
+                "unlockRequirement": "philosophy_int_1",
+                "estimatedTime": "45 min"
+            },
+            {
+                "id": "philosophy_int_3",
+                "type": "pdf",
+                "title": "Metaphysics and Reality",
+                "url": "https://plato.stanford.edu/entries/metaphysics/",
+                "description": "Exploring the nature of existence",
+                "unlockRequirement": "philosophy_int_2",
+                "estimatedTime": "2.5 hours"
+            }
+        ],
+        "advanced": [
+            {
+                "id": "philosophy_adv_1",
+                "type": "video",
+                "title": "Philosophy of Mind",
+                "url": "https://www.youtube.com/watch?v=gZy3NUkJLlE",
+                "description": "Consciousness, identity, and AI implications",
+                "unlockRequirement": null,
+                "estimatedTime": "1.5 hours"
+            },
+            {
+                "id": "philosophy_adv_2",
+                "type": "blog",
+                "title": "Political Philosophy",
+                "url": "https://medium.com/illumination/what-is-political-philosophy-63c72e91d68",
+                "description": "Justice, governance, and social contracts",
+                "unlockRequirement": "philosophy_adv_1",
+                "estimatedTime": "50 min"
+            },
+            {
+                "id": "philosophy_adv_3",
+                "type": "pdf",
+                "title": "Eastern Philosophical Traditions",
+                "url": "https://plato.stanford.edu/entries/comparphil-chiwes/",
+                "description": "Buddhist, Hindu, Taoist and Confucian thought",
+                "unlockRequirement": "philosophy_adv_2",
+                "estimatedTime": "3 hours"
+            }
+        ]
+    },
+        "detailedResources": {
+          "cs": {
+            "beginner": {
+              "video": [
+                {
+                  "id": "cs_beg_video_1",
+                  "title": "Introduction to Programming Concepts",
+                  "url": "https://www.youtube.com/watch?v=zOjov-2OZ0E",
+                  "description": "Learn the fundamental concepts of programming including variables, data types, control structures, and functions.",
+                  "unlockRequirement": null,
+                  "estimatedTime": "45 min"
+                },
+                {
+                  "id": "cs_beg_video_2",
+                  "title": "Getting Started with Python",
+                  "url": "https://www.youtube.com/watch?v=rfscVS0vtbw",
+                  "description": "A beginner-friendly introduction to Python programming language with hands-on examples.",
+                  "unlockRequirement": "cs_beg_video_1",
+                  "estimatedTime": "1 hour"
+                },
+                {
+                  "id": "cs_beg_video_3",
+                  "title": "Understanding Algorithms",
+                  "url": "https://www.youtube.com/watch?v=KEEKn7Me-ms",
+                  "description": "Learn what algorithms are and how they form the foundation of computer science.",
+                  "unlockRequirement": "cs_beg_video_2",
+                  "estimatedTime": "35 min"
+                },
+                {
+                  "id": "cs_beg_video_4",
+                  "title": "Web Development Basics",
+                  "url": "https://www.youtube.com/watch?v=gQojMIhELvM",
+                  "description": "Introduction to HTML, CSS, and JavaScript for building websites.",
+                  "unlockRequirement": "cs_beg_video_3",
+                  "estimatedTime": "1.5 hours"
+                },
+                {
+                  "id": "cs_beg_video_5",
+                  "title": "Introduction to Databases",
+                  "url": "https://www.youtube.com/watch?v=4Z9KEBexzcM",
+                  "description": "Learn the basics of databases, SQL, and data storage concepts.",
+                  "unlockRequirement": "cs_beg_video_4",
+                  "estimatedTime": "50 min"
+                }
+              ],
+              "blog": [
+                {
+                  "id": "cs_beg_blog_1",
+                  "title": "Programming Fundamentals Explained",
+                  "url": "https://medium.com/swlh/python-for-beginners-the-ultimate-guide-37ac3fa4f35c",
+                  "description": "A comprehensive guide to programming concepts for absolute beginners.",
+                  "unlockRequirement": null,
+                  "estimatedTime": "30 min"
+                },
+                {
+                  "id": "cs_beg_blog_2",
+                  "title": "How to Think Like a Programmer",
+                  "url": "https://www.freecodecamp.org/news/how-to-think-like-a-programmer-lessons-in-problem-solving-d1d8bf1de7d2/",
+                  "description": "Develop problem-solving skills essential for programming success.",
+                  "unlockRequirement": "cs_beg_blog_1",
+                  "estimatedTime": "25 min"
+                },
+                {
+                  "id": "cs_beg_blog_3",
+                  "title": "Understanding Data Structures",
+                  "url": "https://medium.com/basecs/data-structures-101-linked-lists-254c82cf5883",
+                  "description": "An introduction to common data structures and their applications.",
+                  "unlockRequirement": "cs_beg_blog_2",
+                  "estimatedTime": "35 min"
+                },
+                {
+                  "id": "cs_beg_blog_4",
+                  "title": "Git and GitHub for Beginners",
+                  "url": "https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners",
+                  "description": "Learn version control basics with Git and GitHub.",
+                  "unlockRequirement": "cs_beg_blog_3",
+                  "estimatedTime": "40 min"
+                },
+                {
+                  "id": "cs_beg_blog_5",
+                  "title": "Introduction to APIs",
+                  "url": "https://medium.com/@perrysetgo/what-exactly-is-an-api-69f36968a41f",
+                  "description": "Understanding APIs and how they enable software integration.",
+                  "unlockRequirement": "cs_beg_blog_4",
+                  "estimatedTime": "20 min"
+                }
+              ],
+              "pdf": [
+                {
+                  "id": "cs_beg_pdf_1",
+                  "title": "Computer Science Fundamentals",
+                  "url": "https://greenteapress.com/thinkpython/thinkpython.pdf",
+                  "description": "A comprehensive introduction to computer science principles.",
+                  "unlockRequirement": null,
+                  "estimatedTime": "2 hours"
+                },
+                {
+                  "id": "cs_beg_pdf_2",
+                  "title": "Python Programming Guide",
+                  "url": "https://www.openbookproject.net/thinkcs/python/english2e/index.html",
+                  "description": "Learn Python programming with practical examples and exercises.",
+                  "unlockRequirement": "cs_beg_pdf_1",
+                  "estimatedTime": "3 hours"
+                },
+                {
+                  "id": "cs_beg_pdf_3",
+                  "title": "Introduction to Algorithms",
+                  "url": "https://edutechlearners.com/download/Introduction_to_algorithms-3rd%20Edition.pdf",
+                  "description": "Basic algorithmic concepts and problem-solving approaches.",
+                  "unlockRequirement": "cs_beg_pdf_2",
+                  "estimatedTime": "2.5 hours"
+                },
+                {
+                  "id": "cs_beg_pdf_4",
+                  "title": "Web Development Handbook",
+                  "url": "https://www.freecodecamp.org/news/the-html-handbook/",
+                  "description": "A guide to HTML, CSS, and JavaScript fundamentals.",
+                  "unlockRequirement": "cs_beg_pdf_3",
+                  "estimatedTime": "1.5 hours"
+                },
+                {
+                  "id": "cs_beg_pdf_5",
+                  "title": "Database Design Fundamentals",
+                  "url": "https://opentextbc.ca/dbdesign01/",
+                  "description": "Learn database design principles and SQL basics.",
+                  "unlockRequirement": "cs_beg_pdf_4",
+                  "estimatedTime": "2 hours"
+                }
+              ]
+            },
+            "intermediate": {
+              "video": [
+                {
+                  "id": "cs_int_video_1",
+                  "title": "Object-Oriented Programming in Python",
+                  "url": "https://www.youtube.com/watch?v=ZDa-Z5JzLYM",
+                  "description": "Learn OOP concepts including classes, objects, inheritance, and polymorphism.",
+                  "unlockRequirement": null,
+                  "estimatedTime": "1 hour"
+                },
+                {
+                  "id": "cs_int_video_2",
+                  "title": "Data Structures and Algorithms",
+                  "url": "https://www.youtube.com/watch?v=B31LgI4Y4DQ",
+                  "description": "Deep dive into common data structures and algorithm implementation.",
+                  "unlockRequirement": "cs_int_video_1",
+                  "estimatedTime": "2 hours"
+                },
+                {
+                  "id": "cs_int_video_3",
+                  "title": "Full Stack Web Development",
+                  "url": "https://www.youtube.com/watch?v=nu_pCVPKzTk",
+                  "description": "Build complete web applications with frontend and backend technologies.",
+                  "unlockRequirement": "cs_int_video_2",
+                  "estimatedTime": "3 hours"
+                },
+                {
+                  "id": "cs_int_video_4",
+                  "title": "Database Management Systems",
+                  "url": "https://www.youtube.com/watch?v=HXV3zeQKqGY",
+                  "description": "Advanced database concepts, normalization, and complex queries.",
+                  "unlockRequirement": "cs_int_video_3",
+                  "estimatedTime": "1.5 hours"
+                },
+                {
+                  "id": "cs_int_video_5",
+                  "title": "Design Patterns in Software Engineering",
+                  "url": "https://www.youtube.com/watch?v=v9ejT8FO-7I",
+                  "description": "Learn common design patterns for effective software architecture.",
+                  "unlockRequirement": "cs_int_video_4",
+                  "estimatedTime": "1.75 hours"
+                }
+              ],
+              "blog": [
+                {
+                  "id": "cs_int_blog_1",
+                  "title": "Understanding Asynchronous Programming",
+                  "url": "https://medium.com/better-programming/understanding-asynchronous-programming-in-python-3573052fcc5f",
+                  "description": "Dive into async programming concepts and practical applications.",
+                  "unlockRequirement": null,
+                  "estimatedTime": "45 min"
+                },
+                {
+                  "id": "cs_int_blog_2",
+                  "title": "Building RESTful APIs",
+                  "url": "https://www.smashingmagazine.com/2018/01/understanding-using-rest-api/",
+                  "description": "Comprehensive guide to designing and implementing RESTful APIs.",
+                  "unlockRequirement": "cs_int_blog_1",
+                  "estimatedTime": "40 min"
+                },
+                {
+                  "id": "cs_int_blog_3",
+                  "title": "Microservices Architecture",
+                  "url": "https://martinfowler.com/articles/microservices.html",
+                  "description": "Understanding microservices architecture and its implementation.",
+                  "unlockRequirement": "cs_int_blog_2",
+                  "estimatedTime": "50 min"
+                },
+                {
+                  "id": "cs_int_blog_4",
+                  "title": "Clean Code Principles",
+                  "url": "https://medium.com/mindorks/how-to-write-clean-code-lessons-learnt-from-the-clean-code-robert-c-martin-9ffc7aef870c",
+                  "description": "Best practices for writing maintainable and efficient code.",
+                  "unlockRequirement": "cs_int_blog_3",
+                  "estimatedTime": "35 min"
+                },
+                {
+                  "id": "cs_int_blog_5",
+                  "title": "Testing Strategies for Software Development",
+                  "url": "https://martinfowler.com/articles/practical-test-pyramid.html",
+                  "description": "Learn various testing approaches for robust software development.",
+                  "unlockRequirement": "cs_int_blog_4",
+                  "estimatedTime": "55 min"
+                }
+              ],
+              "pdf": [
+                {
+                  "id": "cs_int_pdf_1",
+                  "title": "Advanced Python Programming",
+                  "url": "https://www.pdfdrive.com/advanced-python-programming-e33405956.html",
+                  "description": "Deep dive into advanced Python features and programming techniques.",
+                  "unlockRequirement": null,
+                  "estimatedTime": "4 hours"
+                },
+                {
+                  "id": "cs_int_pdf_2",
+                  "title": "Data Structures and Algorithms in Java",
+                  "url": "https://www.pdfdrive.com/data-structures-and-algorithms-in-java-e158649984.html",
+                  "description": "Comprehensive guide to implementing complex data structures.",
+                  "unlockRequirement": "cs_int_pdf_1",
+                  "estimatedTime": "5 hours"
+                },
+                {
+                  "id": "cs_int_pdf_3",
+                  "title": "System Design Interview Guide",
+                  "url": "https://github.com/donnemartin/system-design-primer/blob/master/README.md",
+                  "description": "Learn how to design scalable systems and architecture.",
+                  "unlockRequirement": "cs_int_pdf_2",
+                  "estimatedTime": "3.5 hours"
+                },
+                {
+                  "id": "cs_int_pdf_4",
+                  "title": "Advanced Database Management Systems",
+                  "url": "https://www.pdfdrive.com/advanced-database-management-system-e34341238.html",
+                  "description": "In-depth exploration of database optimization and management.",
+                  "unlockRequirement": "cs_int_pdf_3",
+                  "estimatedTime": "3 hours"
+                },
+                {
+                  "id": "cs_int_pdf_5",
+                  "title": "Software Architecture Patterns",
+                  "url": "https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/",
+                  "description": "Explore various architectural patterns for software design.",
+                  "unlockRequirement": "cs_int_pdf_4",
+                  "estimatedTime": "2.5 hours"
+                }
+              ]
+            },
+            "advanced": {
+              "video": [
+                {
+                  "id": "cs_adv_video_1",
+                  "title": "Distributed Systems Design",
+                  "url": "https://www.youtube.com/watch?v=Y6Ev8GIlbxc",
+                  "description": "Advanced concepts in designing distributed and scalable systems.",
+                  "unlockRequirement": null,
+                  "estimatedTime": "2.5 hours"
+                },
+                {
+                  "id": "cs_adv_video_2",
+                  "title": "Advanced Algorithms and Data Structures",
+                  "url": "https://www.youtube.com/watch?v=0JUN9aDxVmI",
+                  "description": "Complex algorithmic techniques for solving challenging problems.",
+                  "unlockRequirement": "cs_adv_video_1",
+                  "estimatedTime": "3 hours"
+                },
+                {
+                  "id": "cs_adv_video_3",
+                  "title": "Machine Learning for Software Engineers",
+                  "url": "https://www.youtube.com/watch?v=NWONeJKn6kc",
+                  "description": "Implementing machine learning algorithms in software applications.",
+                  "unlockRequirement": "cs_adv_video_2",
+                  "estimatedTime": "4 hours"
+                },
+                {
+                  "id": "cs_adv_video_4",
+                  "title": "Blockchain Technology and Smart Contracts",
+                  "url": "https://www.youtube.com/watch?v=coQ5dg8wM2o",
+                  "description": "Understanding blockchain architecture and smart contract development.",
+                  "unlockRequirement": "cs_adv_video_3",
+                  "estimatedTime": "2.5 hours"
+                },
+                {
+                  "id": "cs_adv_video_5",
+                  "title": "Advanced System Design and Architecture",
+                  "url": "https://www.youtube.com/watch?v=ZgdS0EUmn70",
+                  "description": "Expert-level system design principles for large-scale applications.",
+                  "unlockRequirement": "cs_adv_video_4",
+                  "estimatedTime": "3.5 hours"
+                }
+              ],
+              "blog": [
+                {
+                  "id": "cs_adv_blog_1",
+                  "title": "Concurrency and Parallelism in Modern Applications",
+                  "url": "https://medium.com/better-programming/concurrency-and-parallelism-in-python-75a3778d3c43",
+                  "description": "Advanced techniques for concurrent and parallel processing.",
+                  "unlockRequirement": null,
+                  "estimatedTime": "1 hour"
+                },
+                {
+                  "id": "cs_adv_blog_2",
+                  "title": "Advanced Microservices Patterns",
+                  "url": "https://microservices.io/patterns/microservices.html",
+                  "description": "Sophisticated patterns for scalable microservices architecture.",
+                  "unlockRequirement": "cs_adv_blog_1",
+                  "estimatedTime": "1.5 hours"
+                },
+                {
+                  "id": "cs_adv_blog_3",
+                  "title": "Event-Driven Architecture",
+                  "url": "https://martinfowler.com/articles/201701-event-driven.html",
+                  "description": "Implementing event-driven patterns in complex systems.",
+                  "unlockRequirement": "cs_adv_blog_2",
+                  "estimatedTime": "1.25 hours"
+                },
+                {
+                  "id": "cs_adv_blog_4",
+                  "title": "Big Data Processing Systems",
+                  "url": "https://medium.com/system-design-blog/big-data-processing-systems-lambda-kappa-architecture-spark-storm-kafka-cassandra-hadoop-ecosystem-89b2241ccdb4",
+                  "description": "Architecture for processing massive datasets efficiently.",
+                  "unlockRequirement": "cs_adv_blog_3",
+                  "estimatedTime": "1.5 hours"
+                },
+                {
+                  "id": "cs_adv_blog_5",
+                  "title": "Quantum Computing for Software Engineers",
+                  "url": "https://medium.com/qiskit/quantum-computing-for-computer-scientists-49755aaed143",
+                  "description": "Understanding quantum computing principles and applications.",
+                  "unlockRequirement": "cs_adv_blog_4",
+                  "estimatedTime": "2 hours"
+                }
+              ],
+              "pdf": [
+                {
+                  "id": "cs_adv_pdf_1",
+                  "title": "High Performance Computing",
+                  "url": "https://www.netlib.org/utk/people/JackDongarra/PAPERS/hpc-dongarra.pdf",
+                  "description": "Advanced concepts in high-performance computing and optimization.",
+                  "unlockRequirement": null,
+                  "estimatedTime": "5 hours"
+                },
+                {
+                  "id": "cs_adv_pdf_2",
+                  "title": "Distributed Systems: Principles and Paradigms",
+                  "url": "https://www.pdfdrive.com/distributed-systems-principles-and-paradigms-e158740229.html",
+                  "description": "Comprehensive guide to designing distributed systems.",
+                  "unlockRequirement": "cs_adv_pdf_1",
+                  "estimatedTime": "6 hours"
+                },
+                {
+                  "id": "cs_adv_pdf_3",
+                  "title": "Advanced Compiler Design and Implementation",
+                  "url": "https://www.pdfdrive.com/advanced-compiler-design-and-implementation-e157486241.html",
+                  "description": "Expert-level understanding of compiler construction and optimization.",
+                  "unlockRequirement": "cs_adv_pdf_2",
+                  "estimatedTime": "7 hours"
+                },
+                {
+                  "id": "cs_adv_pdf_4",
+                  "title": "AI and Deep Learning Architecture",
+                  "url": "https://www.deeplearningbook.org/",
+                  "description": "Comprehensive guide to deep learning algorithms and implementation.",
+                  "unlockRequirement": "cs_adv_pdf_3",
+                  "estimatedTime": "8 hours"
+                },
+                {
+                  "id": "cs_adv_pdf_5",
+                  "title": "Computer Graphics: Principles and Practice",
+                  "url": "https://www.pdfdrive.com/computer-graphics-principles-and-practice-e185632744.html",
+                  "description": "Advanced rendering techniques and graphics programming.",
+                  "unlockRequirement": "cs_adv_pdf_4",
+                  "estimatedTime": "5.5 hours"
+                }
+              ]
+            }
+          },
+          "data": {
+            "beginner": {
+              "video": [
+                {
+                  "id": "data_beg_video_1",
+                  "title": "Introduction to Data Science",
+                  "url": "https://www.youtube.com/watch?v=X3paOmcrTjQ",
+                  "description": "Overview of data science concepts, tools, and applications.",
+                  "unlockRequirement": null,
+                  "estimatedTime": "1 hour"
+                },
+                {
+                  "id": "data_beg_video_2",
+                  "title": "Getting Started with Python for Data Analysis",
+                  "url": "https://www.youtube.com/watch?v=r-uOLxNrNk8",
+                  "description": "Introduction to Python libraries for data analysis like Pandas and NumPy.",
+                  "unlockRequirement": "data_beg_video_1",
+                  "estimatedTime": "1.5 hours"
+                },
+                {
+                  "id": "data_beg_video_3",
+                  "title": "Data Visualization Fundamentals",
+                  "url": "https://www.youtube.com/watch?v=a9UrKTVEeZA",
+                  "description": "Learn to create effective data visualizations with Python libraries.",
+                  "unlockRequirement": "data_beg_video_2",
+                  "estimatedTime": "1.25 hours"
+                },
+                {
+                  "id": "data_beg_video_4",
+                  "title": "Introduction to Statistics for Data Science",
+                  "url": "https://www.youtube.com/watch?v=xxpc-HPKN28",
+                  "description": "Basic statistical concepts essential for data analysis.",
+                  "unlockRequirement": "data_beg_video_3",
+                  "estimatedTime": "1.5 hours"
+                },
+                {
+                  "id": "data_beg_video_5",
+                  "title": "SQL for Data Analysis",
+                  "url": "https://www.youtube.com/watch?v=HXV3zeQKqGY",
+                  "description": "Learn SQL fundamentals for data extraction and analysis.",
+                  "unlockRequirement": "data_beg_video_4",
+                  "estimatedTime": "2 hours"
+                }
+              ],
+              "blog": [
+                {
+                  "id": "data_beg_blog_1",
+                  "title": "Data Science for Beginners",
+                  "url": "https://towardsdatascience.com/data-science-for-beginners-a-comprehensive-guide-to-get-started-33e88bc96b35",
+                  "description": "Comprehensive introduction to the field of data science.",
+                  "unlockRequirement": null,
+                  "estimatedTime": "45 min"
+                },
+                {
+                  "id": "data_beg_blog_2",
+                  "title": "Understanding Data Types and Structures",
+                  "url": "https://towardsdatascience.com/data-types-in-statistics-used-for-data-science-5d88155d8db9",
+                  "description": "Learn about various data types and their appropriate analyses.",
+                  "unlockRequirement": "data_beg_blog_1",
+                  "estimatedTime": "30 min"
+                },
+                {
+                  "id": "data_beg_blog_3",
+                  "title": "Data Cleaning Techniques",
+                  "url": "https://towardsdatascience.com/the-ultimate-guide-to-data-cleaning-3969843991d4",
+                  "description": "Essential methods for preparing and cleaning data for analysis.",
+                  "unlockRequirement": "data_beg_blog_2",
+                  "estimatedTime": "40 min"
+                },
+                {
+                  "id": "data_beg_blog_4",
+                  "title": "Introduction to Data Visualization",
+                  "url": "https://medium.com/towards-artificial-intelligence/data-visualization-using-matplotlib-16f1aae5ce70",
+                  "description": "Create effective visualizations to communicate data insights.",
+                  "unlockRequirement": "data_beg_blog_3",
+                  "estimatedTime": "35 min"
+                },
+                {
+                  "id": "data_beg_blog_5",
+                  "title": "Understanding Descriptive Statistics",
+                  "url": "https://towardsdatascience.com/descriptive-statistics-in-python-using-scipy-numpy-pandas-and-matplotlib-872822c5f3d6",
+                  "description": "Basic statistical measures for summarizing datasets.",
+                  "unlockRequirement": "data_beg_blog_4",
+                  "estimatedTime": "50 min"
+                }
+              ],
+              "pdf": [
+                {
+                  "id": "data_beg_pdf_1",
+                  "title": "Python for Data Analysis",
+                  "url": "https://www.pdfdrive.com/python-for-data-analysis-e158244690.html",
+                  "description": "Comprehensive guide to data analysis using Python.",
+                  "unlockRequirement": null,
+                  "estimatedTime": "3 hours"
+                },
+                {
+                  "id": "data_beg_pdf_2",
+                  "title": "Introduction to Statistical Learning",
+                  "url": "https://www.statlearning.com/",
+                  "description": "Fundamental concepts in statistical learning with applications.",
+                  "unlockRequirement": "data_beg_pdf_1",
+                  "estimatedTime": "4 hours"
+                },
+                {
+                  "id": "data_beg_pdf_3",
+                  "title": "Data Visualization Handbook",
+                  "url": "https://www.pdfdrive.com/data-visualization-a-handbook-for-data-driven-design-e167873937.html",
+                  "description": "Learn principles of effective data visualization design.",
+                  "unlockRequirement": "data_beg_pdf_2",
+                  "estimatedTime": "2.5 hours"
+                },
+                {
+                  "id": "data_beg_pdf_4",
+                  "title": "SQL for Data Scientists",
+                  "url": "https://www.pdfdrive.com/sql-for-data-scientists-a-beginners-guide-for-building-datasets-for-analysis-e194219487.html",
+                  "description": "Learn SQL specifically for data science applications.",
+                  "unlockRequirement": "data_beg_pdf_3",
+                  "estimatedTime": "3.5 hours"
+                },
+                {
+                  "id": "data_beg_pdf_5",
+                  "title": "Introduction to Data Mining",
+                  "url": "https://www-users.cs.umn.edu/~kumar001/dmbook/index.php",
+                  "description": "Basic concepts and techniques in data mining.",
+                  "unlockRequirement": "data_beg_pdf_4",
+                  "estimatedTime": "4 hours"
+                }
+              ]
+            },
+            "intermediate": {
+              "video": [
+                {
+                  "id": "data_int_video_1",
+                  "title": "Machine Learning Fundamentals",
+                  "url": "https://www.youtube.com/watch?v=mYUyaKmvu6Y",
+                  "description": "Introduction to machine learning algorithms and applications.",
+                  "unlockRequirement": null,
+                  "estimatedTime": "2.5 hours"
+                },
+                {
+                  "id": "data_int_video_2",
+                  "title": "Advanced Data Visualization Techniques",
+                  "url": "https://www.youtube.com/watch?v=5_QXMwezPJE",
+                  "description": "Create complex, interactive visualizations with Python.",
+                  "unlockRequirement": "data_int_video_1",
+                  "estimatedTime": "2 hours"
+                },
+                {
+                  "id": "data_int_video_3",
+                  "title": "Feature Engineering for Machine Learning",
+                  "url": "https://www.youtube.com/watch?v=d12ra3b_M-0",
+                  "description": "Learn to create effective features for machine learning models.",
+                  "unlockRequirement": "data_int_video_2",
+                  "estimatedTime": "1.75 hours"
+                },
+                {
+                  "id": "data_int_video_4",
+                  "title": "Time Series Analysis",
+                  "url": "https://www.youtube.com/watch?v=e8Yw4alG16Q",
+                  "description": "Techniques for analyzing time-dependent data.",
+                  "unlockRequirement": "data_int_video_3",
+                  "estimatedTime": "2.25 hours"
+                },
+                {
+                  "id": "data_int_video_5",
+                  "title": "Data Engineering Principles",
+                  "url": "https://www.youtube.com/watch?v=QdW1Xm0XhCw",
+                  "description": "Build data pipelines and infrastructure for analysis.",
+                  "unlockRequirement": "data_int_video_4",
+                  "estimatedTime": "2 hours"
+                }
+              ],
+              "blog": [
+                {
+                  "id": "data_int_blog_1",
+                  "title": "Machine Learning Algorithm Selection",
+                  "url": "https://machinelearningmastery.com/a-tour-of-machine-learning-algorithms/",
+                  "description": "Guide to choosing appropriate ML algorithms for different problems.",
+                  "unlockRequirement": null,
+                  "estimatedTime": "1 hour"
+                },
+                {
+                  "id": "data_int_blog_2",
+                  "title": "Cross-Validation and Model Evaluation",
+                  "url": "https://towardsdatascience.com/cross-validation-in-machine-learning-72924a69872f",
+                  "description": "Techniques for validating and evaluating ML models.",
+                  "unlockRequirement": "data_int_blog_1",
+                  "estimatedTime": "45 min"
+                },
+                {
+                  "id": "data_int_blog_3",
+                  "title": "Feature Selection Methods",
+                  "url": "https://towardsdatascience.com/feature-selection-techniques-in-machine-learning-with-python-f24e7da3f36e",
+                  "description": "Approaches to selecting the most relevant features for models.",
+                  "unlockRequirement": "data_int_blog_2",
+                  "estimatedTime": "55 min"
+                },
+                {
+                  "id": "data_int_blog_4",
+                  "title": "Natural Language Processing Fundamentals",
+                  "url": "https://towardsdatascience.com/your-guide-to-natural-language-processing-nlp-48ea2511f6e1",
+                  "description": "Introduction to processing and analyzing text data.",
+                  "unlockRequirement": "data_int_blog_3",
+                  "estimatedTime": "1 hour"
+                },
+                {
+                  "id": "data_int_blog_5",
+                  "title": "A/B Testing for Data Scientists",
+                  "url": "https://towardsdatascience.com/a-summary-of-udacity-a-b-testing-course-9ecc32dedbb1",
+                  "description": "Statistical methods for experimental design and analysis.",
+                  "unlockRequirement": "data_int_blog_4",
+                  "estimatedTime": "50 min"
+                }
+              ],
+              "pdf": [
+                {
+                  "id": "data_int_pdf_1",
+                  "title": "Hands-On Machine Learning",
+                  "url": "https://www.pdfdrive.com/hands-on-machine-learning-with-scikit-learn-and-tensorflow-e158171462.html",
+                  "description": "Practical guide to implementing machine learning algorithms.",
+                  "unlockRequirement": null,
+                  "estimatedTime": "5 hours"
+                },
+                {
+                  "id": "data_int_pdf_2",
+                  "title": "Feature Engineering for Machine Learning",
+                  "url": "https://www.pdfdrive.com/feature-engineering-for-machine-learning-e187645523.html",
+                  "description": "Advanced techniques for creating effective features.",
+                  "unlockRequirement": "data_int_pdf_1",
+                  "estimatedTime": "4 hours"
+                }
+            ]
+            } 
+        }
+    }
+}
