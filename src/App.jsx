@@ -1,4 +1,3 @@
-import Chat from "./components/Chat"
 import Kys from "./components/Kys"
 import LandingPage from "./pages/LandingPage"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -8,6 +7,10 @@ import Skills from "./components/Skills";
 import Tys from "./components/Tys";
 import PrivateRoute from "./components/PrivateRoute";
 import NotFoundPage from "./components/NotFoundPage";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
+import ProfilePage from "./pages/ProfilePage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
   return (
@@ -37,6 +40,18 @@ const App = () => {
             </PrivateRoute>
           } />
 
+          <Route path="/profile" element={
+            <PrivateRoute>
+              <ProfilePage />
+            </PrivateRoute>
+          } />
+
+          <Route path="/admin" element={<AdminLogin />} />
+          <Route path="/admin/dashboard" element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          } />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>

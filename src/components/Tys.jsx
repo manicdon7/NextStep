@@ -331,7 +331,7 @@ const Tys = () => {
                     )}
 
                     {/* Resource card */}
-                    <div className={`flex mb-4 ${!isUnlocked ? "opacity-60" : ""}`}>
+                    <div className={'flex mb-4'}>
                       {/* Timeline dot */}
                       <div className="mt-2 mr-6">
                         <div
@@ -383,9 +383,9 @@ const Tys = () => {
                             {isCompleted && <span className="text-green-500 font-medium">Completed</span>}
                           </div>
 
-                          {!isUnlocked && (
+                          {/* {!isUnlocked && (
                             <div className="mt-3 text-sm text-yellow-400">Complete previous resources to unlock</div>
-                          )}
+                          )} */}
                         </div>
                       </div>
                     </div>
