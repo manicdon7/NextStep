@@ -11,6 +11,7 @@ import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import ProfilePage from "./pages/ProfilePage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import JobPortal from "./components/JobPortal";
 
 const App = () => {
   return (
@@ -45,7 +46,11 @@ const App = () => {
               <ProfilePage />
             </PrivateRoute>
           } />
-
+          <Route path="/job-portal" element={
+            <PrivateRoute>
+              <JobPortal/>
+            </PrivateRoute>
+          } />
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={
             <ProtectedRoute>
