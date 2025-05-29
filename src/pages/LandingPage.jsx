@@ -226,7 +226,7 @@ export default function Home() {
                   icon: Briefcase,
                   title: "Job & Freelance Portal",
                   description: "Find opportunities which is related and match your skills with AI-driven job suggestions and freelance project recommendations.",
-                  link: "#",
+                  link: "/job-portal",
                 }
               ].map((module, index) => (
                 <FadeInStaggerItem key={index}>
