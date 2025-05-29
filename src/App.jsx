@@ -12,6 +12,9 @@ import AdminDashboard from "./pages/AdminDashboard";
 import ProfilePage from "./pages/ProfilePage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import JobPortal from "./components/JobPortal";
+import AddResource from "./components/AddResource";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
@@ -57,9 +60,14 @@ const App = () => {
               <AdminDashboard />
             </ProtectedRoute>
           } />
+
+          <Route path="/admin/add-resource" element={<ProtectedRoute>
+              <AddResource />
+            </ProtectedRoute>} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
     </Router>
   )
 }

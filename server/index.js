@@ -2,6 +2,8 @@ const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const adminRoutes = require('./routes/admin');
+const resourceRoutes = require('./routes/resources');
 dotenv.config();
 
 const app = express();
@@ -20,6 +22,8 @@ const userRoutes = require("./routes/user");
 
 app.use("/api/auth", authRoutes);
 app.use("/api", userRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api', resourceRoutes);
 
 
 app.get("/", (req, res) => {

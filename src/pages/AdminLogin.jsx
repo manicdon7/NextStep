@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { API_URL } from '../constants';
 
 const AdminLogin = () => {
   const [credentials, setCredentials] = useState({
@@ -7,31 +9,26 @@ const AdminLogin = () => {
     password: '',
   });
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setIsLoading(true);
 
     try {
-      const response = await fetch('/api/admin/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(credentials),
-      });
+      const response = await axios.post(`${API_URL}/api/admin/login`, credentials);
+      const { token, user } = response.data;
 
-      const data = await response.json();
-
-      if (response.ok) {
-        localStorage.setItem('adminToken', data.token);
-        navigate('/admin/dashboard');
-      } else {
-        setError(data.message || 'Login failed');
-      }
+      // Store token and user data in localStorage
+      localStorage.setItem('adminToken', token);
+      localStorage.setItem('user', JSON.stringify(user)); // Store user object with email and role
+      navigate('/admin/dashboard');
     } catch (err) {
-      setError('An error occurred. Please try again.');
+      setError(err.response?.data?.message || 'An error occurred. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -57,6 +54,7 @@ const AdminLogin = () => {
               value={credentials.email}
               onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
               required
+              disabled={isLoading}
             />
           </div>
 
@@ -71,14 +69,18 @@ const AdminLogin = () => {
               value={credentials.password}
               onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
               required
+              disabled={isLoading}
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-[#AD46FF] hover:bg-[#AD46FF]/90 text-white py-2 px-4 rounded transition-colors"
+            className={`w-full bg-[#AD46FF] hover:bg-[#AD46FF]/90 text-white py-2 px-4 rounded transition-colors ${
+              isLoading ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
+            disabled={isLoading}
           >
-            Login
+            {isLoading ? 'Logging in...' : 'Login'}
           </button>
         </form>
       </div>

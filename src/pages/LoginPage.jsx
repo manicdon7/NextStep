@@ -123,6 +123,8 @@ const LoginPage = () => {
     
             if (data.token) {
                 localStorage.setItem('token', data.token);
+                localStorage.setItem('email',data.user.email)
+                localStorage.setItem('userId',data.user.id)
             }
     
             navigate('/');
