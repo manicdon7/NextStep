@@ -175,6 +175,8 @@ router.put('/profile/:email', authenticateToken, async (req, res) => {
       'education',
       'experience',
       'learningStreaks',
+      'portfolio',
+      'linkedin',
     ];
 
     // Sanitize and validate input
@@ -247,7 +249,7 @@ router.get('/progress/:userId', authenticateToken, async (req, res) => {
     let progress = await UserProgress.findOne({ userId });
     if (!progress) {
       progress = new UserProgress({
-        userId: mongoose.Types.ObjectId(userId),
+        userId: new mongoose.Types.ObjectId(userId),
         completedResources: [],
         completedSubResources: [],
         levelProgress: new Map(), // Initialize empty Map
