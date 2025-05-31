@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     default: () => uuidv4().replace(/-/g, '').substring(0, 8),
     unique: true,
   },
-  fullName: {
+  name: {
     type: String,
     required: false, // Optional
     trim: true,
